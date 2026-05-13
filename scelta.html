@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Scelta | I Volti dell'Ignoto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@100;300;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #030303;
+            --silver: #e5e5e5;
+            --deep-silver: #4a4a4a;
+        }
+
+        body, html {
+            margin: 0; padding: 0;
+            width: 100%; min-height: 100vh;
+            background-color: var(--bg);
+            color: var(--silver);
+            font-family: 'Cinzel', serif;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* --- EFFETTO DISTORSIONE BACKGROUND --- */
+        .glitch-silver {
+            position: fixed; inset: 0;
+            background: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 100% 4px;
+            pointer-events: none; z-index: 1;
+        }
+
+        /* --- CONTENITORE PRINCIPALE --- */
+        .selection-container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1200px;
+            padding: 40px 20px;
+            animation: fadeIn 2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; filter: blur(10px); transform: translateY(20px); }
+            to { opacity: 1; filter: blur(0px); transform: translateY(0); }
+        }
+
+        .main-title {
+            font-size: 11px;
+            letter-spacing: 1em;
+            text-transform: uppercase;
+            color: var(--deep-silver);
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        /* --- GRIGLIA ARCHITETTONICA --- */
+        .grid-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px; /* Crea un effetto "fuga" sottilissimo tra le lastre */
+            background: rgba(255,255,255,0.05); /* Colore delle fughe */
+            border: 1px solid rgba(255,255,255,0.05);
+            width: 100%;
+        }
+
+        /* --- LA SINGOLA LASTRA --- */
+        .gallery-card {
+            background-color: var(--bg);
+            position: relative;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Il numero enorme sfocato sullo sfondo */
+        .card-bg-num {
+            position: absolute;
+            bottom: -20px;
+            right: -10px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            font-size: 120px;
+            line-height: 1;
+            color: rgba(255,255,255,0.02);
+            pointer-events: none;
+            transition: all 0.8s ease;
+        }
+
+        /* Il numero piccolo e preciso in alto a sinistra */
+        .card-num {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: var(--deep-silver);
+            transition: color 0.4s;
+        }
+
+        /* Il titolo dell'opera */
+        .card-title {
+            font-size: 1.2rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            z-index: 2;
+            padding: 0 20px;
+            transition: all 0.4s ease;
+        }
+
+        /* --- EFFETTI HOVER (Interazione) --- */
+        .gallery-card:hover {
+            background-color: #0a0a0a;
+        }
+
+        .gallery-card:hover .card-title {
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(255,255,255,0.4);
+            transform: scale(1.05);
+        }
+
+        .gallery-card:hover .card-num {
+            color: var(--silver);
+        }
+
+        .gallery-card:hover .card-bg-num {
+            color: rgba(255,255,255,0.05);
+            transform: scale(1.1) translate(-10px, -10px);
+        }
+
+        /* --- EFFETTO FLASH IN USCITA --- */
+        .flash-out {
+            position: fixed; inset: 0;
+            background: white;
+            opacity: 0;
+            z-index: 999;
+            pointer-events: none;
+            transition: opacity 0.8s ease-in;
+        }
+        body.exiting .flash-out { opacity: 1; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .grid-gallery { grid-template-columns: repeat(2, 1fr); }
+            .gallery-card { height: 180px; }
+        }
+
+        @media (max-width: 640px) {
+            .grid-gallery { grid-template-columns: 1fr; }
+            .gallery-card { height: 150px; }
+            .main-title { margin-bottom: 40px; letter-spacing: 0.5em; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glitch-silver"></div>
+    <div class="flash-out" id="white-flash"></div>
+
+    <div class="selection-container" id="container">
+        <div class="main-title">Traccia il tuo percorso</div>
+        
+        <div class="grid-gallery">
+            <div class="gallery-card" onclick="entraNelMuseo('orfeo')">
+                <span class="card-bg-num">01</span>
+                <span class="card-num">OP.01</span>
+                <h2 class="card-title">Orfeo ed Euridice</h2>
+            </div>
+            
+            <div class="gallery-card" onclick="entraNelMuseo('ercole')">
+                <span class="card-bg-num">02</span>
+                <span class="card-num">OP.02</span>
+                <h2 class="card-title">Ercole e Lica</h2>
+            </div>
+            
+            <div class="gallery-card" onclick="entraNelMuseo('giacente')">
+                <span class="card-bg-num">03</span>
+                <span class="card-num">OP.03</span>
+                <h2 class="card-title">Maddalena Giacente</h2>
+            </div>
+            
+            <div class="gallery-card" onclick="entraNelMuseo('penitente')">
+                <span class="card-bg-num">04</span>
+                <span class="card-num">OP.04</span>
+                <h2 class="card-title">Maddalena Penitente</h2>
+            </div>
+            
+            <div class="gallery-card" onclick="entraNelMuseo('amore_psiche')">
+                <span class="card-bg-num">05</span>
+                <span class="card-num">OP.05</span>
+                <h2 class="card-title">Amore e Psiche</h2>
+            </div>
+            
+            <div class="gallery-card" onclick="entraNelMuseo('perseo')">
+                <span class="card-bg-num">06</span>
+                <span class="card-num">OP.06</span>
+                <h2 class="card-title">Perseo Trionfante</h2>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function entraNelMuseo(idOpera) {
+            // Aggiunge la classe al body per innescare il flash bianco
+            document.body.classList.add('exiting');
+            
+            // Ritarda il cambio pagina per far finire l'animazione (800ms)
+            setTimeout(() => {
+                window.location.href = `museo.html?opera=${idOpera}`;
+            }, 800);
+        }
+    </script>
+
+</body>
+</html>

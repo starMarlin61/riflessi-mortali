@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abisso | I Volti dell'Ignoto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000;
+            --silver: #e5e5e5;
+            --deep-silver: #4a4a4a;
+        }
+
+        body, html {
+            margin: 0; padding: 0;
+            width: 100%; height: 100%;
+            background-color: var(--bg);
+            color: var(--silver);
+            font-family: 'Cinzel', serif;
+            overflow: hidden;
+            perspective: 2000px;
+        }
+
+        /* --- IL PRISMA DI SPECCHI --- */
+        .prism-container {
+            position: absolute; inset: 0;
+            display: flex; justify-content: center; align-items: center;
+            z-index: 1;
+            transition: opacity 1s ease;
+        }
+
+        .mirror-panel {
+            position: absolute;
+            background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            /* Transizione fluida sia per il mouse che per l'animazione finale */
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s, opacity 0.8s;
+            display: flex; justify-content: center; align-items: center;
+            overflow: hidden;
+        }
+
+        /* Pannelli triangolari */
+        .top { top: 0; width: 100vw; height: 50vh; clip-path: polygon(0 0, 100% 0, 50% 100%); transform-origin: top; }
+        .bottom { bottom: 0; width: 100vw; height: 50vh; clip-path: polygon(50% 0, 100% 100%, 0 100%); transform-origin: bottom; }
+        .left { left: 0; width: 50vw; height: 100vh; clip-path: polygon(0 0, 100% 50%, 0 100%); transform-origin: left; }
+        .right { right: 0; width: 50vw; height: 100vh; clip-path: polygon(100% 0, 100% 100%, 0 50%); transform-origin: right; }
+
+        .mirror-panel:hover { filter: brightness(1.5); }
+
+        /* --- ANIMAZIONE DI ENTRATA --- */
+        /* Quando aggiungiamo la classe .active, i pannelli volano verso l'esterno */
+        .prism-container.active .top { transform: rotateX(110deg) translateZ(500px) !important; opacity: 0; }
+        .prism-container.active .bottom { transform: rotateX(-110deg) translateZ(500px) !important; opacity: 0; }
+        .prism-container.active .left { transform: rotateY(-110deg) translateZ(500px) !important; opacity: 0; }
+        .prism-container.active .right { transform: rotateY(110deg) translateZ(500px) !important; opacity: 0; }
+        
+        /* Il testo esplode verso lo spettatore */
+        .prism-container.active .void-center { 
+            transform: translateZ(1000px) scale(2); 
+            opacity: 0; 
+            filter: blur(10px);
+        }
+
+        /* --- IL CUORE (PUNTO DI FUGA) --- */
+        .void-center {
+            position: absolute;
+            width: 300px; height: 300px;
+            z-index: 10;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center;
+            cursor: pointer; /* Indichiamo che è cliccabile */
+            transition: transform 1s ease-in-out, opacity 1s ease-in-out, filter 1s ease-in-out;
+        }
+
+        h1 {
+            font-size: 10px; letter-spacing: 1.5em; text-transform: uppercase;
+            opacity: 0.5; margin-bottom: 20px;
+        }
+
+        .statue-name {
+            font-size: 2.5rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: #fff; text-shadow: 0 0 30px rgba(255,255,255,0.2);
+            animation: breathe 4s infinite alternate;
+        }
+
+        @keyframes breathe {
+            from { transform: scale(1); opacity: 0.8; filter: blur(0px); }
+            to { transform: scale(1.05); opacity: 1; filter: blur(2px); }
+        }
+
+        /* --- INFO LATERALE --- */
+        .meta-info {
+            position: fixed; bottom: 40px; right: 40px;
+            writing-mode: vertical-rl;
+            font-size: 9px; letter-spacing: 5px; text-transform: uppercase;
+            opacity: 0.3;
+            transition: opacity 0.5s ease;
+        }
+
+        /* --- EFFETTO DISTORSIONE --- */
+        .glitch-silver {
+            position: absolute; inset: 0;
+            background: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 100% 3px;
+            pointer-events: none; z-index: 20;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="glitch-silver"></div>
+
+    <div class="prism-container" id="prism">
+        <div class="mirror-panel top" id="m-top"></div>
+        <div class="mirror-panel bottom" id="m-bottom"></div>
+        <div class="mirror-panel left" id="m-left"></div>
+        <div class="mirror-panel right" id="m-right"></div>
+
+        <div class="void-center" onclick="startEntrance()">
+            <h1>Riflessi</h1>
+            <div class="statue-name" id="current-statue">PERSEO</div>
+            <p class="text-[9px] mt-10 tracking-[1em] opacity-40">Tocca per entrare</p>
+        </div>
+    </div>
+
+    <div class="meta-info" id="meta">Galleria dell'Accademia / 2026</div>
+
+    <script>
+        const prism = document.getElementById('prism');
+        const meta = document.getElementById('meta');
+        const panels = {
+            top: document.getElementById('m-top'),
+            bottom: document.getElementById('m-bottom'),
+            left: document.getElementById('m-left'),
+            right: document.getElementById('m-right')
+        };
+
+        let isAnimating = false;
+
+        // Interazione basata sul movimento del mouse
+        document.addEventListener('mousemove', (e) => {
+            if (isAnimating) return; // Blocca il mouse durante l'animazione d'entrata
+
+            const x = (e.clientX / window.innerWidth - 0.5) * 30;
+            const y = (e.clientY / window.innerHeight - 0.5) * 30;
+
+            // Fix delle variabili nei template literals
+            panels.top.style.transform = `rotateX(${y}deg) scale(1.1)`;
+            panels.bottom.style.transform = `rotateX(${-y}deg) scale(1.1)`;
+            panels.left.style.transform = `rotateY(${-x}deg) scale(1.1)`;
+            panels.right.style.transform = `rotateY(${x}deg) scale(1.1)`;
+        });
+
+        // Funzione per avviare l'animazione cinematografica
+        function startEntrance() {
+            isAnimating = true;
+            prism.classList.add('active');
+            meta.style.opacity = '0';
+
+            // Dopo 1.2 secondi (durata dell'animazione CSS), cambia pagina
+            setTimeout(() => {
+                window.location.href = 'intermezzo.html'; 
+            }, 1200);
+        }
+
+        // Cambio nome statua
+        const nomi = ["PERSEO", "MADDALENA", "AMORE", "PSICHE"];
+        let i = 0;
+        setInterval(() => {
+            if (!isAnimating) {
+                i = (i + 1) % nomi.length;
+                document.getElementById('current-statue').innerText = nomi[i];
+            }
+        }, 5000);
+    </script>
+</body>
+</html>
