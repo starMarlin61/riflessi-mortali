@@ -11,7 +11,7 @@
         :root {
             --bg: #000000;
             --silver: #e5e5e5;
-            --deep-silver: #4a4a4a;
+            --deep-silver: #666666;
             --glass: rgba(5, 5, 5, 0.9);
         }
 
@@ -90,24 +90,19 @@
             will-change: transform;
         }
 
-        body.lyrics-open model-viewer {
+        body.lyrics-open model-viewer, body.past-panel-open model-viewer {
             transform: translateX(-15vw);
         }
 
-        /* TASTO AR */
+        /* TASTO AR (Nascosto ma NON display:none, altrimenti si disattiva la AR) */
         #ar-button {
-            background-color: transparent;
-            border: 1px solid var(--silver);
-            padding: 12px 24px;
-            color: var(--silver);
-            font-family: 'Cinzel', serif;
-            font-size: 10px;
-            letter-spacing: 3px;
-            position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
-            cursor: pointer; z-index: 20; transition: 0.3s;
-            text-transform: uppercase;
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            pointer-events: none;
         }
-        #ar-button:hover { background: var(--silver); color: #000; }
 
         /* --- SWITCH MODALITÀ --- */
         .mode-switch {
@@ -123,112 +118,219 @@
 
         .mode-btn.active { opacity: 1; border-bottom-color: var(--silver); }
 
-        /* --- INFO BOX (DESTRA) --- */
-        #info-box {
+
+        /* ========================================= */
+        /* --- CARTELLINO MUSEALE ESPANDIBILE ------ */
+        /* ========================================= */
+        
+        #ui-past-label {
+            position: fixed; 
+            bottom: 60px; 
+            left: 60px;
+            text-align: left; 
+            z-index: 20;
+            background: rgba(10, 10, 10, 0.85); /* Sfondo scuro elegante */
+            backdrop-filter: blur(10px);
+            border-left: 2px solid var(--silver);
+            padding: 20px 25px;
+            width: 280px;
+            max-height: 60px; /* Compresso: mostra solo autore e titolo */
+            overflow: hidden;
+            transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s ease, opacity 0.5s ease, transform 0.8s ease;
+            cursor: pointer;
+            pointer-events: all;
+        }
+
+        #ui-past-label:hover {
+            max-height: 500px; /* Si espande al passaggio del mouse */
+            background: rgba(10, 10, 10, 0.98);
+        }
+
+        body.lyrics-open #ui-past-label, body.past-panel-open #ui-past-label { 
+            opacity: 0; 
+            transform: translateX(-50px); 
+            pointer-events: none;
+        }
+
+        /* Stili Tipografici Cartellino */
+        .placard-author {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--silver);
+            margin-bottom: 2px;
+        }
+
+        .placard-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            font-style: italic;
+            color: var(--silver);
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .placard-extra {
+            opacity: 0;
+            transition: opacity 0.4s 0.2s;
+        }
+
+        #ui-past-label:hover .placard-extra {
+            opacity: 1;
+        }
+
+        .placard-dates {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: var(--deep-silver);
+            margin-bottom: 20px;
+        }
+
+        .placard-year {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: var(--silver);
+            margin-bottom: 5px;
+        }
+
+        .placard-title-en {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--deep-silver);
+            margin-bottom: 25px;
+        }
+
+        .placard-medium {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--silver);
+        }
+
+        .placard-medium span {
+            color: var(--deep-silver);
+            font-weight: 400;
+        }
+
+        /* Sezione QR Code dentro il cartellino */
+        .qr-box {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .qr-box:hover { opacity: 0.6; }
+
+        .qr-box svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--silver);
+        }
+
+        .qr-box div {
+            font-family: 'Inter', sans-serif;
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            color: var(--silver);
+            line-height: 1.4;
+        }
+
+
+        /* --- UI PASSATO: MENU AZIONI (Destra) --- */
+        #ui-past-actions {
+            position: fixed; bottom: 60px; right: 60px;
+            display: flex; gap: 20px; z-index: 20; pointer-events: all;
+            transition: opacity 0.5s ease, transform 0.8s ease;
+        }
+
+        body.lyrics-open #ui-past-actions, body.past-panel-open #ui-past-actions { 
+            opacity: 0; 
+            transform: translateX(50px); 
+            pointer-events: none;
+        }
+
+        .action-btn {
+            background: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--silver);
+            padding: 12px 24px; font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 3px;
+            cursor: pointer; transition: 0.3s; text-transform: uppercase; backdrop-filter: blur(5px);
+        }
+
+        .action-btn:hover { background: var(--silver); color: #000; border-color: var(--silver); }
+
+
+        /* --- PANNELLO LETTURA PASSATO --- */
+        #past-panel {
+            position: fixed; top: 50%; right: 60px; transform: translateY(-50%) translateX(50px);
+            width: 400px; max-width: 85vw; max-height: 70vh;
+            background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.1);
+            padding: 50px 40px; z-index: 100; opacity: 0; pointer-events: none; transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto; box-shadow: -10px 10px 50px rgba(0,0,0,0.8);
+        }
+
+        body.past-panel-open #past-panel { 
+            opacity: 1; 
+            transform: translateY(-50%) translateX(0); 
+            pointer-events: all; 
+        }
+
+        /* Pulsante Chiusura Visibile */
+        .panel-close-btn {
+            position: absolute; top: 20px; right: 20px;
+            background: transparent; border: 1px solid var(--deep-silver); color: var(--silver);
+            width: 35px; height: 35px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            font-size: 16px; transition: 0.3s;
+        }
+
+        .panel-close-btn:hover { background: var(--silver); color: #000; transform: scale(1.1); }
+
+        .panel-section { display: none; }
+        .panel-section.active { display: block; animation: fadeInText 0.5s ease; }
+        
+        @keyframes fadeInText { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .classic-text { font-family: 'Georgia', serif; font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.8; margin: 0; }
+        .classic-text p { margin-bottom: 15px; }
+        .poem-text { font-family: 'Georgia', serif; font-style: italic; font-size: 1.1rem; color: var(--silver); line-height: 1.6; text-align: center; }
+
+
+        /* --- UI PRESENTE (Destra) --- */
+        #ui-future {
             position: fixed; bottom: 60px; right: 60px;
             text-align: right; max-width: 450px; z-index: 20; pointer-events: none;
             transition: opacity 0.5s ease, transform 0.8s ease;
         }
 
-        body.lyrics-open #info-box { opacity: 0; transform: translateX(50px); }
+        body.lyrics-open #ui-future { opacity: 0; transform: translateX(50px); }
 
-        /* Testo Passato (Classico) */
-        #opera-title { font-size: 2.5rem; letter-spacing: 0.2em; font-weight: 400; margin: 0 0 15px 0; transition: 1s; }
-        
-        .classic-text {
-            font-family: 'Georgia', serif; 
-            font-size: 0.95rem; 
-            color: rgba(255,255,255,0.7); 
-            line-height: 1.8; 
-            margin: 0; 
-            text-align: right;
-            max-height: 40vh;
-            overflow-y: auto;
-            padding-right: 10px;
-            pointer-events: all; 
-        }
-        
-        .classic-text p { margin-bottom: 15px; }
-        .classic-text::-webkit-scrollbar { width: 2px; }
-        .classic-text::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); }
-
-        /* --- POEM BOX (SINISTRA) --- */
-        #poem-box {
-            position: fixed; bottom: 60px; left: 60px;
-            text-align: left; max-width: 350px; z-index: 20; pointer-events: none;
-            transition: opacity 0.5s ease;
-        }
-        body.lyrics-open #poem-box { opacity: 0; }
-
-        .poem-text {
-            font-family: 'Georgia', serif;
-            font-style: italic;
-            font-size: 1.1rem;
-            color: var(--silver);
-            line-height: 1.6;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.8);
-            pointer-events: all;
-            max-height: 40vh;
-            overflow-y: auto;
-            padding-right: 15px;
-        }
-        .poem-text::-webkit-scrollbar { width: 2px; }
-        .poem-text::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); }
-
-        /* Testo Presente (Futuro) */
         .future-data { display: none; text-align: right; pointer-events: all; }
         .data-glitch { font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 5px; color: #fff; margin-bottom: 5px; opacity: 0.7; }
         .data-title { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 4rem; letter-spacing: -2px; text-transform: uppercase; margin: 0; line-height: 0.9;}
         .data-artist { font-family: 'Inter', sans-serif; font-size: 14px; letter-spacing: 8px; text-transform: uppercase; opacity: 0.5; margin-top: 10px; }
         
-        /* Recensione Moderna */
         .modern-review {
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
-            font-weight: 300;
-            line-height: 1.6;
-            margin-top: 25px;
-            margin-bottom: 25px;
-            opacity: 0.8;
-            max-width: 400px;
-            margin-left: auto;
-            max-height: 30vh;
-            overflow-y: auto;
-            padding-right: 10px;
+            font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 300; line-height: 1.6; margin-top: 25px; margin-bottom: 25px; opacity: 0.8; max-width: 400px; margin-left: auto; max-height: 30vh; overflow-y: auto; padding-right: 10px;
         }
         .modern-review::-webkit-scrollbar { width: 2px; }
         .modern-review::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.3); }
 
-        /* --- PULSANTE AUDIO --- */
         #btn-listen {
-            background: transparent;
-            border: 1px solid #cba135;
-            color: #cba135;
-            padding: 12px 20px;
-            font-family: 'Inter', sans-serif;
-            font-size: 10px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-left: auto;
-            transition: all 0.3s ease;
+            background: transparent; border: 1px solid #cba135; color: #cba135; padding: 12px 20px; font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; gap: 10px; margin-left: auto; transition: all 0.3s ease;
         }
         #btn-listen:hover { background: #cba135; color: #000; box-shadow: 0 0 20px rgba(203, 161, 53, 0.4); }
 
-        /* --- PANNELLO TESTO CANZONE --- */
         #lyrics-panel {
-            position: fixed; 
-            top: 50%; right: 5vw; 
-            transform: translateY(-50%) scale(0.95);
-            width: 450px; max-width: 90%; max-height: 80vh;
-            background-color: #cba135; color: #000;
-            z-index: 200; padding: 40px; opacity: 0;
-            pointer-events: none; transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.8);
-            transform-origin: right center;
+            position: fixed; top: 50%; right: 5vw; transform: translateY(-50%) scale(0.95); width: 450px; max-width: 90%; max-height: 80vh; background-color: #cba135; color: #000; z-index: 200; padding: 40px; opacity: 0; pointer-events: none; transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1); overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.8); transform-origin: right center;
         }
         #lyrics-panel.active { opacity: 1; transform: translateY(-50%) scale(1); pointer-events: all; }
         .lyrics-close { position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 24px; color: #000; cursor: pointer; opacity: 0.5; transition: 0.3s; }
@@ -249,7 +351,7 @@
         body.future-mode .mode-btn { color: #000; }
         body.future-mode .mode-btn.active { border-bottom-color: #000; }
         
-        body.future-mode #opera-title, body.future-mode #opera-desc, body.future-mode #poem-box { display: none; }
+        body.future-mode #ui-past-label, body.future-mode #ui-past-actions, body.future-mode #past-panel { display: none; }
         body.future-mode .future-data { display: block; color: #000; pointer-events: all; }
 
         /* --- MOBILE LAYOUT --- */
@@ -257,15 +359,24 @@
             body { overflow-y: auto; display: block; }
             #sidebar { width: 100%; padding: 100px 30px; }
             #viewer-container { min-height: 100vh; }
-            #info-box { position: relative; top: auto; right: auto; bottom: auto; padding: 120px 20px 20px 20px; text-align: center; }
-            #poem-box { position: relative; top: auto; left: auto; bottom: auto; padding: 0 20px 40px 20px; text-align: center; margin: 0 auto; }
-            #opera-title { font-size: 1.8rem; }
-            .classic-text, .poem-text, .modern-review, .future-data { text-align: center; margin-left: auto; margin-right: auto; }
+            
+            #ui-past-label { position: relative; top: auto; left: auto; bottom: auto; margin-top: 80px; width: auto; max-height: none; background: none; border: none; text-align: center; }
+            .qr-box { justify-content: center; }
+            
+            #ui-past-actions { position: relative; top: auto; right: auto; bottom: auto; justify-content: center; padding: 20px 0; }
+            
+            #past-panel { top: 50%; left: 50%; right: auto; transform: translate(-50%, -50%) scale(0.95); width: 90%; }
+            body.past-panel-open #past-panel { transform: translate(-50%, -50%) scale(1); }
+            
+            #ui-future { position: relative; top: auto; right: auto; bottom: auto; padding: 120px 20px 20px 20px; text-align: center; }
+            .future-data { text-align: center; margin-left: auto; margin-right: auto; }
+            .modern-review { text-align: center; margin-left: auto; margin-right: auto; }
             #btn-listen { margin: 20px auto 0 auto; justify-content: center; }
+            
             .data-title { font-size: 2.5rem; }
             model-viewer { height: 50vh; }
             
-            body.lyrics-open model-viewer { transform: translateX(0); }
+            body.lyrics-open model-viewer, body.past-panel-open model-viewer { transform: translateX(0); }
             
             #lyrics-panel {
                 top: 50%; left: 50%; right: auto;
@@ -308,10 +419,37 @@
 
     <main id="viewer-container">
         
-       <div id="info-box">
-            <h2 id="opera-title"></h2>
-            <div id="opera-desc" class="classic-text"></div>
+        <div id="ui-past-label">
+            <div class="placard-author" id="placard-author">Autore</div>
+            <div class="placard-title" id="placard-title">Titolo dell'Opera</div>
             
+            <div class="placard-extra">
+                <div class="placard-dates" id="placard-dates">Date Autore</div>
+                <div class="placard-year" id="placard-year">Anno</div>
+                <div class="placard-title-en" id="placard-title-en">English Title</div>
+                <div class="placard-medium" id="placard-medium">Tecnica</div>
+                
+                <div class="qr-box" onclick="triggerAR()">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3,3H9V9H3V3M5,5V7H7V5H5M15,3H21V9H15V3M17,5V7H19V5H17M3,15H9V21H3V15M5,17V19H7V17H5M11,3H13V5H11V3M11,7H13V9H11V7M11,11H13V13H11V11M11,15H13V17H11V15M11,19H13V21H11V19M15,11H17V13H15V11M17,13H19V15H17V13M19,11H21V13H19V11M19,15H21V17H19V15M15,17H17V19H15V17M17,19H19V21H17V19M19,19H21V21H19V19Z" />
+                    </svg>
+                    <div>Scansiona per la<br>Realtà Aumentata</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="ui-past-actions">
+            <button class="action-btn" onclick="openPastPanel('desc')">L'Opera</button>
+            <button class="action-btn" onclick="openPastPanel('poem')">I Versi</button>
+        </div>
+
+        <div id="past-panel">
+            <button class="panel-close-btn" onclick="closePastPanel()">✕</button>
+            <div id="opera-desc" class="panel-section classic-text"></div>
+            <div id="opera-poem" class="panel-section poem-text"></div>
+        </div>
+
+        <div id="ui-future">
             <div class="future-data">
                 <div class="data-glitch">SYS.SYNC_READY</div>
                 <h2 class="data-title" id="future-track"></h2>
@@ -328,11 +466,6 @@
             </div>
         </div>
 
-        <div id="poem-box">
-            <div id="opera-poem" class="poem-text"></div>
-            <div style="font-size: 8px; opacity: 0.2; letter-spacing: 2px; margin-top: 30px; font-family: 'Inter', sans-serif;">PREMI 'F' PER SCHERMO INTERO</div>
-        </div>
-
         <div id="lyrics-panel">
             <button class="lyrics-close" onclick="closeLyrics()">✕</button>
             <h3 id="lyrics-panel-title"></h3>
@@ -341,13 +474,13 @@
 
         <model-viewer id="view" 
             src="" 
+            bounds="tight"
             camera-controls 
             auto-rotate 
             interaction-prompt="none"
             shadow-intensity="1" 
             environment-image="neutral"
             exposure="0.5"
-            scale="0.05 0.05 0.05"
             ar
             ar-modes="webxr scene-viewer quick-look">
             
@@ -365,14 +498,60 @@
             document.body.classList.toggle('sidebar-hidden');
         }
 
+        // --- ATTIVAZIONE QR CODE NATIVA ---
+        function triggerAR() {
+            // Esegue un "click" finto sul bottone nativo (che ora è nascosto correttamente fuori schermo)
+            const arBtn = document.getElementById('ar-button');
+            if (arBtn) {
+                arBtn.click();
+            }
+        }
+
+        // --- GESTIONE INTERAZIONE (DISABLE-PAN) ---
+        function updateInteraction() {
+            const viewer = document.getElementById('view');
+            // Se siamo su Desktop (schermo > 768px), blocchiamo lo spostamento (pan), permettiamo solo zoom e rotazione
+            if (window.innerWidth > 768) {
+                viewer.setAttribute('disable-pan', '');
+            } else {
+                // Su mobile, rimuoviamo il blocco per permettere lo spostamento naturale a due dita
+                viewer.removeAttribute('disable-pan');
+            }
+        }
+
+        // --- GESTIONE PANNELLO PASSATO ---
+        function openPastPanel(type) {
+            document.body.classList.add('past-panel-open');
+            
+            document.getElementById('opera-desc').classList.remove('active');
+            document.getElementById('opera-poem').classList.remove('active');
+            
+            if (type === 'desc') {
+                document.getElementById('opera-desc').classList.add('active');
+            } else if (type === 'poem') {
+                document.getElementById('opera-poem').classList.add('active');
+            }
+        }
+
+        function closePastPanel() {
+            document.body.classList.remove('past-panel-open');
+        }
+
         function updateViewer(idOpera) {
             const data = databaseOpere[idOpera];
             const viewer = document.getElementById('view');
             
             viewer.src = `models/${data.file}.glb`;
             
-            // Popola Dati Passato
-            document.getElementById('opera-title').innerText = data.titolo;
+            // Popola Cartellino Museale
+            document.getElementById('placard-author').innerText = data.autore || "Antonio Canova";
+            document.getElementById('placard-title').innerText = data.titolo;
+            document.getElementById('placard-dates').innerText = data.dateAutore || "Possagno, 1757 - Venezia, 1822";
+            document.getElementById('placard-year').innerText = data.anno || "";
+            document.getElementById('placard-title-en').innerText = data.titoloEn || data.titolo;
+            document.getElementById('placard-medium').innerHTML = data.tecnica || "Marmo su basamento / <span>Marble</span>";
+            
+            // Popola Dati Pannelli Passato
             document.getElementById('opera-desc').innerHTML = data.testo;
             document.getElementById('opera-poem').innerHTML = data.poesia;
             
@@ -390,13 +569,20 @@
                 window.event.currentTarget.classList.add('active');
             }
 
-            // --- NUOVO: Riapplica l'effetto Marmo Nero se cambi statua in modalità Presente ---
+            // Chiudi i pannelli quando si cambia statua
+            closePastPanel();
+            closeLyrics();
+
+            // Riapplica l'effetto Marmo Nero e gestisce il blocco dello spostamento SOLO dopo che si è centrata
             viewer.addEventListener('load', () => {
                 if (document.body.classList.contains('future-mode')) {
                     setMode('future');
                 } else {
                     setMode('past');
                 }
+                
+                // Chiama la funzione per bloccare il trascinamento su computer
+                updateInteraction();
             }, { once: true });
 
             // CHIUSURA AUTOMATICA DEL MENU (Per tutti i dispositivi)
@@ -412,7 +598,6 @@
             const viewer = document.getElementById('view');
             const audio = document.getElementById('modern-audio');
             
-            // --- NUOVO: Otteniamo il materiale della statua ---
             let material = null;
             if (viewer.model && viewer.model.materials && viewer.model.materials.length > 0) {
                 material = viewer.model.materials[0];
@@ -423,31 +608,29 @@
                 document.getElementById('btn-future').classList.add('active');
                 document.getElementById('btn-past').classList.remove('active');
                 
-                // Impostazioni Luce Presente
-                viewer.exposure = 1.2; // Aumentiamo un po' la luce per far riflettere il marmo nero
+                viewer.exposure = 1.2; 
                 viewer.shadowIntensity = 0; 
                 
-                // --- NUOVO: Effetto Marmo Nero (Ossidiana) ---
                 if (material) {
-                    material.pbrMetallicRoughness.setBaseColorFactor([0.02, 0.02, 0.02, 1]); // Colore nero profondo
-                    material.pbrMetallicRoughness.setRoughnessFactor(0.05); // Molto lucido
-                    material.pbrMetallicRoughness.setMetallicFactor(0.2); // Riflessi leggeri
+                    material.pbrMetallicRoughness.setBaseColorFactor([0.02, 0.02, 0.02, 1]); 
+                    material.pbrMetallicRoughness.setRoughnessFactor(0.05); 
+                    material.pbrMetallicRoughness.setMetallicFactor(0.2); 
                 }
+                
+                closePastPanel();
                 
             } else {
                 body.classList.remove('future-mode');
                 document.getElementById('btn-past').classList.add('active');
                 document.getElementById('btn-future').classList.remove('active');
                 
-                // Impostazioni Luce Passato (uguale all'originale)
                 viewer.exposure = 0.5; 
-                viewer.shadowIntensity = 1;
+                viewer.shadowIntensity = 0.4;
                 
-                // --- NUOVO: Ripristina Marmo Bianco ---
                 if (material) {
-                    material.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 1]); // Colore bianco originale
-                    material.pbrMetallicRoughness.setRoughnessFactor(0.6); // Più opaco, naturale
-                    material.pbrMetallicRoughness.setMetallicFactor(0); // Nessun effetto metallico
+                    material.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 1]); 
+                    material.pbrMetallicRoughness.setRoughnessFactor(0.6); 
+                    material.pbrMetallicRoughness.setMetallicFactor(0); 
                 }
                 
                 audio.pause();
@@ -485,7 +668,13 @@
             } else {
                 console.error("Errore: databaseOpere non trovato. Assicurati che data.js sia caricato correttamente.");
             }
+            
+            // Imposta l'interazione iniziale
+            updateInteraction();
         };
+
+        // Aggiorna l'interazione se l'utente ridimensiona la finestra
+        window.addEventListener('resize', updateInteraction);
 
         // --- SCORCIATOIA DA TASTIERA (Tasto 'F') ---
         document.addEventListener('keydown', (e) => {
