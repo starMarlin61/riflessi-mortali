@@ -376,38 +376,75 @@
         body.future-mode #ui-past-label, body.future-mode #ui-past-actions, body.future-mode #past-panel { display: none; }
         body.future-mode .future-data { display: block; color: #000; pointer-events: all; }
 
-        /* --- MOBILE LAYOUT --- */
+
+        /* ========================================= */
+        /* --- LAYOUT MOBILE RISOLTO E PULITO ------ */
+        /* ========================================= */
         @media (max-width: 768px) {
-            body { overflow-y: auto; display: block; }
-            #sidebar { width: 100%; padding: 100px 30px; }
-            #viewer-container { min-height: 100vh; }
+            /* 1. Blocchiamo completamente lo scroll della pagina */
+            body, #viewer-container { height: 100dvh; overflow: hidden; display: flex; }
+            model-viewer { height: 100dvh; width: 100vw; }
             
-            #ui-past-label { position: relative; top: auto; left: auto; bottom: auto; margin-top: 80px; width: auto; max-height: none; background: none; border: none; text-align: center; }
-            .qr-box { justify-content: center; }
+            #sidebar { width: 100vw; padding: 100px 30px; }
             
-            #ui-past-actions { position: relative; top: auto; right: auto; bottom: auto; justify-content: center; padding: 20px 0; }
-            
-            #past-panel { top: 50%; left: 50%; right: auto; transform: translate(-50%, -50%) scale(0.95); width: 90%; }
-            body.past-panel-open #past-panel { transform: translate(-50%, -50%) scale(1); }
-            
-            #ui-future { position: relative; top: auto; right: auto; bottom: auto; padding: 120px 20px 20px 20px; text-align: center; }
-            .future-data { text-align: center; margin-left: auto; margin-right: auto; }
-            .modern-review { text-align: center; margin-left: auto; margin-right: auto; }
-            #btn-listen { margin: 20px auto 0 auto; justify-content: center; }
-            
-            .data-title { font-size: 2.5rem; }
-            model-viewer { height: 50vh; }
-            
-            body.lyrics-open model-viewer, body.past-panel-open model-viewer { transform: translateX(0); }
-            
-            #lyrics-panel {
-                top: 50%; left: 50%; right: auto;
-                transform: translate(-50%, -50%) scale(0.95);
-                transform-origin: center center;
+            /* Tasto Menu e Switch spostati in alto puliti */
+            #toggle-menu { left: 15px; top: 15px; }
+            .mode-switch { width: 100vw; justify-content: center; top: 15px; left: 0; transform: none; }
+
+            /* 2. Nascondiamo l'interfaccia principale quando i pannelli si aprono per EVITARE SOVRAPPOSIZIONI */
+            body.past-panel-open #ui-past-label, 
+            body.past-panel-open #ui-past-actions, 
+            body.lyrics-open #ui-future {
+                opacity: 0 !important; pointer-events: none !important;
             }
-            #lyrics-panel.active { transform: translate(-50%, -50%) scale(1); }
+
+            /* --- PASSATO MOBILE --- */
+            /* Cartellino: Piccolo e ancorato in basso. Toccandolo si espande. */
+            #ui-past-label { 
+                position: absolute; bottom: 80px; left: 15px; right: 15px; width: auto; 
+                margin: 0; padding: 15px; border-left: none; border-top: 2px solid var(--silver); 
+                background: rgba(10, 10, 10, 0.85); border-radius: 12px; 
+                max-height: 60px; /* Chiuso */
+            }
+            #ui-past-label:hover, #ui-past-label:active { max-height: 50vh; overflow-y: auto; z-index: 50; }
             
-            .mode-switch { width: 100%; justify-content: center; top: 20px; }
+            .placard-title { font-size: 18px; margin-bottom: 5px; }
+            .placard-extra { margin-top: 15px; }
+            .qr-box { display: none !important; } /* Niente QR su mobile, AR diretta */
+
+            /* Pulsanti L'Opera/I Versi */
+            #ui-past-actions { 
+                position: absolute; bottom: 20px; left: 0; right: 0; 
+                justify-content: center; gap: 10px; width: 100%; padding: 0;
+            }
+            .action-btn { padding: 12px 20px; font-size: 10px; background: rgba(0,0,0,0.7); }
+
+            /* 3. Pannelli Lettura: entrano dal BASSO (Stile iOS/Android app) */
+            #past-panel, #lyrics-panel { 
+                top: auto; bottom: 0; left: 0; right: 0; 
+                width: 100vw; max-width: 100vw; height: 75dvh; max-height: 75dvh; 
+                transform: translateY(100%); border-radius: 20px 20px 0 0; 
+                padding: 60px 20px 20px 20px; box-sizing: border-box; 
+                border: none; border-top: 1px solid rgba(255,255,255,0.2); 
+            }
+            body.past-panel-open #past-panel, body.lyrics-open #lyrics-panel { transform: translateY(0); }
+            
+            .panel-close-btn, .lyrics-close { top: 15px; right: 20px; background: rgba(255,255,255,0.1); }
+
+            /* --- PRESENTE MOBILE --- */
+            #ui-future { 
+                position: absolute; bottom: 20px; left: 15px; right: 15px; 
+                text-align: center; max-width: none; padding: 20px;
+                background: rgba(10, 10, 10, 0.85); border-radius: 12px; backdrop-filter: blur(10px);
+            }
+            .future-data { text-align: center; margin: 0 auto; }
+            .data-title { font-size: 2.8rem; }
+            .modern-review { margin: 15px auto; max-height: 12vh; font-size: 12px; }
+            #btn-listen { margin: 10px auto 0 auto; justify-content: center; }
+
+            /* Evitiamo movimenti strani del 3D e nascondiamo modal inutile */
+            body.lyrics-open model-viewer, body.past-panel-open model-viewer { transform: translateY(-5vh); }
+            #qr-modal { display: none !important; }
         }
     </style>
     <script src="data.js"></script>
@@ -513,14 +550,14 @@
             <source src="musica.mp3" type="audio/mpeg">
         </audio>
 
-        <div id="qr-modal">
+        <!-- <div id="qr-modal">
             <div class="qr-modal-content">
                 <button class="qr-close-modal-btn" onclick="closeQRModal()">✕</button>
                 <h3>Continua su Mobile</h3>
                 <p>Scansiona il codice per aprire questa pagina sul tuo smartphone e varcare il velo della scultura (AR).</p>
                 <img id="qr-image" src="" alt="QR Code">
             </div>
-        </div>
+        </div> -->
 
     </main>
 
@@ -529,28 +566,28 @@
             document.body.classList.toggle('sidebar-hidden');
         }
 
-        // --- NUOVO: ATTIVAZIONE QR CODE PERSONALIZZATA ---
-        function triggerAR() {
-            // Se l'utente è su un computer (schermo largo), genera il QR che punta alla URL del sito
-            if (window.innerWidth > 768) {
-                const modal = document.getElementById('qr-modal');
-                const qrImage = document.getElementById('qr-image');
+        // // --- ATTIVAZIONE QR CODE PERSONALIZZATA ---
+        // function triggerAR() {
+        //     // Se l'utente è su un computer (schermo largo), genera il QR che punta alla URL del sito
+        //     if (window.innerWidth > 768) {
+        //         const modal = document.getElementById('qr-modal');
+        //         const qrImage = document.getElementById('qr-image');
                 
-                // Prende l'URL esatto in cui ti trovi (es: tuosito.com/museo.html?opera=orfeo)
-                const currentUrl = encodeURIComponent(window.location.href);
+        //         // Prende l'URL esatto in cui ti trovi (es: tuosito.com/museo.html?opera=orfeo)
+        //         const currentUrl = encodeURIComponent(window.location.href);
                 
-                // Usa un servizio API gratuito per generare il codice al volo
-                qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${currentUrl}`;
+        //         // Usa un servizio API gratuito per generare il codice al volo
+        //         qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${currentUrl}`;
                 
-                modal.classList.add('active');
-            } else {
-                // Se l'utente è GIA' dal telefono, avvia direttamente il modello 3D in Realtà Aumentata
-                const arBtn = document.getElementById('ar-button');
-                if (arBtn) {
-                    arBtn.click();
-                }
-            }
-        }
+        //         modal.classList.add('active');
+        //     } else {
+        //         // Se l'utente è GIA' dal telefono, avvia direttamente il modello 3D in Realtà Aumentata
+        //         const arBtn = document.getElementById('ar-button');
+        //         if (arBtn) {
+        //             arBtn.click();
+        //         }
+        //     }
+        // }
 
         function closeQRModal() {
             document.getElementById('qr-modal').classList.remove('active');
