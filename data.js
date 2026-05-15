@@ -483,5 +483,67 @@ Oh, let the bullets fly, oh, let them rain<br>
 My life, my love, my drive, it came from...<br>
 Pain!<br>
 You made me a, you made me a believer, believer`
+    },
+
+'contemporanea': {
+        tipo: 'immagine',
+        file: 'contemporanea.jpg',
+        autore: 'Félix González-Torres',
+        titolo: 'Senza Titolo',
+        titoloEn: 'Untitled',
+        anno: '1991',
+        tecnica: 'Installazione / <span>installation</span>',
+        testo: `<p>Si può rappresentare il lento spegnerci di una malattia che ci consuma? La risposta è sì.
+Il mucchio di caramelle è l'opera che Félix González-Torres fece per il suo compagno, per il suo grande amore Ross.
+La gente nel vedere quelle caramelle nell'angolo del museo si chiedeva quello che ognuno di noi ancora oggi chiederebbe: "Posso prenderne una?" La risposta era: "Sì, certo!".
+Ed è così che le caramelle diminuivano, come il peso di Ross ammalato.
+L'arte come metafora della vita, della morte e della malattia che sta in mezzo.
+Diceva Felix: "La mia opera d'arte, senza un osservatore, non avrebbe alcun significato e diventerebbe l'ennesima noiosissima scultura buttata lì per terra. La mia opera invece non è niente del genere. Essa prevede interazione e grande collaborazione da parte dell'osservatore [ ... ]. Il mio lavoro può essere tra il pubblico e il privato, tra il personale e il sociale, tra la perdita e la gioia di amare, di crescere, di cambiare, di diventare sempre più."</p>`,
+        poesia: ``,
+        
+        // Dati per il Presente (modificali tu se hai un brano in mente)
+        traccia: 'FADED',
+        artista: 'ALAN WALKER',
+        recensione: `Un'opera che dematerializza il concetto stesso di scultura monumentale. Il corpo scompare, sostituito dall'azione dello spettatore: prendere, consumare, ricordare.`,
+        testoCanzone: `You were the shadow to my light<br>
+Did you feel us?<br>
+Another start, you fade away<br>
+Afraid our aim is out of sight<br>
+Wanna see us alive<br>
+<br>
+Where are you now?<br>
+Where are you now?<br>
+Where are you now?<br>
+Was it all in my fantasy?<br>
+Where are you now?<br>
+Were you only imaginary?<br>
+<br>
+Where are you now?<br>
+Atlantis, under the sea, under the sea<br>
+Where are you now? Another dream<br>
+The monster's running wild inside of me<br>
+I'm faded, I'm faded<br>
+So lost, I'm faded, I'm faded<br>
+So lost, I'm faded<br>
+<br>
+These shallow waters never met what I needed<br>
+I'm letting go, a deeper hello<br>
+Eternal silence of the sea<br>
+I'm breathing, alive<br>
+<br>
+Where are you now?<br>
+Where are you now?<br>
+Under the bright but faded lights<br>
+You set my heart on fire<br>
+Where are you now?<br>
+Where are you now?<br>
+<br>
+Where are you now?<br>
+Atlantis, under the sea, under the sea<br>
+Where are you now? Another dream<br>
+The monster's running wild inside of me<br>
+I'm faded, I'm faded<br>
+So lost, I'm faded, I'm faded<br>
+So lost, I'm faded`
     }
 };

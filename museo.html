@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Santuario | I Volti dell'Ignoto</title>
+    <title>Santuario | Riflessi di una vita mortale</title>
 
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 
@@ -76,7 +76,7 @@
         }
         .opera-link:hover, .opera-link.active { color: var(--silver); letter-spacing: 4px; text-shadow: 0 0 10px rgba(255,255,255,0.2); }
 
-        /* --- VISUALIZZATORE 3D --- */
+        /* --- VISUALIZZATORE 3D E 2D --- */
         #viewer-container {
             width: 100vw; height: 100vh;
             position: relative; display: flex; flex-direction: column;
@@ -90,18 +90,30 @@
             will-change: transform;
         }
 
-        body.lyrics-open model-viewer, body.past-panel-open model-viewer {
+        /* IMMAGINE 2D (CORRETTA) */
+        #view-2d {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            object-fit: contain; 
+            padding: 40px 60px 40px 420px; /* Lascia spazio alla sidebar a sinistra */
+            box-sizing: border-box;
+            z-index: 5; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), filter 0.8s ease;
+            display: none; 
+        }
+
+        body.lyrics-open model-viewer, body.past-panel-open model-viewer,
+        body.lyrics-open #view-2d, body.past-panel-open #view-2d {
             transform: translateX(-15vw);
+        }
+
+        /* Effetto per Immagini nel Presente (Negativo B&W) */
+        body.future-mode #view-2d {
+            filter: invert(1) grayscale(100%) contrast(1.2);
         }
 
         /* TASTO AR (Nascosto ma NON display:none, altrimenti si disattiva la AR) */
         #ar-button {
-            position: absolute;
-            left: -9999px;
-            width: 1px;
-            height: 1px;
-            opacity: 0;
-            pointer-events: none;
+            position: absolute; left: -9999px; width: 1px; height: 1px;
+            opacity: 0; pointer-events: none;
         }
 
         /* --- SWITCH MODALITÀ --- */
@@ -299,9 +311,9 @@
         
         @keyframes fadeInText { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .classic-text { font-family: 'Georgia', serif; font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.8; margin: 0; }
+        .classic-text { font-family: 'Georgia', serif; font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.8; margin: 0; white-space: pre-line; }
         .classic-text p { margin-bottom: 15px; }
-        .poem-text { font-family: 'Georgia', serif; font-style: italic; font-size: 1.1rem; color: var(--silver); line-height: 1.6; text-align: center; }
+        .poem-text { font-family: 'Georgia', serif; font-style: italic; font-size: 1.1rem; color: var(--silver); line-height: 1.6; text-align: center; white-space: pre-line; }
 
 
         /* --- UI PRESENTE (Destra) --- */
@@ -319,7 +331,7 @@
         .data-artist { font-family: 'Inter', sans-serif; font-size: 14px; letter-spacing: 8px; text-transform: uppercase; opacity: 0.5; margin-top: 10px; }
         
         .modern-review {
-            font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 300; line-height: 1.6; margin-top: 25px; margin-bottom: 25px; opacity: 0.8; max-width: 400px; margin-left: auto; max-height: 30vh; overflow-y: auto; padding-right: 10px;
+            font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 300; line-height: 1.6; margin-top: 25px; margin-bottom: 25px; opacity: 0.8; max-width: 400px; margin-left: auto; max-height: 30vh; overflow-y: auto; padding-right: 10px; white-space: pre-line;
         }
         .modern-review::-webkit-scrollbar { width: 2px; }
         .modern-review::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.3); }
@@ -336,10 +348,10 @@
         .lyrics-close { position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 24px; color: #000; cursor: pointer; opacity: 0.5; transition: 0.3s; }
         .lyrics-close:hover { opacity: 1; }
         #lyrics-panel-title { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 28px; margin: 0; letter-spacing: -1px; text-transform: uppercase; border-bottom: 2px solid rgba(0,0,0,0.1); padding-bottom: 10px; }
-        #lyrics-content { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px; line-height: 1.6; margin-top: 20px; }
+        #lyrics-content { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px; line-height: 1.6; margin-top: 20px; white-space: pre-line; }
 
 
-        /* --- NUOVO: MODALE POPUP PER IL QR CODE --- */
+        /* --- MODALE POPUP PER IL QR CODE --- */
         #qr-modal {
             position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px);
             z-index: 1000; display: flex; justify-content: center; align-items: center;
@@ -358,6 +370,21 @@
             color: var(--silver); font-size: 20px; cursor: pointer; transition: 0.3s;
         }
         .qr-close-modal-btn:hover { color: #fff; transform: scale(1.2); }
+
+        /* --- MODALE CRITICA MOSTRA --- */
+        #critique-modal {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px);
+            z-index: 1000; display: flex; justify-content: center; align-items: center;
+            opacity: 0; pointer-events: none; transition: 0.4s ease; padding: 20px;
+        }
+        #critique-modal.active { opacity: 1; pointer-events: all; }
+        .critique-content {
+            background: rgba(10, 10, 10, 0.95); border: 1px solid var(--silver); padding: 50px 40px;
+            max-width: 600px; max-height: 80vh; overflow-y: auto; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            text-align: left;
+        }
+        .critique-content h3 { font-family: 'Cinzel', serif; color: #cba135; margin-top: 0; letter-spacing: 2px; text-align: center; font-size: 24px;}
+        .critique-text { font-family: 'Georgia', serif; font-size: 0.95rem; color: rgba(255,255,255,0.8); line-height: 1.8; white-space: pre-line; }
 
 
         /* --- MODALITÀ PRESENTE ATTIVA --- */
@@ -381,17 +408,14 @@
         /* --- LAYOUT MOBILE RISOLTO E PULITO ------ */
         /* ========================================= */
         @media (max-width: 768px) {
-            /* 1. Blocchiamo completamente lo scroll della pagina */
             body, #viewer-container { height: 100dvh; overflow: hidden; display: flex; }
             model-viewer { height: 100dvh; width: 100vw; }
             
-            #sidebar { width: 100vw; padding: 100px 30px; }
+            #sidebar { width: 100vw; padding: 100px 30px; box-sizing: border-box; }
             
-            /* Tasto Menu e Switch spostati in alto puliti */
             #toggle-menu { left: 15px; top: 15px; }
             .mode-switch { width: 100vw; justify-content: center; top: 15px; left: 0; transform: none; }
 
-            /* 2. Nascondiamo l'interfaccia principale quando i pannelli si aprono per EVITARE SOVRAPPOSIZIONI */
             body.past-panel-open #ui-past-label, 
             body.past-panel-open #ui-past-actions, 
             body.lyrics-open #ui-future {
@@ -399,27 +423,24 @@
             }
 
             /* --- PASSATO MOBILE --- */
-            /* Cartellino: Piccolo e ancorato in basso. Toccandolo si espande. */
             #ui-past-label { 
                 position: absolute; bottom: 80px; left: 15px; right: 15px; width: auto; 
                 margin: 0; padding: 15px; border-left: none; border-top: 2px solid var(--silver); 
                 background: rgba(10, 10, 10, 0.85); border-radius: 12px; 
-                max-height: 60px; /* Chiuso */
+                max-height: 60px; 
             }
             #ui-past-label:hover, #ui-past-label:active { max-height: 50vh; overflow-y: auto; z-index: 50; }
             
             .placard-title { font-size: 18px; margin-bottom: 5px; }
             .placard-extra { margin-top: 15px; }
-            .qr-box { display: none !important; } /* Niente QR su mobile, AR diretta */
+            .qr-box { display: none !important; }
 
-            /* Pulsanti L'Opera/I Versi */
             #ui-past-actions { 
                 position: absolute; bottom: 20px; left: 0; right: 0; 
                 justify-content: center; gap: 10px; width: 100%; padding: 0;
             }
             .action-btn { padding: 12px 20px; font-size: 10px; background: rgba(0,0,0,0.7); }
 
-            /* 3. Pannelli Lettura: entrano dal BASSO (Stile iOS/Android app) */
             #past-panel, #lyrics-panel { 
                 top: auto; bottom: 0; left: 0; right: 0; 
                 width: 100vw; max-width: 100vw; height: 75dvh; max-height: 75dvh; 
@@ -442,8 +463,14 @@
             .modern-review { margin: 15px auto; max-height: 12vh; font-size: 12px; }
             #btn-listen { margin: 10px auto 0 auto; justify-content: center; }
 
-            /* Evitiamo movimenti strani del 3D e nascondiamo modal inutile */
-            body.lyrics-open model-viewer, body.past-panel-open model-viewer { transform: translateY(-5vh); }
+            body.lyrics-open model-viewer, body.past-panel-open model-viewer,
+            body.lyrics-open #view-2d, body.past-panel-open #view-2d { 
+                transform: translateY(-5vh); 
+            }
+            
+            /* Responsive 2D Image on Mobile */
+            #view-2d { padding: 100px 20px 150px 20px; }
+            
             #qr-modal { display: none !important; }
         }
     </style>
@@ -464,7 +491,9 @@
     </div>
 
     <aside id="sidebar">
-        <div class="menu-title">I Volti dell'Ignoto</div>
+        <div class="menu-title">Riflessi di una vita mortale</div>
+        
+        <button class="opera-link" onclick="openCritique()" style="color: #cba135; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; margin-bottom: 20px; width: 100%;">Leggi la Critica Curatoriale</button>
         
         <div class="opera-list">
             <button class="opera-link" onclick="updateViewer('orfeo')">01. Orfeo ed Euridice</button>
@@ -473,7 +502,8 @@
             <button class="opera-link" onclick="updateViewer('penitente')">04. Maddalena Penitente</button>
             <button class="opera-link" onclick="updateViewer('amore_psiche')">05. Amore e Psiche</button>
             <button class="opera-link" onclick="updateViewer('perseo')">06. Perseo Trionfante</button>
-        </div>
+            <button class="opera-link" onclick="updateViewer('contemporanea')">07. Senza titolo</button>
+            </div>
     </aside>
 
     <main id="viewer-container">
@@ -530,6 +560,8 @@
             <div id="lyrics-content"></div>
         </div>
 
+        <img id="view-2d" src="" alt="Opera 2D">
+
         <model-viewer id="view" 
             src="" 
             bounds="tight"
@@ -550,14 +582,26 @@
             <source src="musica.mp3" type="audio/mpeg">
         </audio>
 
-        <!-- <div id="qr-modal">
+        <div id="qr-modal">
             <div class="qr-modal-content">
                 <button class="qr-close-modal-btn" onclick="closeQRModal()">✕</button>
                 <h3>Continua su Mobile</h3>
                 <p>Scansiona il codice per aprire questa pagina sul tuo smartphone e varcare il velo della scultura (AR).</p>
                 <img id="qr-image" src="" alt="QR Code">
             </div>
-        </div> -->
+        </div>
+
+        <div id="critique-modal">
+            <div class="critique-content">
+                <button class="qr-close-modal-btn" onclick="closeCritique()">✕</button>
+                <h3>Recensione della Mostra</h3>
+                <div class="critique-text">La mostra Riflessi di una vita mortale affronta Antonio Canova con un taglio insolito e sorprendentemente attuale: non la celebrazione del mito classico, ma la ricerca ostinata del limite umano, della perdita e della fine. Le opere dialogano tra loro come tappe di un unico percorso emotivo in cui la morte non appare mai isolata, bensì intrecciata all’amore, alla memoria e al desiderio di sopravvivenza.
+
+Particolarmente efficace è la lettura di Perseo e Medusa: la vittoria sull’orrore non coincide con la liberazione dal passato, perché la testa recisa di Medusa continua a essere portata con sé, come un trauma che sopravvive alla sua stessa distruzione.
+
+Il vero merito curatoriale sta però nell’intreccio con la cultura contemporanea. I richiami alla musica e alle voci poetiche evitano l’effetto didascalico e ampliano il discorso sulla mortalità in modo accessibile ma mai superficiale. Ne emerge una mostra rigorosa e colta, capace di proporre riflessioni non scontate senza tradire l’equilibrio formale di Canova. Qualche passaggio tende forse a sovraccaricare le interpretazioni simboliche, ma l’impressione finale resta di rara intensità: un percorso che parla della morte per interrogare, in realtà, il significato stesso del vivere.</div>
+            </div>
+        </div>
 
     </main>
 
@@ -566,46 +610,45 @@
             document.body.classList.toggle('sidebar-hidden');
         }
 
-        // // --- ATTIVAZIONE QR CODE PERSONALIZZATA ---
-        // function triggerAR() {
-        //     // Se l'utente è su un computer (schermo largo), genera il QR che punta alla URL del sito
-        //     if (window.innerWidth > 768) {
-        //         const modal = document.getElementById('qr-modal');
-        //         const qrImage = document.getElementById('qr-image');
-                
-        //         // Prende l'URL esatto in cui ti trovi (es: tuosito.com/museo.html?opera=orfeo)
-        //         const currentUrl = encodeURIComponent(window.location.href);
-                
-        //         // Usa un servizio API gratuito per generare il codice al volo
-        //         qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${currentUrl}`;
-                
-        //         modal.classList.add('active');
-        //     } else {
-        //         // Se l'utente è GIA' dal telefono, avvia direttamente il modello 3D in Realtà Aumentata
-        //         const arBtn = document.getElementById('ar-button');
-        //         if (arBtn) {
-        //             arBtn.click();
-        //         }
-        //     }
-        // }
+        function openCritique() {
+            document.getElementById('critique-modal').classList.add('active');
+            if (!document.body.classList.contains('sidebar-hidden')) {
+                toggleSidebar();
+            }
+        }
+
+        function closeCritique() {
+            document.getElementById('critique-modal').classList.remove('active');
+        }
+
+        function triggerAR() {
+            if (window.innerWidth > 768) {
+                const modal = document.getElementById('qr-modal');
+                const qrImage = document.getElementById('qr-image');
+                const currentUrl = encodeURIComponent(window.location.href);
+                qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${currentUrl}`;
+                modal.classList.add('active');
+            } else {
+                const arBtn = document.getElementById('ar-button');
+                if (arBtn) {
+                    arBtn.click();
+                }
+            }
+        }
 
         function closeQRModal() {
             document.getElementById('qr-modal').classList.remove('active');
         }
 
-        // --- GESTIONE INTERAZIONE (DISABLE-PAN) ---
         function updateInteraction() {
             const viewer = document.getElementById('view');
-            // Se siamo su Desktop (schermo > 768px), blocchiamo lo spostamento (pan), permettiamo solo zoom e rotazione
             if (window.innerWidth > 768) {
                 viewer.setAttribute('disable-pan', '');
             } else {
-                // Su mobile, rimuoviamo il blocco per permettere lo spostamento naturale a due dita
                 viewer.removeAttribute('disable-pan');
             }
         }
 
-        // --- GESTIONE PANNELLO PASSATO ---
         function openPastPanel(type) {
             document.body.classList.add('past-panel-open');
             
@@ -625,9 +668,23 @@
 
         function updateViewer(idOpera) {
             const data = databaseOpere[idOpera];
-            const viewer = document.getElementById('view');
+            const viewer3D = document.getElementById('view');
+            const viewer2D = document.getElementById('view-2d');
+            const qrBox = document.querySelector('.qr-box');
             
-            viewer.src = `models/${data.file}.glb`;
+            // LOGICA DOPPIO MOTORE: 3D vs 2D
+            if (data.tipo === 'immagine') {
+                viewer3D.style.display = 'none';
+                viewer2D.style.display = 'block';
+                viewer2D.src = `img/${data.file}`; // Assicurati di mettere la foto nella cartella 'img'
+                if (qrBox) qrBox.style.display = 'none'; // Nascondi pulsante AR
+            } else {
+                viewer3D.style.display = 'block';
+                viewer2D.style.display = 'none';
+                viewer3D.src = `models/${data.file}.glb`;
+                if (qrBox && window.innerWidth > 768) qrBox.style.display = 'flex';
+                if (qrBox && window.innerWidth <= 768) qrBox.style.display = 'none'; // Su mobile l'AR si attiva diversamente
+            }
             
             // Popola Cartellino Museale
             document.getElementById('placard-author').innerText = data.autore || "Antonio Canova";
@@ -654,24 +711,23 @@
                 window.event.currentTarget.classList.add('active');
             }
 
-            // Chiudi i pannelli quando si cambia statua
             closePastPanel();
             closeLyrics();
-            closeQRModal(); // Chiude il QR code se aperto
+            closeQRModal(); 
+            closeCritique();
 
-            // Riapplica l'effetto Marmo Nero e gestisce il blocco dello spostamento SOLO dopo che si è centrata
-            viewer.addEventListener('load', () => {
-                if (document.body.classList.contains('future-mode')) {
-                    setMode('future');
-                } else {
-                    setMode('past');
-                }
-                
-                // Chiama la funzione per bloccare il trascinamento su computer
-                updateInteraction();
-            }, { once: true });
+            // Riapplica la modalità se siamo su 3D
+            if (data.tipo !== 'immagine') {
+                viewer3D.addEventListener('load', () => {
+                    if (document.body.classList.contains('future-mode')) {
+                        setMode('future');
+                    } else {
+                        setMode('past');
+                    }
+                    updateInteraction();
+                }, { once: true });
+            }
 
-            // CHIUSURA AUTOMATICA DEL MENU (Per tutti i dispositivi)
             setTimeout(() => { 
                 if (!document.body.classList.contains('sidebar-hidden')) {
                     toggleSidebar(); 
@@ -742,7 +798,6 @@
             document.getElementById('lyrics-panel').classList.remove('active');
         }
         
-        // Inizializza l'opera in base alla scelta dell'utente
         window.onload = () => {
             const parametriUrl = new URLSearchParams(window.location.search);
             const operaScelta = parametriUrl.get('opera');
@@ -752,30 +807,25 @@
             } else if (typeof databaseOpere !== 'undefined') {
                 updateViewer('perseo');
             } else {
-                console.error("Errore: databaseOpere non trovato. Assicurati che data.js sia caricato correttamente.");
+                console.error("Errore: databaseOpere non trovato.");
             }
             
-            // Imposta l'interazione iniziale
             updateInteraction();
         };
 
-        // Aggiorna l'interazione se l'utente ridimensiona la finestra
         window.addEventListener('resize', updateInteraction);
 
-        // --- SCORCIATOIA DA TASTIERA (Tasto 'F') ---
         document.addEventListener('keydown', (e) => {
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-            
             if (e.key.toLowerCase() === 'f') {
                 toggleFullScreen();
             }
         });
 
-        // --- LOGICA FULLSCREEN ---
         function toggleFullScreen() {
             if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen().catch(err => {
-                    console.log(`Errore attivazione schermo intero: ${err.message}`);
+                    console.log(`Errore: ${err.message}`);
                 });
             } else {
                 if (document.exitFullscreen) {
