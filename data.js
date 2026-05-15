@@ -490,7 +490,7 @@ You made me a, you made me a believer, believer`
         file: 'contemporanea.jpg',
         autore: 'Félix González-Torres',
         titolo: 'Senza Titolo',
-        titoloEn: 'Untitled',
+        titoloEn: '(Portrait of Ross in L.A.)',
         anno: '1991',
         tecnica: 'Installazione / <span>installation</span>',
         testo: `<p>Si può rappresentare il lento spegnerci di una malattia che ci consuma? La risposta è sì.

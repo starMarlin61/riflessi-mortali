@@ -90,27 +90,35 @@
             will-change: transform;
         }
 
-        /* IMMAGINE 2D (CORRETTA) */
+        /* IMMAGINE 2D */
         #view-2d {
             position: absolute; inset: 0; width: 100%; height: 100%;
             object-fit: contain; 
-            padding: 40px 60px 40px 420px; /* Lascia spazio alla sidebar a sinistra */
+            padding: 40px 60px 40px 420px; 
             box-sizing: border-box;
-            z-index: 5; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), filter 0.8s ease;
+            z-index: 5; transition: padding 0.8s ease, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), filter 0.8s ease;
             display: none; 
         }
 
-        body.lyrics-open model-viewer, body.past-panel-open model-viewer,
-        body.lyrics-open #view-2d, body.past-panel-open #view-2d {
+        /* Il 3D si sposta normalmente */
+        body.lyrics-open model-viewer, body.past-panel-open model-viewer {
             transform: translateX(-15vw);
         }
 
-        /* Effetto per Immagini nel Presente (Negativo B&W) */
-        body.future-mode #view-2d {
-            filter: invert(1) grayscale(100%) contrast(1.2);
+        /* L'immagine 2D crea spazio a destra quando si aprono i pannelli del Passato */
+        body.lyrics-open #view-2d, body.past-panel-open #view-2d {
+            padding-right: 540px; 
+            transform: none;
         }
 
-        /* TASTO AR (Nascosto ma NON display:none, altrimenti si disattiva la AR) */
+        /* Effetto per Immagini nel Presente */
+        body.future-mode #view-2d {
+            filter: invert(1) grayscale(100%) contrast(1.2);
+            padding-right: 410px; 
+            transform: none;
+        }
+
+        /* TASTO AR DESKTOP (Nascosto) */
         #ar-button {
             position: absolute; left: -9999px; width: 1px; height: 1px;
             opacity: 0; pointer-events: none;
@@ -141,12 +149,12 @@
             left: 60px;
             text-align: left; 
             z-index: 20;
-            background: rgba(10, 10, 10, 0.85); /* Sfondo scuro elegante */
+            background: rgba(10, 10, 10, 0.85); 
             backdrop-filter: blur(10px);
             border-left: 2px solid var(--silver);
             padding: 20px 25px;
             width: 280px;
-            max-height: 60px; /* Compresso: mostra solo autore e titolo */
+            max-height: 60px; 
             overflow: hidden;
             transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s ease, opacity 0.5s ease, transform 0.8s ease;
             cursor: pointer;
@@ -154,7 +162,7 @@
         }
 
         #ui-past-label:hover {
-            max-height: 500px; /* Si espande al passaggio del mouse */
+            max-height: 500px; 
             background: rgba(10, 10, 10, 0.98);
         }
 
@@ -164,98 +172,20 @@
             pointer-events: none;
         }
 
-        /* Stili Tipografici Cartellino */
-        .placard-author {
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--silver);
-            margin-bottom: 2px;
-        }
+        .placard-author { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; color: var(--silver); margin-bottom: 2px; }
+        .placard-title { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 700; font-style: italic; color: var(--silver); line-height: 1.1; margin-bottom: 15px; }
+        .placard-extra { opacity: 0; transition: opacity 0.4s 0.2s; }
+        #ui-past-label:hover .placard-extra { opacity: 1; }
+        .placard-dates { font-family: 'Inter', sans-serif; font-size: 11px; color: var(--deep-silver); margin-bottom: 20px; }
+        .placard-year { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--silver); margin-bottom: 5px; }
+        .placard-title-en { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 400; font-style: italic; color: var(--deep-silver); margin-bottom: 25px; }
+        .placard-medium { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: var(--silver); }
+        .placard-medium span { color: var(--deep-silver); font-weight: 400; }
 
-        .placard-title {
-            font-family: 'Inter', sans-serif;
-            font-size: 22px;
-            font-weight: 700;
-            font-style: italic;
-            color: var(--silver);
-            line-height: 1.1;
-            margin-bottom: 15px;
-        }
-
-        .placard-extra {
-            opacity: 0;
-            transition: opacity 0.4s 0.2s;
-        }
-
-        #ui-past-label:hover .placard-extra {
-            opacity: 1;
-        }
-
-        .placard-dates {
-            font-family: 'Inter', sans-serif;
-            font-size: 11px;
-            color: var(--deep-silver);
-            margin-bottom: 20px;
-        }
-
-        .placard-year {
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
-            color: var(--silver);
-            margin-bottom: 5px;
-        }
-
-        .placard-title-en {
-            font-family: 'Inter', sans-serif;
-            font-size: 18px;
-            font-weight: 400;
-            font-style: italic;
-            color: var(--deep-silver);
-            margin-bottom: 25px;
-        }
-
-        .placard-medium {
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--silver);
-        }
-
-        .placard-medium span {
-            color: var(--deep-silver);
-            font-weight: 400;
-        }
-
-        /* Sezione QR Code dentro il cartellino */
-        .qr-box {
-            margin-top: 25px;
-            padding-top: 15px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
+        .qr-box { margin-top: 25px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1); display: flex; align-items: center; gap: 15px; cursor: pointer; transition: 0.3s; }
         .qr-box:hover { opacity: 0.6; }
-
-        .qr-box svg {
-            width: 30px;
-            height: 30px;
-            fill: var(--silver);
-        }
-
-        .qr-box div {
-            font-family: 'Inter', sans-serif;
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-            color: var(--silver);
-            line-height: 1.4;
-        }
+        .qr-box svg { width: 30px; height: 30px; fill: var(--silver); }
+        .qr-box div { font-family: 'Inter', sans-serif; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; color: var(--silver); line-height: 1.4; }
 
 
         /* --- UI PASSATO: MENU AZIONI (Destra) --- */
@@ -266,17 +196,10 @@
         }
 
         body.lyrics-open #ui-past-actions, body.past-panel-open #ui-past-actions { 
-            opacity: 0; 
-            transform: translateX(50px); 
-            pointer-events: none;
+            opacity: 0; transform: translateX(50px); pointer-events: none;
         }
 
-        .action-btn {
-            background: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--silver);
-            padding: 12px 24px; font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 3px;
-            cursor: pointer; transition: 0.3s; text-transform: uppercase; backdrop-filter: blur(5px);
-        }
-
+        .action-btn { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--silver); padding: 12px 24px; font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 3px; cursor: pointer; transition: 0.3s; text-transform: uppercase; backdrop-filter: blur(5px); }
         .action-btn:hover { background: var(--silver); color: #000; border-color: var(--silver); }
 
 
@@ -289,26 +212,11 @@
             overflow-y: auto; box-shadow: -10px 10px 50px rgba(0,0,0,0.8);
         }
 
-        body.past-panel-open #past-panel { 
-            opacity: 1; 
-            transform: translateY(-50%) translateX(0); 
-            pointer-events: all; 
-        }
-
-        /* Pulsante Chiusura Visibile */
-        .panel-close-btn {
-            position: absolute; top: 20px; right: 20px;
-            background: transparent; border: 1px solid var(--deep-silver); color: var(--silver);
-            width: 35px; height: 35px; border-radius: 50%;
-            cursor: pointer; display: flex; align-items: center; justify-content: center;
-            font-size: 16px; transition: 0.3s;
-        }
-
+        body.past-panel-open #past-panel { opacity: 1; transform: translateY(-50%) translateX(0); pointer-events: all; }
+        .panel-close-btn { position: absolute; top: 20px; right: 20px; background: transparent; border: 1px solid var(--deep-silver); color: var(--silver); width: 35px; height: 35px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: 0.3s; }
         .panel-close-btn:hover { background: var(--silver); color: #000; transform: scale(1.1); }
-
         .panel-section { display: none; }
         .panel-section.active { display: block; animation: fadeInText 0.5s ease; }
-        
         @keyframes fadeInText { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         .classic-text { font-family: 'Georgia', serif; font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.8; margin: 0; white-space: pre-line; }
@@ -324,21 +232,15 @@
         }
 
         body.lyrics-open #ui-future { opacity: 0; transform: translateX(50px); }
-
         .future-data { display: none; text-align: right; pointer-events: all; }
         .data-glitch { font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 5px; color: #fff; margin-bottom: 5px; opacity: 0.7; }
         .data-title { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 4rem; letter-spacing: -2px; text-transform: uppercase; margin: 0; line-height: 0.9;}
         .data-artist { font-family: 'Inter', sans-serif; font-size: 14px; letter-spacing: 8px; text-transform: uppercase; opacity: 0.5; margin-top: 10px; }
-        
-        .modern-review {
-            font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 300; line-height: 1.6; margin-top: 25px; margin-bottom: 25px; opacity: 0.8; max-width: 400px; margin-left: auto; max-height: 30vh; overflow-y: auto; padding-right: 10px; white-space: pre-line;
-        }
+        .modern-review { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 300; line-height: 1.6; margin-top: 25px; margin-bottom: 25px; opacity: 0.8; max-width: 400px; margin-left: auto; max-height: 30vh; overflow-y: auto; padding-right: 10px; white-space: pre-line; }
         .modern-review::-webkit-scrollbar { width: 2px; }
         .modern-review::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.3); }
 
-        #btn-listen {
-            background: transparent; border: 1px solid #cba135; color: #cba135; padding: 12px 20px; font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; gap: 10px; margin-left: auto; transition: all 0.3s ease;
-        }
+        #btn-listen { background: transparent; border: 1px solid #cba135; color: #cba135; padding: 12px 20px; font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; gap: 10px; margin-left: auto; transition: all 0.3s ease; }
         #btn-listen:hover { background: #cba135; color: #000; box-shadow: 0 0 20px rgba(203, 161, 53, 0.4); }
 
         #lyrics-panel {
@@ -350,42 +252,22 @@
         #lyrics-panel-title { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 28px; margin: 0; letter-spacing: -1px; text-transform: uppercase; border-bottom: 2px solid rgba(0,0,0,0.1); padding-bottom: 10px; }
         #lyrics-content { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px; line-height: 1.6; margin-top: 20px; white-space: pre-line; }
 
-
         /* --- MODALE POPUP PER IL QR CODE --- */
-        #qr-modal {
-            position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px);
-            z-index: 1000; display: flex; justify-content: center; align-items: center;
-            opacity: 0; pointer-events: none; transition: 0.4s ease;
-        }
+        #qr-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); z-index: 1000; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: 0.4s ease; }
         #qr-modal.active { opacity: 1; pointer-events: all; }
-        .qr-modal-content {
-            background: rgba(10, 10, 10, 0.95); border: 1px solid var(--silver); padding: 40px;
-            text-align: center; max-width: 320px; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.8);
-        }
+        .qr-modal-content { background: rgba(10, 10, 10, 0.95); border: 1px solid var(--silver); padding: 40px; text-align: center; max-width: 320px; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.8); }
         .qr-modal-content h3 { font-family: 'Cinzel', serif; color: var(--silver); margin-top: 0; letter-spacing: 2px; }
         .qr-modal-content p { font-family: 'Inter', sans-serif; font-size: 12px; color: rgba(255,255,255,0.7); line-height: 1.6; }
         .qr-modal-content img { width: 220px; height: 220px; margin-top: 20px; background: white; padding: 10px; border-radius: 10px; }
-        .qr-close-modal-btn {
-            position: absolute; top: 10px; right: 15px; background: transparent; border: none;
-            color: var(--silver); font-size: 20px; cursor: pointer; transition: 0.3s;
-        }
+        .qr-close-modal-btn { position: absolute; top: 10px; right: 15px; background: transparent; border: none; color: var(--silver); font-size: 20px; cursor: pointer; transition: 0.3s; }
         .qr-close-modal-btn:hover { color: #fff; transform: scale(1.2); }
 
         /* --- MODALE CRITICA MOSTRA --- */
-        #critique-modal {
-            position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px);
-            z-index: 1000; display: flex; justify-content: center; align-items: center;
-            opacity: 0; pointer-events: none; transition: 0.4s ease; padding: 20px;
-        }
+        #critique-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); z-index: 1000; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: 0.4s ease; padding: 20px; }
         #critique-modal.active { opacity: 1; pointer-events: all; }
-        .critique-content {
-            background: rgba(10, 10, 10, 0.95); border: 1px solid var(--silver); padding: 50px 40px;
-            max-width: 600px; max-height: 80vh; overflow-y: auto; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.8);
-            text-align: left;
-        }
+        .critique-content { background: rgba(10, 10, 10, 0.95); border: 1px solid var(--silver); padding: 50px 40px; max-width: 600px; max-height: 80vh; overflow-y: auto; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.8); text-align: left; }
         .critique-content h3 { font-family: 'Cinzel', serif; color: #cba135; margin-top: 0; letter-spacing: 2px; text-align: center; font-size: 24px;}
         .critique-text { font-family: 'Georgia', serif; font-size: 0.95rem; color: rgba(255,255,255,0.8); line-height: 1.8; white-space: pre-line; }
-
 
         /* --- MODALITÀ PRESENTE ATTIVA --- */
         body.future-mode { background-color: #ffffff; color: #000; }
@@ -395,83 +277,49 @@
         body.future-mode .opera-link:hover, body.future-mode .opera-link.active { color: #000; text-shadow: none; }
         body.future-mode .menu-title { color: #888; }
         body.future-mode .bar { background: #000; }
-        body.future-mode #ar-button { border-color: #000; color: #000; }
-        body.future-mode #ar-button:hover { background: #000; color: #fff; }
         body.future-mode .mode-btn { color: #000; }
         body.future-mode .mode-btn.active { border-bottom-color: #000; }
-        
         body.future-mode #ui-past-label, body.future-mode #ui-past-actions, body.future-mode #past-panel { display: none; }
         body.future-mode .future-data { display: block; color: #000; pointer-events: all; }
 
 
         /* ========================================= */
-        /* --- LAYOUT MOBILE RISOLTO E PULITO ------ */
+        /* --- LAYOUT MOBILE: COMPANION AR APP ----- */
         /* ========================================= */
         @media (max-width: 768px) {
-            body, #viewer-container { height: 100dvh; overflow: hidden; display: flex; }
-            model-viewer { height: 100dvh; width: 100vw; }
+            body, #viewer-container { height: 100dvh; overflow: hidden; display: flex; justify-content: center; align-items: center; }
+            model-viewer { height: 100dvh; width: 100vw; position: absolute; inset: 0; }
             
-            #sidebar { width: 100vw; padding: 100px 30px; box-sizing: border-box; }
-            
-            #toggle-menu { left: 15px; top: 15px; }
-            .mode-switch { width: 100vw; justify-content: center; top: 15px; left: 0; transform: none; }
-
-            body.past-panel-open #ui-past-label, 
-            body.past-panel-open #ui-past-actions, 
-            body.lyrics-open #ui-future {
-                opacity: 0 !important; pointer-events: none !important;
+            /* Nascondiamo tutto ciò che è superfluo per la visualizzazione AR */
+            #sidebar, #toggle-menu, .mode-switch, #ui-past-actions, 
+            #past-panel, #ui-future, #lyrics-panel, .qr-box, .placard-extra, #qr-modal { 
+                display: none !important; 
             }
 
-            /* --- PASSATO MOBILE --- */
+            /* Cartellino Semplificato (Solo Titolo e Autore) ancorato in alto */
             #ui-past-label { 
-                position: absolute; bottom: 80px; left: 15px; right: 15px; width: auto; 
-                margin: 0; padding: 15px; border-left: none; border-top: 2px solid var(--silver); 
-                background: rgba(10, 10, 10, 0.85); border-radius: 12px; 
-                max-height: 60px; 
+                position: absolute; top: 40px; bottom: auto; left: 20px; right: 20px; width: auto; 
+                margin: 0; padding: 0; border: none; background: transparent; 
+                text-align: center; pointer-events: none; max-height: none; z-index: 50;
             }
-            #ui-past-label:hover, #ui-past-label:active { max-height: 50vh; overflow-y: auto; z-index: 50; }
-            
-            .placard-title { font-size: 18px; margin-bottom: 5px; }
-            .placard-extra { margin-top: 15px; }
-            .qr-box { display: none !important; }
+            .placard-title { font-size: 26px; text-shadow: 0 4px 15px rgba(0,0,0,1); margin-bottom: 5px; }
+            .placard-author { font-size: 14px; text-shadow: 0 2px 10px rgba(0,0,0,1); opacity: 0.8; }
 
-            #ui-past-actions { 
-                position: absolute; bottom: 20px; left: 0; right: 0; 
-                justify-content: center; gap: 10px; width: 100%; padding: 0;
+            /* Tasto AR reso gigantesco ed elegante in basso */
+            #ar-button {
+                position: absolute !important; left: 20px !important; right: 20px !important; bottom: 40px !important;
+                width: calc(100vw - 40px) !important; height: 60px !important;
+                opacity: 1 !important; pointer-events: all !important;
+                background: #cba135 !important; color: #000 !important;
+                border: none !important; border-radius: 12px !important;
+                font-family: 'Inter', sans-serif !important; font-size: 16px !important; font-weight: 900 !important;
+                letter-spacing: 2px !important; text-transform: uppercase !important;
+                display: flex !important; justify-content: center !important; align-items: center !important;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.8) !important;
             }
-            .action-btn { padding: 12px 20px; font-size: 10px; background: rgba(0,0,0,0.7); }
 
-            #past-panel, #lyrics-panel { 
-                top: auto; bottom: 0; left: 0; right: 0; 
-                width: 100vw; max-width: 100vw; height: 75dvh; max-height: 75dvh; 
-                transform: translateY(100%); border-radius: 20px 20px 0 0; 
-                padding: 60px 20px 20px 20px; box-sizing: border-box; 
-                border: none; border-top: 1px solid rgba(255,255,255,0.2); 
-            }
-            body.past-panel-open #past-panel, body.lyrics-open #lyrics-panel { transform: translateY(0); }
-            
-            .panel-close-btn, .lyrics-close { top: 15px; right: 20px; background: rgba(255,255,255,0.1); }
-
-            /* --- PRESENTE MOBILE --- */
-            #ui-future { 
-                position: absolute; bottom: 20px; left: 15px; right: 15px; 
-                text-align: center; max-width: none; padding: 20px;
-                background: rgba(10, 10, 10, 0.85); border-radius: 12px; backdrop-filter: blur(10px);
-            }
-            .future-data { text-align: center; margin: 0 auto; }
-            .data-title { font-size: 2.8rem; }
-            .modern-review { margin: 15px auto; max-height: 12vh; font-size: 12px; }
-            #btn-listen { margin: 10px auto 0 auto; justify-content: center; }
-
-            body.lyrics-open model-viewer, body.past-panel-open model-viewer,
-            body.lyrics-open #view-2d, body.past-panel-open #view-2d { 
-                transform: translateY(-5vh); 
-            }
-            
             /* Responsive 2D Image on Mobile */
-            #view-2d { padding: 100px 20px 150px 20px; }
-            
-            #qr-modal { display: none !important; }
+            #view-2d { padding: 120px 20px 40px 20px !important; transform: none !important; }
         }
     </style>
     <script src="data.js"></script>
