@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abisso | I Volti dell'Ignoto</title>
+    <title>Riflessi di una vita mortale</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -66,14 +66,25 @@
         /* --- IL CUORE (PUNTO DI FUGA) --- */
         .void-center {
             position: absolute;
-            width: 300px; height: 300px;
+            width: auto; /* Lascia che si allarghi in base al testo */
+            min-width: 600px; /* Garantisce abbastanza spazio orizzontale */
+            height: 300px;
             z-index: 10;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center;
-            cursor: pointer; /* Indichiamo che è cliccabile */
+            cursor: pointer;
             transition: transform 1s ease-in-out, opacity 1s ease-in-out, filter 1s ease-in-out;
         }
 
+        .title-name {
+            font-size: 2.5rem; 
+            letter-spacing: 0.2em; 
+            text-transform: uppercase;
+            color: #fff; 
+            text-shadow: 0 0 30px rgba(255,255,255,0.2);
+            animation: breathe 4s infinite alternate;
+            white-space: nowrap; /* Impedisce al browser di andare a capo da solo */
+        }
         h1 {
             font-size: 10px; letter-spacing: 1.5em; text-transform: uppercase;
             opacity: 0.5; margin-bottom: 20px;
@@ -121,12 +132,12 @@
 
         <div class="void-center" onclick="startEntrance()">
             <h1>Riflessi</h1>
-            <div class="statue-name" id="current-statue">RIFLESSI DI UNA VITA MORTALE</div>
+            <div class="title-name" id="current-statue">RIFLESSI DI UNA<br>VITA MORTALE</div>
             <p class="text-[9px] mt-10 tracking-[1em] opacity-40">Tocca per entrare</p>
         </div>
     </div>
 
-    <div class="meta-info" id="meta">Galleria dell'Accademia / 2026</div>
+    <div class="meta-info" id="meta">Riflessi / 2026</div>
 
     <script>
         const prism = document.getElementById('prism');
@@ -167,7 +178,7 @@
         }
 
         // Cambio nome statua
-        const nomi = ["PERSEO", "MADDALENA", "AMORE", "PSICHE"];
+        const nomi = ["PERSEO", "MADDALENA", "AMORE", "PSICHE", "ORFEO", "ERCOLE", "LICA", "EURIDICE"];
         let i = 0;
         setInterval(() => {
             if (!isAnimating) {

@@ -344,12 +344,12 @@
         <button class="opera-link" onclick="openCritique()" style="color: #cba135; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; margin-bottom: 20px; width: 100%;">Leggi la Critica Curatoriale</button>
         
         <div class="opera-list">
-            <button class="opera-link" onclick="updateViewer('orfeo')">01. Orfeo ed Euridice</button>
-            <button class="opera-link" onclick="updateViewer('ercole')">02. Ercole e Lica</button>
-            <button class="opera-link" onclick="updateViewer('giacente')">03. Maddalena Giacente</button>
-            <button class="opera-link" onclick="updateViewer('penitente')">04. Maddalena Penitente</button>
-            <button class="opera-link" onclick="updateViewer('amore_psiche')">05. Amore e Psiche</button>
-            <button class="opera-link" onclick="updateViewer('perseo')">06. Perseo Trionfante</button>
+            <button class="opera-link" onclick="updateViewer('ercole')">01. Ercole e Lica</button>
+            <button class="opera-link" onclick="updateViewer('perseo')">02. Perseo Trionfante</button>
+            <button class="opera-link" onclick="updateViewer('amore_psiche')">03. Amore e Psiche</button>
+            <button class="opera-link" onclick="updateViewer('orfeo')">04. Orfeo ed Euridice</button>
+            <button class="opera-link" onclick="updateViewer('giacente')">05. Maddalena Giacente</button>
+            <button class="opera-link" onclick="updateViewer('penitente')">06. Maddalena Penitente</button>            
             <button class="opera-link" onclick="updateViewer('contemporanea')">07. Senza titolo</button>
             </div>
     </aside>
@@ -653,7 +653,7 @@ Il vero merito curatoriale sta però nell’intreccio con la cultura contemporan
             if (operaScelta && typeof databaseOpere !== 'undefined' && databaseOpere[operaScelta]) {
                 updateViewer(operaScelta);
             } else if (typeof databaseOpere !== 'undefined') {
-                updateViewer('perseo');
+                updateViewer('ercole');
             } else {
                 console.error("Errore: databaseOpere non trovato.");
             }

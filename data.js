@@ -15,7 +15,7 @@ Euridice non lo trattiene. Non può. Non è più abbastanza vicina da appartener
 Tra i due si apre qualcosa che non si richiude.
 
 E il resto non accade più. Perchè se chi parte non avrà più tempo per vivere, chi resta avrà troppo tempo per pensare al tempo che non si è compiuto.</p>`,
-        poesia: `"Ho sceso, dandoti il braccio, almeno un milione di scale<br>e ora che non ci sei è il vuoto ad ogni gradino.<br>
+        poesia: `Ho sceso, dandoti il braccio, almeno un milione di scale<br>e ora che non ci sei è il vuoto ad ogni gradino.<br>
 Anche così è stato breve il nostro lungo viaggio.<br>
 Il mio dura tuttora, nè più mi occorrono<br>
 le coincidenze, le prenotazioni,<br>
@@ -26,7 +26,7 @@ Ho sceso milioni di scale dandoti il braccio<br>
 non già perché con quattr'occhi forse si vede di più.<br>
 Con te le ho scese perché sapevo che di noi due<br>
 le sole vere pupille, sebbene tanto offuscate,<br>
-erano le tue."`,
+erano le tue.<br><br>(Eugenio Montale - Ho sceso dandoti il Braccio)`,
         traccia: 'HAPPIER',
         artista: 'MARSHMELLO & BASTILLE ',
         recensione: `La sindrome dell'overthinking resa marmo. Il dubbio che distrugge tutto a un passo dal traguardo.`,
@@ -115,7 +115,23 @@ In questo squilibrio la scena smette di essere mito. Rimane una verità più sco
 
 Canova non descrive la violenza nel suo svolgimento. La blocca un attimo prima che diventi inevitabile, quando è ancora possibile riconoscere che ciò che sta per accadere non dovrebbe accadere così — e proprio per questo è già accaduto troppo.
 </p>`,
-        poesia: `"La forza si fa cieca,<br>il cielo trema al grido dell'eroe spezzato."`,
+        poesia: `Un’intera nottata<br>
+buttato vicino<br>
+a un compagno<br>
+massacrato<br>
+con la sua bocca<br>
+digrignata<br>
+volta al plenilunio<br>
+con la congestione<br>
+delle sue mani<br>
+penetrata<br>
+nel mio silenzio<br>
+ho scritto<br>
+lettere piene d’amore<br>
+<br>
+Non sono mai stato<br>
+tanto<br>
+attaccato alla vita<br><br>(Giuseppe Ungaretti - Veglia)`,
         traccia: 'ZOMBIE',
         artista: 'THE CRANBERRIES',
         recensione: `La rabbia tossica e la perdita di controllo. Un'esplosione di energia cinetica imprigionata nella staticità della pietra.`,
@@ -202,7 +218,7 @@ Vagar mi fai co’ miei pensier sull’orme<br>
      Questo reo tempo, e van con lui le torme<br>
 Delle cure, onde meco egli si strugge;<br>
      E mentre io guardo la tua pace, dorme<br>
-     Quello spirto guerrier ch’entro mi rugge. <br><br>(Ugo Foscolo)`,
+     Quello spirto guerrier ch’entro mi rugge.<br><br>(Ugo Foscolo - Alla Sera)`,
         traccia: 'IL TESTAMENTO DI TITO',
         artista: 'DE ANDRÉ',
         recensione: `L'accettazione finale. Quando si smette di combattere e ci si lascia andare alla stasi totale.`,
@@ -300,7 +316,92 @@ Allora preferisco essere un ladro`
 <br>La morte, qui, non è rappresentata direttamente. È ciò che accade quando qualcosa in noi smette di appartenere al mondo precedente e continua a vivere solo come memoria, come distanza. Maddalena non è più ciò che era, ma non ha ancora imparato a essere altro.
 
 <br>Forse è questo il nucleo più inquieto dell’opera: non la redenzione, ma la convivenza con ciò che è già finito dentro di sé, mentre il corpo continua a restare nel tempo.</p>`,
-        poesia: `"Una croce stretta al petto scarno<br>le lacrime invisibili solcano la pietra."`,
+        poesia: `Forma che è in me piena di sapore e di morte,<br>
+questo iniquo connubio angelico<br>
+sopra un corpo caldo di baci.<br>
+Chi avrebbe mai detto<br>
+che mi avrebbero lapidata?<br>
+Ma tanto la mia bellezza<br>
+era un vuoto a perdere.<br>
+Stesa per terra, sporcata dai loro baci,<br>
+io guardo il cielo.<br>
+Nessuno ha mai capito,<br>
+mentre baciavano il mio corpo nudo,<br>
+che il mio sguardo era altrove,<br>
+che non provavo nessun piacere,<br>
+che entravano e uscivano dal mio corpo<br>
+senza alabarde,<br>
+guerrieri del nulla,<br>
+che combattevano una guerra<br>
+che io sola avevo vinto.<br>
+Il loro modo di baciare il mio corpo<br>
+era un modo come un altro per non parlare,<br>
+ma tu, Gesú, mi hai parlato,<br>
+e non hai visto soltanto le mie labbra,<br>
+ed è strano che il mio labbro<br>
+che non ha baciato nessuno<br>
+profumava di fiori.<br>
+Come mi hai amato, Signore,<br>
+come mi hai posseduta con la parola.<br>
+La tua parola mi ha dato un brivido<br>
+per tutto il corpo.<br>
+Non c’erano né leziosità né catene:<br>
+tu non volevi toccarmi,<br>
+in quel momento, Gesú,<br>
+ero tua madre giovane,<br>
+coronata dallo sguardo di Dio.<br>
+Lo so, mi avresti stretta al cuore,<br>
+e tutte le piaghe<br>
+che hanno inferto questi stupratori<br>
+si sono richiuse.<br>
+Era un corpo piagato fino allo spasimo,<br>
+eppure su quelle ferite<br>
+continuavano a buttare il sale<br>
+del loro disprezzo.<br>
+Come bruciavano le mie ferite, Signore.<br>
+Ma a un certo punto<br>
+io ho sentito il balsamo del tuo sguardo<br>
+e sono stata piena di oli e profumazioni.<br>
+Ero cosí intatta, Signore,<br>
+davanti al tuo sguardo<br>
+che tu hai visto e scelto<br>
+la prima discepola.<br>
+Tu hai guarito le mie piaghe, Signore,<br>
+le piaghe del mio spirito.<br>
+E cosí io sciolgo i miei capelli, Gesú,<br>
+per carezzarti i piedi,<br>
+affinché diventino un lino<br>
+che ti deterge dalla stanchezza.<br>
+Tutti credono che tu abbia percorso la Galilea,<br>
+ma gli altri non sanno<br>
+quanto cammino hai fatto.<br>
+Tu non hai camminato, Gesú,<br>
+sei volato sui monti e sugli abissi,<br>
+aquila dallo sguardo feroce e benevolo.<br>
+Tu non hai calpestato solo la terra<br>
+ma il cielo.<br>
+E mentre gli altri ti pensano comodo,<br>
+assiso ad una mensa,<br>
+non capiscono che tra poco non ci sarai piú,<br>
+perché sta scritto<br>
+che volerai verso il Padre tuo.<br>
+L’errore dell’uomo<br>
+è di credere che tu finirai i tuoi giorni<br>
+como qualsiasi essere mortale,<br>
+ma poiché sei il germe della creazione,<br>
+ma poiché vieni da molto lontano,<br>
+tu sei un Dio affaticato.<br>
+Il sale delle mie labbra guarirà<br>
+le tue molte ferite:<br>
+ti sei escoriato i piedi, Gesú,<br>
+lascia che te li medichi coi miei capelli,<br>
+sentirai nei miei capelli la frescura del lino<br>
+e le tue piaghe si richiuderanno.<br>
+In verità, Gesú,<br>
+non so chi mi abbia partecipato il tuo destino,<br>
+ma ti amo e di te so tutto,<br>
+come qualsiasi donna<br>
+che ama il proprio marito.<br><br>(Alda Merini - Maria Maddalena)`,
         traccia: 'The Sound of Silence',
         artista: 'Simon & Garfunkel',
         recensione: `Il senso di colpa come forza autodistruttiva.`,
@@ -326,22 +427,21 @@ Le mani non stringono. Trattengono appena.
 Il marmo non racconta una storia. La blocca nel punto in cui potrebbe interrompersi.
 
 E in quel punto la morte non è lontana. È semplicemente ciò che succede se quel gesto non arriva..</p>`,
-        poesia: `"Assomiglia a un dio,
-superiore, se è lecito, agli dei
-colui che guarda e insistentemente ascolta che ridi dolcemente
-te stando seduto di fronte
-ciò a me misero
-strappa tutti i sensi: infatti o Lesbia,
-appena ti vedo non mi rimane un filo di voce;
-ma la lingua si intorpidisce, una fiamma sottile
-si diffonde sotto le membra,
-le orecchie risuonano di un rimbombo particolare.
-Gli occhi si appannano di notte.
-L’ozio, o Catullo, ti è dannoso
-a causa dell’ozio ti esalti e sfreni troppo;
-l’ozio un tempo rovinò re e città prospere.
-
-"`,
+        poesia: `Assomiglia a un dio,<br>
+superiore, se è lecito, agli dei<br>
+colui che guarda e insistentemente ascolta che ridi dolcemente<br>
+te stando seduto di fronte<br>
+ciò a me misero<br>
+strappa tutti i sensi: infatti o Lesbia,<br>
+appena ti vedo non mi rimane un filo di voce;<br>
+ma la lingua si intorpidisce, una fiamma sottile<br>
+si diffonde sotto le membra,<br>
+le orecchie risuonano di un rimbombo particolare.<br>
+Gli occhi si appannano di notte.<br>
+L’ozio, o Catullo, ti è dannoso<br>
+a causa dell’ozio ti esalti e sfreni troppo;<br>
+l’ozio un tempo rovinò re e città prospere.<br><br>(Catullo - Carme 51)
+`,
         traccia: 'MERAVIGLIOSO AMORE MIO',
         artista: 'ARISA',
         recensione: `Un pezzo che esplora la connessione tra mente e desiderio.`,
@@ -392,22 +492,22 @@ Amore mio`
         tecnica: 'Marmo / <span>Marble</span>',
         testo: `<p>Che cosa resta di un uomo dopo aver guardato in faccia la morte?\nNel Perseo trionfante Antonio Canova non sceglie di rappresentare il combattimento, ma il silenzio che lo segue. Perseo appare immobile, distante, quasi privo di emozione. La vittoria non ha nulla di eroico o spettacolare: sembra piuttosto il momento in cui l’uomo prende coscienza di ciò che ha visto.\nMedusa non è soltanto un mostro sconfitto. Il suo sguardo che pietrifica diventa il simbolo della paura più profonda: quella del limite umano, del tempo, della morte. Perseo riesce a sopravvivere a quello sguardo, ma non può separarsene davvero. Continua a portarne il peso tra le mani, come una presenza destinata a seguirlo.
 In questo equilibrio tra bellezza e inquietudine, Canova trasforma il mito in una riflessione sulla condizione umana. Il trionfo non coincide con l’eliminazione della morte, ma con la capacità di sostenerne lo sguardo senza restare immobili di fronte ad esso.</p>`,
-        poesia: `"Come questa pietra
-del S. Michele 
-così fredda
-così dura
-così prosciugata 
-così refrattaria 
-così totalmente 
-disanimata.
-Come questa pietra
-è il mio pianto 
-che non si vede.
-La morte
-si sconta
-vivendo.
-Giuseppe Ungaretti, "Sono una creatura"
-"`,
+        poesia: `Come questa pietra<br>
+del S. Michele <br>
+così fredda<br>
+così dura<br>
+così prosciugata <br>
+così refrattaria <br>
+così totalmente <br>
+disanimata.<br>
+Come questa pietra<br>
+è il mio pianto <br>
+che non si vede.<br>
+La morte<br>
+si sconta<br>
+vivendo.<br><br>
+(Giuseppe Ungaretti - Sono una creatura)
+`,
         traccia: 'BELIEVER',
         artista: 'IMAGINE DRAGONS',
         recensione: `Un'opera che spacca i canoni. Il problem-solving sotto stress.`,
@@ -499,7 +599,23 @@ La gente nel vedere quelle caramelle nell'angolo del museo si chiedeva quello ch
 Ed è così che le caramelle diminuivano, come il peso di Ross ammalato.
 L'arte come metafora della vita, della morte e della malattia che sta in mezzo.
 Diceva Felix: "La mia opera d'arte, senza un osservatore, non avrebbe alcun significato e diventerebbe l'ennesima noiosissima scultura buttata lì per terra. La mia opera invece non è niente del genere. Essa prevede interazione e grande collaborazione da parte dell'osservatore [ ... ]. Il mio lavoro può essere tra il pubblico e il privato, tra il personale e il sociale, tra la perdita e la gioia di amare, di crescere, di cambiare, di diventare sempre più."</p>`,
-        poesia: ``,
+        poesia: `Un dì, s'io non andrò sempre fuggendo<br>
+di gente in gente, mi vedrai seduto<br>
+du la tua pietra, o fratel mio, gemendo<br>
+il fior de' tuoi gentili anni caduto:<br>
+
+la madre or sol, suo dì tardo traendo,<br>
+parla di me col tuo cenere muto:<br>
+ma io deluse a voi le palme tendo;<br>
+e se da lunge i miei tetti saluto,<br><br>
+
+sento gli avversi Numi, e le secrete<br>
+cure che al viver tuo furon tempesta;<br>
+e prego anch'io nel tuo porto quiete:<br><br>
+
+questo di tanta speme oggi mi resta!<br>
+straniere genti, l'ossa mie rendete<br>
+allora al petto della madre mesta.<br><br>(Ugo Foscolo - In morte al fratello Giovanni)`,
         
         // Dati per il Presente (modificali tu se hai un brano in mente)
         traccia: 'FADED',
