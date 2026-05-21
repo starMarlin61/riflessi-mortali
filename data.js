@@ -4,17 +4,12 @@ const databaseOpere = {
         autore: 'Antonio Canova',
         titolo: 'Orfeo ed Euridice',
         titoloEn: 'Orpheus and Eurydice',
-        anno: '1773 - 1775',
+        anno: '1775 - 1776',
         tecnica: 'Marmo / <span>Marble</span>',
-        testo: `<p>Basta un istante per perdere ciò che si sta ancora salvando.
-
-Orfeo si volta e non c’è più tempo per capire se sia errore o necessità. Solo il gesto, già compiuto.
-
-Euridice non lo trattiene. Non può. Non è più abbastanza vicina da appartenere a quel gesto.
-
-Tra i due si apre qualcosa che non si richiude.
-
-E il resto non accade più. Perchè se chi parte non avrà più tempo per vivere, chi resta avrà troppo tempo per pensare al tempo che non si è compiuto.</p>`,
+        testo: `<p>Di te cantava, al nascere del giorno. Di te, al suo morire.<br>
+Qui la Contrattazione fallisce brutalmente, svelando la fragilità umana. Orfeo stringe un accordo con il dio degli Inferi per riavere Euridice ed egli accetta, a patto che orfeo non si volti durante la risalita. Sono l'ansia e l'incapacità di tollerare il vuoto dell'attesa che divorano Orfeo: cede al dubbio e si volta per cercare il riflesso visivo dell'amata, rompendo il patto.<br>
+Canova scolpisce l'attimo del crollo: Orfeo compie il gesto impulsivo, protendendo il braccio nel vuoto, ma Euridice è già richiamata indietro da una forza invisibile. Lei non lo trattiene, non può; la sua figura scivola via, non più abbastanza vicina da appartenere a quel gesto. Tra i due si apre una distanza che non si richiude. Chi parte non ha più tempo per vivere; chi resta avrà troppo tempo per pensare al tempo che non si è compiuto.
+</p>`,
         poesia: `Ho sceso, dandoti il braccio, almeno un milione di scale<br>e ora che non ci sei è il vuoto ad ogni gradino.<br>
 Anche così è stato breve il nostro lungo viaggio.<br>
 Il mio dura tuttora, nè più mi occorrono<br>
@@ -190,21 +185,10 @@ Zombie, zombie, zombie-ie-ie, oh-oh-oh-oh-oh-oh-oh`
         titoloEn: 'Recumbent Magdalene',
         anno: '1819 - 1822',
         tecnica: 'Marmo / <span>Marble</span>',
-        testo: `<p>È quando non ti resta più niente che addormentarsi per sempre sembra pace.<br><br>
-
-La Maddalena giacente di Antonio Canova nasce da questa soglia silenziosa, dove la fatica di vivere non ha più bisogno di essere spiegata.
-
-Maria Maddalena, nella tradizione, ha già attraversato tutto: la vita precedente, la rottura, la scelta di sottrarsi al mondo. Ma ciò che Canova sembra cogliere non è il momento della conversione, bensì quello successivo, quando anche il cambiamento ha smesso di fare rumore. Quando non c’è più nulla da dimostrare, né a Dio né a sé stessi.
-
-Resta solo una stanchezza senza scena. Un’intimità che non chiede testimoni.
-
-La sua storia materiale sembra quasi seguire la stessa traiettoria: dopo la morte di Canova l’opera viene dimenticata, dispersa, fino a essere venduta come semplice figura da giardino, coperta di polvere e vegetazione. Non un capolavoro perduto, ma un oggetto qualsiasi tra gli altri.
-
-E forse è proprio questo che inquieta di più: non la caduta, ma la possibilità che ciò che è stato profondissimo possa diventare invisibile senza opporre resistenza.
-
-Poi il ritrovamento, il restauro, il ritorno alla luce. Come se anche il senso delle cose, a volte, dovesse passare attraverso l’oblio per essere riconosciuto di nuovo.
-
-Ma l’immagine resta quella iniziale: quando non ti resta più niente, anche il silenzio può sembrare una forma di pace.</p>`,
+        testo: `<p>È quando non ti resta più niente che addormentarsi per sempre sembra pace.<br>
+La Maddalena Giacente nasce da questa soglia silenziosa, dove la fatica di vivere non ha più bisogno di spiegazioni. Maria Maddalena ha già attraversato tutto; ciò che Canova coglie è il momento successivo, quando anche il cambiamento smette di fare rumore. Resta solo una stanchezza senza scena, un’intimità che non chiede testimoni.<br>
+La sua storia materiale segue la stessa traiettoria: dimenticata dopo la morte dell’artista, l'opera fu dispersa e venduta come una comune statua da giardino, sbiadendo nell'oblio. Inquieta la possibilità che ciò che è stato profondissimo possa diventare invisibile senza opporre resistenza.<br>
+In questo spazio della Depressione, il Riflesso si spegne. Fallita ogni contrattazione con la perdita, il corpo nudo si arrende alla gravità del marmo e abdica al dolore, cercando nel silenzio l’unica forma di pace possibile.</p>`,
         poesia: `Forse perchè della fatal quïete<br>
      Tu sei l’immago, a me sì cara vieni,<br>
      O Sera? E quando ti corteggian liete<br>
@@ -311,11 +295,10 @@ Allora preferisco essere un ladro`
         titoloEn: 'Penitent Magdalene',
         anno: '1793 - 1796',
         tecnica: 'Marmo / <span>Marble</span>',
-        testo: `<p>Che cosa significa continuare a esistere quando una parte di sé è già morta?<br>Maria Maddalena abbandona la propria vita precedente dopo l’incontro con Cristo, rinuncia alla ricchezza e alla mondanità per una vita di isolamento e penitenza nel deserto. Canova non rappresenta il momento della svolta, ma ciò che segue. La Maddalena non è più la donna del passato, ma non è nemmeno qualcosa di compiuto. È sospesa in una condizione intermedia, come se la trasformazione non avesse una forma definitiva. <br>Il corpo fragile, lo sguardo abbassato, le mani abbandonate non raccontano soltanto il pentimento, ma una perdita più radicale: quella di una parte di sé che non può essere recuperata. In questo senso, la figura sembra abitare uno spazio vicino alla morte, non come evento finale, ma come separazione irreversibile.
-
-<br>La morte, qui, non è rappresentata direttamente. È ciò che accade quando qualcosa in noi smette di appartenere al mondo precedente e continua a vivere solo come memoria, come distanza. Maddalena non è più ciò che era, ma non ha ancora imparato a essere altro.
-
-<br>Forse è questo il nucleo più inquieto dell’opera: non la redenzione, ma la convivenza con ciò che è già finito dentro di sé, mentre il corpo continua a restare nel tempo.</p>`,
+        testo: `<p>Che cosa significa continuare a esistere quando una parte di sé è già morta?<br>
+La Maddalena Penitente abita la fase dell’Accettazione. Canova la ritrae inginocchiata nel deserto, sospesa in una condizione intermedia: il corpo fragile, le mani abbandonate e lo sguardo abbassato su un teschio. La parola torna a essere Riflessione: il teschio è lo specchio ultimo in cui la vita guarda la propria finitudine. Non c'è più la disperazione della caduta, ma la convivenza con ciò che è già finito dentro di sé, mentre il corpo continua a restare nel tempo.<br>
+Qui risuona il suono del silenzio: quel silenzio che si muove tra "persone che parlano senza comunicare e ascoltano senza sentire". Accettare il lutto significa questo: abitare il vuoto, imparare a camminare da soli in quella distanza dove qualcosa in noi ha smesso per sempre di appartenere al mondo.
+</p>`,
         poesia: `Forma che è in me piena di sapore e di morte,<br>
 questo iniquo connubio angelico<br>
 sopra un corpo caldo di baci.<br>
@@ -414,19 +397,10 @@ che ama il proprio marito.<br><br>(Alda Merini - Maria Maddalena)`,
         titoloEn: 'Psyche Revived by Cupid\'s Kiss',
         anno: '1787 - 1793',
         tecnica: 'Marmo / <span>Marble</span>',
-        testo: `<p>Non è un incontro. È un attimo prima che qualcosa possa sparire.
-
-Psiche è già oltre la soglia. Ha guardato dove non doveva guardare, e da lì la sua vita non è più intera. Non è più salva, non è ancora perduta.
-
-Amore scende, ma non come salvezza sicura. Più come possibilità.
-
-Tra le labbra resta uno spazio minuscolo. Quasi niente. Eppure lì si decide tutto: contatto o perdita.
-
-Le mani non stringono. Trattengono appena.
-
-Il marmo non racconta una storia. La blocca nel punto in cui potrebbe interrompersi.
-
-E in quel punto la morte non è lontana. È semplicemente ciò che succede se quel gesto non arriva..</p>`,
+        testo: `<p>Non è un incontro. È un attimo prima che qualcosa possa sparire.<br>
+Canova scolpisce l'attimo successivo al risveglio, quando il sonno infernale causato dal vaso di Proserpina è ormai passato. Osservando il gruppo, i corpi nudi degli amanti si intersecano dando vita a una morbida X che fa librare l'opera nello spazio. Psiche, semidistesa, rivolge il viso verso l'alto e alza le braccia per accogliere Amore, che si china in avanti inarcando il torso. Le loro braccia intrecciate formano un cerchio perfetto, un tondo che incornicia i volti e accentua i pochi centimetri che dividono le labbra.<br>
+Questo abbraccio incarna la fase della Contrattazione: l'illusione disperata che l'amore possa negoziare con la morte, sospendendo il tempo. Nel tocco delle mani il marmo si riflette come carne viva, ma in quei pochi centimetri che dividono le bocche si decide tutto: contatto o perdita.
+</p>`,
         poesia: `Assomiglia a un dio,<br>
 superiore, se è lecito, agli dei<br>
 colui che guarda e insistentemente ascolta che ridi dolcemente<br>
@@ -490,8 +464,13 @@ Amore mio`
         titoloEn: 'Triumphant Perseus',
         anno: '1797 - 1801',
         tecnica: 'Marmo / <span>Marble</span>',
-        testo: `<p>Che cosa resta di un uomo dopo aver guardato in faccia la morte?\nNel Perseo trionfante Antonio Canova non sceglie di rappresentare il combattimento, ma il silenzio che lo segue. Perseo appare immobile, distante, quasi privo di emozione. La vittoria non ha nulla di eroico o spettacolare: sembra piuttosto il momento in cui l’uomo prende coscienza di ciò che ha visto.\nMedusa non è soltanto un mostro sconfitto. Il suo sguardo che pietrifica diventa il simbolo della paura più profonda: quella del limite umano, del tempo, della morte. Perseo riesce a sopravvivere a quello sguardo, ma non può separarsene davvero. Continua a portarne il peso tra le mani, come una presenza destinata a seguirlo.
-In questo equilibrio tra bellezza e inquietudine, Canova trasforma il mito in una riflessione sulla condizione umana. Il trionfo non coincide con l’eliminazione della morte, ma con la capacità di sostenerne lo sguardo senza restare immobili di fronte ad esso.</p>`,
+        testo: `<p>Che cosa resta di un uomo dopo aver guardato in faccia la morte?<br>
+        Nel Perseo trionfante, l'eroe appare immobile, distante, avvolto in un'elegante compostezza che la critica dell'epoca definì fin troppo "apollinea" e aggraziata per un guerriero.<br>
+Secondo la letterata Isabella Teotochi Albrizzi, l’opera è in grado di esprimere al contempo due principi contrapposti, ossia quelli dell' "ira cessante" e del "piacere nascente"<br>
+La rabbia non è un grido eterno, ma un picco di energia distruttiva che si attiva per combattere il mostro del dolore e che si placa solo quando l'azione è compiuta. <br>
+Medusa non è soltanto un mostro sconfitto. Il suo sguardo che pietrifica diventa il simbolo della paura più profonda: quella del limite umano, del tempo, della fine. <br>
+La vittoria non ha nulla di eroico o spettacolare; è il momento in cui l’uomo riprende il controllo di sé e della propria vita mortale; il trionfo non coincide con l’eliminazione della morte, ma con la capacità di guardarla in faccia senza restare immobili di fronte ad essa.
+</p>`,
         poesia: `Come questa pietra<br>
 del S. Michele <br>
 così fredda<br>
@@ -593,12 +572,13 @@ You made me a, you made me a believer, believer`
         titoloEn: '(Portrait of Ross in L.A.)',
         anno: '1991',
         tecnica: 'Installazione / <span>installation</span>',
-        testo: `<p>Si può rappresentare il lento spegnerci di una malattia che ci consuma? La risposta è sì.
-Il mucchio di caramelle è l'opera che Félix González-Torres fece per il suo compagno, per il suo grande amore Ross.
-La gente nel vedere quelle caramelle nell'angolo del museo si chiedeva quello che ognuno di noi ancora oggi chiederebbe: "Posso prenderne una?" La risposta era: "Sì, certo!".
-Ed è così che le caramelle diminuivano, come il peso di Ross ammalato.
-L'arte come metafora della vita, della morte e della malattia che sta in mezzo.
-Diceva Felix: "La mia opera d'arte, senza un osservatore, non avrebbe alcun significato e diventerebbe l'ennesima noiosissima scultura buttata lì per terra. La mia opera invece non è niente del genere. Essa prevede interazione e grande collaborazione da parte dell'osservatore [ ... ]. Il mio lavoro può essere tra il pubblico e il privato, tra il personale e il sociale, tra la perdita e la gioia di amare, di crescere, di cambiare, di diventare sempre più."</p>`,
+        testo: `<p>Si può rappresentare il lento consumarsi di una vita?<br>
+Quest'opera di Félix González-Torres per il compagno Ross, morto di AIDS, ridefinisce il concetto stesso di lutto attraverso due aspetti. 
+<br>Il primo è che il lutto cambia forma ogni secondo: il cumulo di 79 kg di caramelle non è mai uguale a se stesso, diminuisce con il passaggio del pubblico, replicando il deperimento fisico di Ross. 
+<br>Il secondo è il paradosso della permanenza: ogni mattina il museo reintegra il peso originario. Ross svanisce, ma si rigenera continuamente attraverso la memoria collettiva.
+Il visitatore che scarta e mangia la caramella compie l'ultima fase del lutto: la Ricerca di Senso.<br>
+"La mia opera d'arte, senza un osservatore, non avrebbe alcun significato e diventerebbe l'ennesima noiosissima scultura buttata lì per terra. La mia opera invece non è niente del genere. Essa prevede interazione e grande collaborazione da parte dell'osservatore [ ... ]. Il mio lavoro può essere tra il pubblico e il privato, tra il personale e il sociale, tra la perdita e la gioia di amare, di crescere, di cambiare, di diventare sempre più."
+</p>`,
         poesia: `Un dì, s'io non andrò sempre fuggendo<br>
 di gente in gente, mi vedrai seduto<br>
 du la tua pietra, o fratel mio, gemendo<br>

@@ -187,25 +187,25 @@
                 <h2 class="card-title">Perseo Trionfante</h2>
             </div>
             
-            <div class="gallery-card" onclick="entraNelMuseo('giacente')">
+            <div class="gallery-card" onclick="entraNelMuseo('amore_psiche')">
                 <span class="card-bg-num">03</span>
                 <span class="card-num">OP.03</span>
                 <h2 class="card-title">Amore e Psiche</h2>
             </div>
             
-            <div class="gallery-card" onclick="entraNelMuseo('penitente')">
+            <div class="gallery-card" onclick="entraNelMuseo('orfeo')">
                 <span class="card-bg-num">04</span>
                 <span class="card-num">OP.04</span>
                 <h2 class="card-title">Orfeo ed Euridice</h2>
             </div>
             
-            <div class="gallery-card" onclick="entraNelMuseo('amore_psiche')">
+            <div class="gallery-card" onclick="entraNelMuseo('giacente')">
                 <span class="card-bg-num">05</span>
                 <span class="card-num">OP.05</span>
                 <h2 class="card-title">Maddalena Giacente</h2>
             </div>
             
-            <div class="gallery-card" onclick="entraNelMuseo('perseo')">
+            <div class="gallery-card" onclick="entraNelMuseo('penitente')">
                 <span class="card-bg-num">06</span>
                 <span class="card-num">OP.06</span>
                 <h2 class="card-title">Maddalena Penitente</h2>
@@ -222,9 +222,20 @@
             setTimeout(() => {
                 window.location.href = `museo.html?opera=${idOpera}`;
             }, 800);
-
-
         }
+
+        // --- FUNZIONE PER LO SCHERMO INTERO PREMENDO 'F' ---
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'f' || event.key === 'F') {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().catch(err => {
+                        console.log(`Errore nell'attivazione del fullscreen: ${err.message}`);
+                    });
+                } else {
+                    document.exitFullscreen();
+                }
+            }
+        });
     </script>
 
 </body>
