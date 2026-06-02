@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Santuario | Riflessi di una vita mortale</title>
 
+    <link rel="preload" href="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js" as="script" crossorigin="anonymous">
+    <link rel="preload" href="models/nome-del-file-di-ercole.glb" as="fetch" crossorigin="anonymous">
+
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 
     <style>
@@ -25,64 +28,6 @@
             overflow: hidden;
             transition: background-color 0.8s ease, color 0.8s ease;
         }
-
-        /* --- LOADER TRASPARENTE --- */
-        #loader {
-            position: fixed;
-            inset: 0;
-            background: transparent; /* Sfondo rimosso */
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            pointer-events: none; /* Permette di cliccare la UI anche durante il caricamento */
-            opacity: 1;
-            transition: opacity 0.5s ease;
-        }
-
-        #loader.opacity-0 {
-            opacity: 0;
-        }
-
-        .loader-line {
-            width: 64px;
-            height: 1px;
-            background: #4a4a4a;
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 16px;
-        }
-
-        .loader-line::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: #e5e5e5;
-            animation: loading 1.5s infinite ease-in-out;
-        }
-
-        .loader-text {
-            font-family: 'Cinzel', serif;
-            font-size: 10px;
-            letter-spacing: 0.5em;
-            color: var(--silver);
-            text-transform: uppercase;
-            animation: pulse 1.5s infinite;
-            text-shadow: 0 0 10px rgba(0,0,0,0.8); /* Aggiunta ombra per leggibilità */
-        }
-
-        @keyframes loading {
-            0% { transform: translateX(-100%); }
-            50% { transform: translateX(0%); }
-            100% { transform: translateX(100%); }
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 1; }
-        }
-        
 
         /* --- EFFETTO DISTORSIONE --- */
         .glitch-silver {
@@ -379,10 +324,6 @@
 
 </head>
 <body class="sidebar-hidden" id="main-body">
-    <div id="loader">
-        <div class="loader-line"></div>
-        <div class="loader-text">Caricamento</div>
-    </div>
     
     <div class="glitch-silver"></div>
 
@@ -473,6 +414,7 @@
             bounds="tight"
             camera-controls 
             auto-rotate 
+            loading="eager" 
             interaction-prompt="none"
             shadow-intensity="1" 
             environment-image="neutral"
@@ -572,33 +514,8 @@ Il vero merito curatoriale sta però nell’intreccio con la cultura contemporan
             document.body.classList.remove('past-panel-open');
         }
 
-        // --- GESTIONE LOADER TRASPARENTE ---
-        function showLoader() {
-            const loader = document.getElementById('loader');
-            if (loader) {
-                loader.style.display = 'flex';
-                // Richiediamo un frame per far attivare la transizione CSS
-                requestAnimationFrame(() => {
-                    loader.classList.remove('opacity-0');
-                });
-            }
-        }
-
-        function hideLoader() {
-            const loader = document.getElementById('loader');
-            if (loader && !loader.classList.contains('opacity-0')) {
-                loader.classList.add('opacity-0');
-                setTimeout(() => {
-                    loader.style.display = 'none';
-                }, 500); // 500ms per allinearsi con l'animazione di sbiadimento
-            }
-        }
-
-        // Funzione originale di update pulita
+        // Funzione di aggiornamento ripulita dai loader
         function updateViewer(idOpera) {
-            // Mostra il testo "Caricamento" prima di cambiare opera
-            showLoader();
-
             const data = databaseOpere[idOpera];
             const viewer3D = document.getElementById('view');
             const viewer2D = document.getElementById('view-2d');
@@ -614,16 +531,13 @@ Il vero merito curatoriale sta però nell’intreccio con la cultura contemporan
             document.getElementById('placard-title-en').innerText = data.titoloEn || data.titolo;
             document.getElementById('placard-medium').innerHTML = data.tecnica || "Marmo/ <span>Marble</span>";
             
-            // Popola Dati Pannelli Passato
+            // Popola Dati Pannelli Passato e Presente
             document.getElementById('opera-desc').innerHTML = data.testo;
             document.getElementById('opera-poem').innerHTML = data.poesia;
-            
-            // Popola Dati Presente
             document.getElementById('future-track').innerText = data.traccia;
             document.getElementById('future-artist').innerText = `// ${data.artista}`;
             document.getElementById('modern-review').innerHTML = data.recensione;
             
-            // Popola Pannello Giallo
             document.getElementById('lyrics-panel-title').innerText = data.traccia;
             document.getElementById('lyrics-content').innerHTML = data.testoCanzone;
             
@@ -641,21 +555,16 @@ Il vero merito curatoriale sta però nell’intreccio con la cultura contemporan
             if (data.tipo === 'immagine') {
                 viewer3D.style.display = 'none';
                 viewer2D.style.display = 'block';
-                viewer2D.src = `img/${data.file}`;
                 if (qrBox) qrBox.style.display = 'none'; 
                 
-                // Nascondi loader appena l'immagine è caricata
-                viewer2D.onload = () => {
-                    hideLoader();
-                };
+                viewer2D.src = `img/${data.file}`;
+                
             } else {
                 viewer3D.style.display = 'block';
                 viewer2D.style.display = 'none';
-                viewer3D.src = `models/${data.file}.glb`;
                 if (qrBox && window.innerWidth > 768) qrBox.style.display = 'flex';
                 if (qrBox && window.innerWidth <= 768) qrBox.style.display = 'none'; 
                 
-                // Nascondi loader appena il 3D è caricato e pronto
                 viewer3D.addEventListener('load', () => {
                     if (document.body.classList.contains('future-mode')) {
                         setMode('future');
@@ -663,8 +572,14 @@ Il vero merito curatoriale sta però nell’intreccio con la cultura contemporan
                         setMode('past');
                     }
                     updateInteraction();
-                    hideLoader();
                 }, { once: true });
+
+                viewer3D.addEventListener('error', (err) => {
+                    console.error(`Impossibile caricare il file 3D per: ${idOpera}. Controlla il nome del file.`, err);
+                }, { once: true });
+
+                // Avvia il caricamento
+                viewer3D.src = `models/${data.file}.glb`;
             }
 
             setTimeout(() => { 
@@ -738,19 +653,22 @@ Il vero merito curatoriale sta però nell’intreccio con la cultura contemporan
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            const parametriUrl = new URLSearchParams(window.location.search);
-            const operaScelta = parametriUrl.get('opera');
-            
-            if (operaScelta && typeof databaseOpere !== 'undefined' && databaseOpere[operaScelta]) {
-                updateViewer(operaScelta);
-            } else if (typeof databaseOpere !== 'undefined') {
-                updateViewer('ercole');
-            } else {
-                console.error("Errore: databaseOpere non trovato.");
-                hideLoader();
-            }
-            
-            updateInteraction();
+            // LA RIGA MAGICA: Aspetta che il motore 3D sia pronto prima di fare qualsiasi cosa
+            customElements.whenDefined('model-viewer').then(() => {
+                
+                const parametriUrl = new URLSearchParams(window.location.search);
+                const operaScelta = parametriUrl.get('opera');
+                
+                if (operaScelta && typeof databaseOpere !== 'undefined' && databaseOpere[operaScelta]) {
+                    updateViewer(operaScelta);
+                } else if (typeof databaseOpere !== 'undefined') {
+                    updateViewer('ercole');
+                } else {
+                    console.error("Errore: databaseOpere non trovato.");
+                }
+                
+                updateInteraction();
+            });
         });
 
         window.addEventListener('resize', updateInteraction);
