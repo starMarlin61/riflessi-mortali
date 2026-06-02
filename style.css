@@ -17,6 +17,8 @@
             transition: background-color 0.8s ease, color 0.8s ease;
         }
 
+   
+
         /* --- EFFETTO DISTORSIONE --- */
         .glitch-silver {
             position: fixed; inset: 0;

@@ -26,6 +26,76 @@
             transition: background-color 0.8s ease, color 0.8s ease;
         }
 
+        /* LOADER */
+#loader {
+    position: fixed;
+    inset: 0;
+    background: #030303;
+    z-index: 9999;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    pointer-events: auto;
+
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+#loader.opacity-0 {
+    opacity: 0;
+}
+
+.loader-line {
+    width: 64px;
+    height: 1px;
+    background: #4a4a4a;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.loader-line::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #e5e5e5;
+    animation: loading 1.5s infinite ease-in-out;
+}
+
+.loader-text {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.5em;
+    color: #4a4a4a;
+    text-transform: uppercase;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+        
+
         /* --- EFFETTO DISTORSIONE --- */
         .glitch-silver {
             position: fixed; inset: 0;
@@ -326,6 +396,11 @@
 
 </head>
 <body class="sidebar-hidden" id="main-body">
+    <div id="loader">
+    <div class="loader-line"></div>
+    <div class="loader-text">
+        Caricamento
+    </div>
     <div class="glitch-silver"></div>
 
     <button id="toggle-menu" onclick="toggleSidebar()">
@@ -519,6 +594,9 @@ Il vero merito curatoriale sta però nell’intreccio con la cultura contemporan
             const viewer3D = document.getElementById('view');
             const viewer2D = document.getElementById('view-2d');
             const qrBox = document.querySelector('.qr-box');
+
+            const nuovaUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?opera=" + idOpera;
+            window.history.replaceState({ path: nuovaUrl }, '', nuovaUrl);
             
             // LOGICA DOPPIO MOTORE: 3D vs 2D
             if (data.tipo === 'immagine') {
@@ -670,6 +748,19 @@ Il vero merito curatoriale sta però nell’intreccio con la cultura contemporan
             }
         });
 
+        // Nasconde il loader quando la pagina è completamente caricata
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            
+            // Primo step: fa sfumare l'opacità (grazie a transition-opacity di Tailwind)
+            loader.classList.add('opacity-0');
+            
+            // Secondo step: toglie l'elemento dal mouse dopo la sfumatura per permettere i click sul sito
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 1000); // 1000ms corrisponde a duration-1000 del transition
+        });
+
         function toggleFullScreen() {
             if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen().catch(err => {
@@ -678,9 +769,8 @@ Il vero merito curatoriale sta però nell’intreccio con la cultura contemporan
             } else {
                 if (document.exitFullscreen) {
                     document.exitFullscreen();
-                }
             }
-        };
+        }};
     </script>
 </body>
 </html>
