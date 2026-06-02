@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Santuario | Riflessi di una vita mortale</title>
 
-    <link rel="preload" href="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js" as="script" crossorigin="anonymous">
-    <link rel="preload" href="models/nome-del-file-di-ercole.glb" as="fetch" crossorigin="anonymous">
-
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 
     <style>
@@ -410,7 +407,6 @@
         <img id="view-2d" src="" alt="Opera 2D">
 
         <model-viewer id="view" 
-            src="" 
             bounds="tight"
             camera-controls 
             auto-rotate 
@@ -652,10 +648,10 @@ Il vero merito curatoriale sta però nell’intreccio con la cultura contemporan
             document.getElementById('lyrics-panel').classList.remove('active');
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            // LA RIGA MAGICA: Aspetta che il motore 3D sia pronto prima di fare qualsiasi cosa
-            customElements.whenDefined('model-viewer').then(() => {
-                
+        // Il fix definitivo per il primo caricamento
+        window.addEventListener('load', () => {
+            // Diamo al browser 50 millisecondi di respiro per montare il DOM correttamente
+            setTimeout(() => {
                 const parametriUrl = new URLSearchParams(window.location.search);
                 const operaScelta = parametriUrl.get('opera');
                 
@@ -668,7 +664,7 @@ Il vero merito curatoriale sta però nell’intreccio con la cultura contemporan
                 }
                 
                 updateInteraction();
-            });
+            }, 50); 
         });
 
         window.addEventListener('resize', updateInteraction);
