@@ -26,74 +26,62 @@
             transition: background-color 0.8s ease, color 0.8s ease;
         }
 
-        /* LOADER */
-#loader {
-    position: fixed;
-    inset: 0;
-    background: #030303;
-    z-index: 9999;
+        /* --- LOADER TRASPARENTE --- */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: transparent; /* Sfondo rimosso */
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none; /* Permette di cliccare la UI anche durante il caricamento */
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+        #loader.opacity-0 {
+            opacity: 0;
+        }
 
-    pointer-events: auto;
+        .loader-line {
+            width: 64px;
+            height: 1px;
+            background: #4a4a4a;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
 
-    opacity: 1;
-    transition: opacity 1s ease;
-}
+        .loader-line::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: #e5e5e5;
+            animation: loading 1.5s infinite ease-in-out;
+        }
 
-#loader.opacity-0 {
-    opacity: 0;
-}
+        .loader-text {
+            font-family: 'Cinzel', serif;
+            font-size: 10px;
+            letter-spacing: 0.5em;
+            color: var(--silver);
+            text-transform: uppercase;
+            animation: pulse 1.5s infinite;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8); /* Aggiunta ombra per leggibilità */
+        }
 
-.loader-line {
-    width: 64px;
-    height: 1px;
-    background: #4a4a4a;
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 16px;
-}
+        @keyframes loading {
+            0% { transform: translateX(-100%); }
+            50% { transform: translateX(0%); }
+            100% { transform: translateX(100%); }
+        }
 
-.loader-line::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: #e5e5e5;
-    animation: loading 1.5s infinite ease-in-out;
-}
-
-.loader-text {
-    font-family: 'Cinzel', serif;
-    font-size: 10px;
-    letter-spacing: 0.5em;
-    color: #4a4a4a;
-    text-transform: uppercase;
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes loading {
-    0% {
-        transform: translateX(-100%);
-    }
-    50% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
-}
-
-@keyframes pulse {
-    0%, 100% {
-        opacity: 0.4;
-    }
-    50% {
-        opacity: 1;
-    }
-}
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
         
 
         /* --- EFFETTO DISTORSIONE --- */
@@ -352,7 +340,6 @@
         body.future-mode #ui-past-label, body.future-mode #ui-past-actions, body.future-mode #past-panel { display: none; }
         body.future-mode .future-data { display: block; color: #000; pointer-events: all; }
 
-
         /* ========================================= */
         /* --- LAYOUT MOBILE: COMPANION AR APP ----- */
         /* ========================================= */
@@ -360,13 +347,11 @@
             body, #viewer-container { height: 100dvh; overflow: hidden; display: flex; justify-content: center; align-items: center; }
             model-viewer { height: 100dvh; width: 100vw; position: absolute; inset: 0; }
             
-            /* Nascondiamo tutto ciò che è superfluo per la visualizzazione AR */
             #sidebar, #toggle-menu, .mode-switch, #ui-past-actions, 
             #past-panel, #ui-future, #lyrics-panel, .qr-box, .placard-extra, #qr-modal { 
                 display: none !important; 
             }
 
-            /* Cartellino Semplificato (Solo Titolo e Autore) ancorato in alto */
             #ui-past-label { 
                 position: absolute; top: 40px; bottom: auto; left: 20px; right: 20px; width: auto; 
                 margin: 0; padding: 0; border: none; background: transparent; 
@@ -375,7 +360,6 @@
             .placard-title { font-size: 26px; text-shadow: 0 4px 15px rgba(0,0,0,1); margin-bottom: 5px; }
             .placard-author { font-size: 14px; text-shadow: 0 2px 10px rgba(0,0,0,1); opacity: 0.8; }
 
-            /* Tasto AR reso gigantesco ed elegante in basso */
             #ar-button {
                 position: absolute !important; left: 20px !important; right: 20px !important; bottom: 40px !important;
                 width: calc(100vw - 40px) !important; height: 60px !important;
@@ -388,7 +372,6 @@
                 box-shadow: 0 10px 30px rgba(0,0,0,0.8) !important;
             }
 
-            /* Responsive 2D Image on Mobile */
             #view-2d { padding: 120px 20px 40px 20px !important; transform: none !important; }
         }
     </style>
@@ -397,10 +380,10 @@
 </head>
 <body class="sidebar-hidden" id="main-body">
     <div id="loader">
-    <div class="loader-line"></div>
-    <div class="loader-text">
-        Caricamento
+        <div class="loader-line"></div>
+        <div class="loader-text">Caricamento</div>
     </div>
+    
     <div class="glitch-silver"></div>
 
     <button id="toggle-menu" onclick="toggleSidebar()">
@@ -589,7 +572,33 @@ Il vero merito curatoriale sta però nell’intreccio con la cultura contemporan
             document.body.classList.remove('past-panel-open');
         }
 
+        // --- GESTIONE LOADER TRASPARENTE ---
+        function showLoader() {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                loader.style.display = 'flex';
+                // Richiediamo un frame per far attivare la transizione CSS
+                requestAnimationFrame(() => {
+                    loader.classList.remove('opacity-0');
+                });
+            }
+        }
+
+        function hideLoader() {
+            const loader = document.getElementById('loader');
+            if (loader && !loader.classList.contains('opacity-0')) {
+                loader.classList.add('opacity-0');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500); // 500ms per allinearsi con l'animazione di sbiadimento
+            }
+        }
+
+        // Funzione originale di update pulita
         function updateViewer(idOpera) {
+            // Mostra il testo "Caricamento" prima di cambiare opera
+            showLoader();
+
             const data = databaseOpere[idOpera];
             const viewer3D = document.getElementById('view');
             const viewer2D = document.getElementById('view-2d');
@@ -597,20 +606,6 @@ Il vero merito curatoriale sta però nell’intreccio con la cultura contemporan
 
             const nuovaUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?opera=" + idOpera;
             window.history.replaceState({ path: nuovaUrl }, '', nuovaUrl);
-            
-            // LOGICA DOPPIO MOTORE: 3D vs 2D
-            if (data.tipo === 'immagine') {
-                viewer3D.style.display = 'none';
-                viewer2D.style.display = 'block';
-                viewer2D.src = `img/${data.file}`; // Assicurati di mettere la foto nella cartella 'img'
-                if (qrBox) qrBox.style.display = 'none'; // Nascondi pulsante AR
-            } else {
-                viewer3D.style.display = 'block';
-                viewer2D.style.display = 'none';
-                viewer3D.src = `models/${data.file}.glb`;
-                if (qrBox && window.innerWidth > 768) qrBox.style.display = 'flex';
-                if (qrBox && window.innerWidth <= 768) qrBox.style.display = 'none'; // Su mobile l'AR si attiva diversamente
-            }
             
             // Popola Cartellino Museale
             document.getElementById('placard-author').innerText = data.autore || "Antonio Canova";
@@ -642,8 +637,25 @@ Il vero merito curatoriale sta però nell’intreccio con la cultura contemporan
             closeQRModal(); 
             closeCritique();
 
-            // Riapplica la modalità se siamo su 3D
-            if (data.tipo !== 'immagine') {
+            // LOGICA DOPPIO MOTORE: 3D vs 2D
+            if (data.tipo === 'immagine') {
+                viewer3D.style.display = 'none';
+                viewer2D.style.display = 'block';
+                viewer2D.src = `img/${data.file}`;
+                if (qrBox) qrBox.style.display = 'none'; 
+                
+                // Nascondi loader appena l'immagine è caricata
+                viewer2D.onload = () => {
+                    hideLoader();
+                };
+            } else {
+                viewer3D.style.display = 'block';
+                viewer2D.style.display = 'none';
+                viewer3D.src = `models/${data.file}.glb`;
+                if (qrBox && window.innerWidth > 768) qrBox.style.display = 'flex';
+                if (qrBox && window.innerWidth <= 768) qrBox.style.display = 'none'; 
+                
+                // Nascondi loader appena il 3D è caricato e pronto
                 viewer3D.addEventListener('load', () => {
                     if (document.body.classList.contains('future-mode')) {
                         setMode('future');
@@ -651,6 +663,7 @@ Il vero merito curatoriale sta però nell’intreccio con la cultura contemporan
                         setMode('past');
                     }
                     updateInteraction();
+                    hideLoader();
                 }, { once: true });
             }
 
@@ -723,8 +736,8 @@ Il vero merito curatoriale sta però nell’intreccio con la cultura contemporan
             document.getElementById('main-body').classList.remove('lyrics-open');
             document.getElementById('lyrics-panel').classList.remove('active');
         }
-        
-        window.onload = () => {
+
+        document.addEventListener('DOMContentLoaded', () => {
             const parametriUrl = new URLSearchParams(window.location.search);
             const operaScelta = parametriUrl.get('opera');
             
@@ -734,10 +747,11 @@ Il vero merito curatoriale sta però nell’intreccio con la cultura contemporan
                 updateViewer('ercole');
             } else {
                 console.error("Errore: databaseOpere non trovato.");
+                hideLoader();
             }
             
             updateInteraction();
-        };
+        });
 
         window.addEventListener('resize', updateInteraction);
 
@@ -748,19 +762,6 @@ Il vero merito curatoriale sta però nell’intreccio con la cultura contemporan
             }
         });
 
-        // Nasconde il loader quando la pagina è completamente caricata
-        window.addEventListener('load', function() {
-            const loader = document.getElementById('loader');
-            
-            // Primo step: fa sfumare l'opacità (grazie a transition-opacity di Tailwind)
-            loader.classList.add('opacity-0');
-            
-            // Secondo step: toglie l'elemento dal mouse dopo la sfumatura per permettere i click sul sito
-            setTimeout(() => {
-                loader.style.display = 'none';
-            }, 1000); // 1000ms corrisponde a duration-1000 del transition
-        });
-
         function toggleFullScreen() {
             if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen().catch(err => {
@@ -769,8 +770,9 @@ Il vero merito curatoriale sta però nell’intreccio con la cultura contemporan
             } else {
                 if (document.exitFullscreen) {
                     document.exitFullscreen();
+                }
             }
-        }};
+        }
     </script>
 </body>
 </html>
