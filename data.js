@@ -6,89 +6,13 @@ const databaseOpere = {
         titoloEn: 'Orpheus and Eurydice',
         anno: '1775 - 1776',
         tecnica: 'Marmo / <span>Marble</span>',
-        testo: `<p>Di te cantava, al nascere del giorno. Di te, al suo morire.<br>
-Qui la Contrattazione fallisce brutalmente, svelando la fragilità umana. Orfeo stringe un accordo con il dio degli Inferi per riavere Euridice ed egli accetta, a patto che orfeo non si volti durante la risalita. Sono l'ansia e l'incapacità di tollerare il vuoto dell'attesa che divorano Orfeo: cede al dubbio e si volta per cercare il riflesso visivo dell'amata, rompendo il patto.<br>
-Canova scolpisce l'attimo del crollo: Orfeo compie il gesto impulsivo, protendendo il braccio nel vuoto, ma Euridice è già richiamata indietro da una forza invisibile. Lei non lo trattiene, non può; la sua figura scivola via, non più abbastanza vicina da appartenere a quel gesto. Tra i due si apre una distanza che non si richiude. Chi parte non ha più tempo per vivere; chi resta avrà troppo tempo per pensare al tempo che non si è compiuto.
+        testo: `<p>Di te cantava, al nascere del giorno. Di te, al suo morire.</p><p>Qui la Contrattazione fallisce brutalmente, svelando la fragilità umana. Orfeo stringe un accordo con il dio degli Inferi per riavere Euridice ed egli accetta, a patto che orfeo non si volti durante la risalita. Sono l'ansia e l'incapacità di tollerare il vuoto dell'attesa che divorano Orfeo: cede al dubbio e si volta per cercare il riflesso visivo dell'amata, rompendo il patto.</p><p>Canova scolpisce l'attimo del crollo: Orfeo compie il gesto impulsivo, protendendo il braccio nel vuoto, ma Euridice è già richiamata indietro da una forza invisibile. Lei non lo trattiene, non può; la sua figura scivola via, non più abbastanza vicina da appartenere a quel gesto. Tra i due si apre una distanza che non si richiude. Chi parte non ha più tempo per vivere; chi resta avrà troppo tempo per pensare al tempo che non si è compiuto.
 </p>`,
-        poesia: `Ho sceso, dandoti il braccio, almeno un milione di scale<br>e ora che non ci sei è il vuoto ad ogni gradino.<br>
-Anche così è stato breve il nostro lungo viaggio.<br>
-Il mio dura tuttora, nè più mi occorrono<br>
-le coincidenze, le prenotazioni,<br>
-le trappole, gli scorni di chi crede<br>
-che la realtà sia quella che si vede.<br>
-<br>
-Ho sceso milioni di scale dandoti il braccio<br>
-non già perché con quattr'occhi forse si vede di più.<br>
-Con te le ho scese perché sapevo che di noi due<br>
-le sole vere pupille, sebbene tanto offuscate,<br>
-erano le tue.<br><br>(Eugenio Montale - Ho sceso dandoti il Braccio)`,
+        poesia: `<p>Ho sceso, dandoti il braccio, almeno un milione di scale</p><p>e ora che non ci sei è il vuoto ad ogni gradino.</p><p>Anche così è stato breve il nostro lungo viaggio.</p><p>Il mio dura tuttora, nè più mi occorrono</p><p>le coincidenze, le prenotazioni,</p><p>le trappole, gli scorni di chi crede</p><p>che la realtà sia quella che si vede.</p><p>Ho sceso milioni di scale dandoti il braccio</p><p>non già perché con quattr'occhi forse si vede di più.</p><p>Con te le ho scese perché sapevo che di noi due</p><p>le sole vere pupille, sebbene tanto offuscate,</p><p>erano le tue.</p><p><br></p><p><strong><em>(Eugenio Montale - Ho sceso dandoti il Braccio)</em></strong></p>`,
         traccia: 'HAPPIER',
         artista: 'MARSHMELLO & BASTILLE ',
-        recensione: `La sindrome dell'overthinking resa marmo. Il dubbio che distrugge tutto a un passo dal traguardo.`,
-        testoCanzone: `Lately, I've been, lately, I've been thinking<br>
-I want you to be happier, I want you to be happier<br>
-<br>
-When the morning comes<br>
-When we see what we've become<br>
-In the cold light of day we're a flame in the wind<br>
-Not the fire that we've begun<br>
-Every argument, every word we can't take back<br>
-'Cause with the all that has happened<br>
-I think that we both know the way that the story ends<br>
-<br>
-Then only for a minute<br>
-I want to change my mind<br>
-'Cause this just don't feel right to me<br>
-I want to raise your spirits<br>
-I want to see you smile but<br>
-Know that means I'll have to leave<br>
-<br>
-Know that means I'll have to leave<br>
-Lately, I've been, lately, I've been thinking<br>
-I want you to be happier, I want you to be happier<br>
-<br>
-When the evening falls<br>
-And I'm left there with my thoughts<br>
-And the image of you being with someone else<br>
-Well, that's eating me up inside<br>
-But we run our course, we pretended we're okay<br>
-Now if we jump together at least we can swim<br>
-Far away from the wreck we made<br>
-<br>
-Then only for a minute<br>
-I want to change my mind<br>
-'Cause this just don't feel right to me<br>
-I want to raise your spirits<br>
-I want to see you smile but<br>
-Know that means I'll have to leave<br>
-<br>
-Know that means I'll have to leave<br>
-Lately, I've been, lately, I've been thinking<br>
-I want you to be happier, I want you to be happier<br>
-<br>
-So I'll go, I'll go<br>
-I will go, go, go<br>
-I want you to be happier, I want you to be happier<br>
-<br>
-Lately, I've been, lately, I've been thinking<br>
-I want you to be happier, I want you to be happier<br>
-<br>
-Even though I might not like this<br>
-I think that you'll be happier, I want you to be happier<br>
-<br>
-Then only for a minute (only for a minute)<br>
-I want to change my mind<br>
-'Cause this just don't feel right to me<br>
-I want to raise your spirits<br>
-I want to see you smile but<br>
-Know that means I'll have to leave<br>
-<br>
-Know that means I'll have to leave<br>
-Lately, I've been, lately, I've been thinking<br>
-I want you to be happier, I want you to be happier<br>
-<br>
-So I'll go, I'll go<br>
-I will go, go, go`
+        recensione: `<p>La sindrome dell'overthinking resa marmo. Il dubbio che distrugge tutto a un passo dal traguardo.</p>`,
+        testoCanzone: `<p>Lately, I've been, I've been thinking</p><p>I want you to be happier, I want you to be happier</p><p><br></p><p>When the morning comes</p><p>When we see what we've become</p><p>In the cold light of day we're a flame in the wind</p><p>Not the fire that we've begun</p><p>Every argument, every word we can't take back</p><p>'Cause with the all that has happened</p><p>I think that we both know the way that this story ends</p><p><br></p><p><strong>Then only for a minute</strong></p><p><strong>I want to change my mind</strong></p><p><strong>'Cause this just don't feel right to me</strong></p><p><strong>I wanna raise your spirits</strong></p><p><strong>I want to see you smile but</strong></p><p><strong>Know that means I'll have to leave</strong></p><p><strong>Know that means I'll have to leave</strong></p><p><br></p><p><strong>Lately, I've been, I've been thinking</strong></p><p><strong>I want you to be happier, I want you to be happier</strong></p><p><br></p><p>When the evening falls</p><p>And I'm left there with my thoughts</p><p>And the image of you being with someone else</p><p>Well, it's eating me up inside</p><p>But we ran our course, we pretended we're okay</p><p>Now if we jump together at least we can swim</p><p>Far away from the wreck we made</p><p><br></p><p><strong>Then only for a minute</strong></p><p><strong>I want to change my mind</strong></p><p><strong>'Cause this just don't feel right to me</strong></p><p><strong>I wanna raise your spirits</strong></p><p><strong>I want to see you smile but</strong></p><p><strong>Know that means I'll have to leave</strong></p><p><br></p><p><strong>Know that means I'll have to leave</strong></p><p><strong>Lately, I've been, I've been thinking</strong></p><p><strong>I want you to be happier, I want you to be happier</strong></p><p><br></p><p>So I'll go, I'll go</p><p>I will go, go, go</p><p>So I'll go, I'll go</p><p>I will go, go, go</p><p><br></p><p><strong>Then only for a minute</strong></p><p><strong>I want to change my mind</strong></p><p><strong>'Cause this just don't feel right to me</strong></p><p><strong>I wanna raise your spirits</strong></p><p><strong>I want to see you smile but</strong></p><p><strong>Know that means I'll have to leave</strong></p><p><strong>Know that means I'll have to leave</strong></p><p><br></p><p><strong>Lately, I've been, I've been thinking</strong></p><p><strong>I want you to be happier, I want you to be happier</strong></p>`
     },
     'ercole': {
         file: 'ercole',
@@ -97,86 +21,12 @@ I will go, go, go`
         titoloEn: 'Hercules and Lichas',
         anno: '1795 - 1815',
         tecnica: 'Marmo / <span>Marble</span>',
-        testo: `<p>
-Qui non c’è più ritorno.
-
-Il dolore di Ercole perde ogni misura e diventa forza cieca, un gesto che non distingue più tra intenzione e conseguenza, tra ciò che si voleva fare e ciò che accade comunque quando il corpo è travolto.
-
-Lica non è un avversario. È il punto più fragile dentro una forza che ha smesso di riconoscersi. È ciò che viene colpito quando la reazione diventa più grande della volontà.
-
-In questo squilibrio la scena smette di essere mito. Rimane una verità più scomoda, ancora attuale: la sproporzione tra la potenza e l’innocenza, tra chi agisce e chi subisce senza aver scelto nulla.
-
-È una dinamica che non appartiene solo al racconto antico. Si ripete ogni volta che la violenza diventa sistema, ogni volta che corpi senza difesa vengono travolti da forze più grandi di loro, anche nella storia recente, anche nelle guerre contemporanee, dove i più piccoli finiscono sempre nello spazio sbagliato del gesto altrui.
-
-Canova non descrive la violenza nel suo svolgimento. La blocca un attimo prima che diventi inevitabile, quando è ancora possibile riconoscere che ciò che sta per accadere non dovrebbe accadere così — e proprio per questo è già accaduto troppo.
-</p>`,
-        poesia: `Un’intera nottata<br>
-buttato vicino<br>
-a un compagno<br>
-massacrato<br>
-con la sua bocca<br>
-digrignata<br>
-volta al plenilunio<br>
-con la congestione<br>
-delle sue mani<br>
-penetrata<br>
-nel mio silenzio<br>
-ho scritto<br>
-lettere piene d’amore<br>
-<br>
-Non sono mai stato<br>
-tanto<br>
-attaccato alla vita<br><br>(Giuseppe Ungaretti - Veglia)`,
+        testo: `<p>Qui non c’è più ritorno.</p><p>Il dolore di Ercole perde ogni misura e diventa forza cieca, un gesto che non distingue più tra intenzione e conseguenza, tra ciò che si voleva fare e ciò che accade comunque quando il corpo è travolto. </p><p>Lica non è un avversario. È il punto più fragile dentro una forza che ha smesso di riconoscersi. È ciò che viene colpito quando la reazione diventa più grande della volontà.  </p><p>In questo squilibrio la scena smette di essere mito. Rimane una verità più scomoda, ancora attuale: la sproporzione tra la potenza e l’innocenza, tra chi agisce e chi subisce senza aver scelto nulla.  </p><p>È una dinamica che non appartiene solo al racconto antico. Si ripete ogni volta che la violenza diventa sistema, ogni volta che corpi senza difesa vengono travolti da forze più grandi di loro, anche nella storia recente, anche nelle guerre contemporanee, dove i più piccoli finiscono sempre nello spazio sbagliato del gesto altrui.  </p><p>Canova non descrive la violenza nel suo svolgimento. La blocca un attimo prima che diventi inevitabile, quando è ancora possibile riconoscere che ciò che sta per accadere non dovrebbe accadere così — e proprio per questo è già accaduto troppo.</p>`,
+        poesia: `<p>Un'intera nottata</p><p>buttato vicino</p><p>a un compagno</p><p>massacrato</p><p>con la sua bocca</p><p>digrignata</p><p>volta al plenilunio</p><p>con la congestione</p><p>delle sue mani</p><p>penetrata</p><p>nel mio silenzio</p><p>ho scritto</p><p>lettere piene d'amore</p><p>Non sono mai stato</p><p>tanto</p><p>attaccato alla vita.</p><p><br></p><p><strong><em>Giuseppe Ungaretti - Veglia</em></strong></p>`,
         traccia: 'ZOMBIE',
         artista: 'THE CRANBERRIES',
-        recensione: `La rabbia tossica e la perdita di controllo. Un'esplosione di energia cinetica imprigionata nella staticità della pietra.`,
-        testoCanzone: `Another head hangs lowly<br>
-Child is slowly taken<br>
-And the violence caused such silence<br>
-Who are we mistaken?<br>
-<br>
-But you see, it's not me<br>
-It's not my family<br>
-In your head, in your head, they are fighting<br>
-With their tanks and their bombs<br>
-And their bombs and their guns<br>
-In your head, in your head, they are crying<br>
-<br>
-In your head, in your head<br>
-Zombie, zombie, zombie-ie-ie<br>
-What's in your head, in your head?<br>
-Zombie, zombie, zombie-ie-ie, oh<br>
-<br>
-Another mother's breaking<br>
-Heart is taking over<br>
-When the violence causes silence<br>
-We must be mistaken<br>
-<br>
-It's the same old theme<br>
-Since nineteen-sixteen<br>
-In your head, in your head, they're still fighting<br>
-With their tanks and their bombs<br>
-And their bombs and their guns<br>
-In your head, in your head, they are dying<br>
-<br>
-In your head, in your head<br>
-Zombie, zombie, zombie-ie-ie<br>
-What's in your head, in your head?<br>
-Zombie, zombie, zombie-ie-ie, oh-oh-oh-oh-oh-oh-oh<br>
-<br>
-Oh-oh-oh-oh-oh-oh-oh, hey-ah, ea-aa-ia<br>
-<br>
-It's the same old theme<br>
-Since nineteen-sixteen<br>
-In your head, in your head, they're still fighting<br>
-With their tanks and their bombs<br>
-And their bombs and their guns<br>
-In your head, in your head, they are dying<br>
-<br>
-In your head, in your head<br>
-Zombie, zombie, zombie-ie-ie<br>
-What's in your head, in your head?<br>
-Zombie, zombie, zombie-ie-ie, oh-oh-oh-oh-oh-oh-oh`
+        recensione: `<p>Quante morti avremmo potuto evitare se solo non ci fossimo voltati?</p>`,
+        testoCanzone: `<p>Another head hangs lowly</p><p>Child is slowly taken</p><p>And the violence caused such silence</p><p>Who are we mistaken?</p><p><br></p><p>But you see, it's not me, it's not my family</p><p>In your head, in your head, they are fightin'</p><p>With their tanks and their bombs</p><p>And their bombs and their guns</p><p>In your head, in your head, they are cryin'</p><p><br></p><p><strong>In your head, in your head</strong></p><p><strong>Zombie, zombie, zombie-ie-ie</strong></p><p><strong>What's in your head, in your head?</strong></p><p><strong>Zombie, zombie, zombie-ie-ie-ie, oh</strong></p><p><br></p><p>Doo, doo, doo-doo, doo</p><p>Doo, doo, doo-doo, doo</p><p>Doo, doo, doo-doo, doo</p><p>Doo, doo, doo-doo, doo</p><p><br></p><p>Another mother's breakin'</p><p>Heart is taking over</p><p>When the violence causes silence</p><p>We must be mistaken</p><p><br></p><p>It's the same old theme, since 1916</p><p>In your head, in your head, they're still fightin'</p><p>With their tanks and their bombs</p><p>And their bombs and their guns</p><p>In your head, in your head, they are dyin'</p><p><br></p><p><strong>In your head, in your head</strong></p><p><strong>Zombie, zombie, zombie-ie-ie</strong></p><p><strong>What's in your head, in your head?</strong></p><p><strong>Zombie, zombie, zombie-ie-ie-ie</strong></p><p><strong>Oh-oh-oh-oh-oh-oh-oh</strong></p><p><strong>Eh-eh, oh, ya-ya</strong></p>`
     },
     'giacente': {
         file: 'giacente',
@@ -185,107 +35,12 @@ Zombie, zombie, zombie-ie-ie, oh-oh-oh-oh-oh-oh-oh`
         titoloEn: 'Recumbent Magdalene',
         anno: '1819 - 1822',
         tecnica: 'Marmo / <span>Marble</span>',
-        testo: `<p>È quando non ti resta più niente che addormentarsi per sempre sembra pace.<br>
-La Maddalena Giacente nasce da questa soglia silenziosa, dove la fatica di vivere non ha più bisogno di spiegazioni. Maria Maddalena ha già attraversato tutto; ciò che Canova coglie è il momento successivo, quando anche il cambiamento smette di fare rumore. Resta solo una stanchezza senza scena, un’intimità che non chiede testimoni.<br>
-La sua storia materiale segue la stessa traiettoria: dimenticata dopo la morte dell’artista, l'opera fu dispersa e venduta come una comune statua da giardino, sbiadendo nell'oblio. Inquieta la possibilità che ciò che è stato profondissimo possa diventare invisibile senza opporre resistenza.<br>
-In questo spazio della Depressione, il Riflesso si spegne. Fallita ogni contrattazione con la perdita, il corpo nudo si arrende alla gravità del marmo e abdica al dolore, cercando nel silenzio l’unica forma di pace possibile.</p>`,
-        poesia: `Forse perchè della fatal quïete<br>
-     Tu sei l’immago, a me sì cara vieni,<br>
-     O Sera? E quando ti corteggian liete<br>
-     Le nubi estive e i zefiri sereni,<br>
-E quando dal nevoso aere inquïete<br>
-     Tenebre e lunghe all’universo meni,<br>
-     Sempre scendi invocata, e le secrete<br>
-     Vie del mio cor soavemente tieni.<br>
-Vagar mi fai co’ miei pensier sull’orme<br>
-     Che vanno al nulla eterno; e intanto fugge<br>
-     Questo reo tempo, e van con lui le torme<br>
-Delle cure, onde meco egli si strugge;<br>
-     E mentre io guardo la tua pace, dorme<br>
-     Quello spirto guerrier ch’entro mi rugge.<br><br>(Ugo Foscolo - Alla Sera)`,
+        testo: `<p>È quando non ti resta più niente che addormentarsi per sempre sembra pace.</p><p>La Maddalena Giacente nasce da questa soglia silenziosa, dove la fatica di vivere non ha più bisogno di spiegazioni. Maria Maddalena ha già attraversato tutto; ciò che Canova coglie è il momento successivo, quando anche il cambiamento smette di fare rumore. Resta solo una stanchezza senza scena, un’intimità che non chiede testimoni.</p><p>La sua storia materiale segue la stessa traiettoria: dimenticata dopo la morte dell’artista, l'opera fu dispersa e venduta come una comune statua da giardino, sbiadendo nell'oblio. Inquieta la possibilità che ciò che è stato profondissimo possa diventare invisibile senza opporre resistenza.</p><p>In questo spazio della Depressione, il Riflesso si spegne. Fallita ogni contrattazione con la perdita, il corpo nudo si arrende alla gravità del marmo e abdica al dolore, cercando nel silenzio l’unica forma di pace possibile.</p>`,
+        poesia: `<p>Forse perché della fatal quïete</p><p>Tu sei l’immago a me sì cara, vieni,</p><p>O Sera! E quando ti corteggian liete</p><p>Le nubi estive e i zeffiri sereni,</p><p><br></p><p>E quando dal nevoso aere inquiete</p><p>Tenebre, e lunghe, all’universo meni,</p><p>Sempre scendi invocata, e le secrete</p><p>Vie del mio cor soavemente tieni.</p><p><br></p><p>Vagar mi fai co’ miei pensier su l’orme</p><p>Che vanno al nulla eterno; e intanto fugge</p><p>Questo reo tempo, e van con lui le torme</p><p><br></p><p>Delle cure, onde meco egli si strugge;</p><p>E mentre io guardo la tua pace, dorme</p><p>Quello spirto guerrier ch’entro mi rugge.</p><p><br></p><p><strong><em>Ugo Foscolo - Alla Sera</em></strong></p>`,
         traccia: 'IL TESTAMENTO DI TITO',
         artista: 'DE ANDRÉ',
-        recensione: `L'accettazione finale. Quando si smette di combattere e ci si lascia andare alla stasi totale.`,
-        testoCanzone: `Non avrai altro Dio all'infuori di me<br>
-Spesso mi ha fatto pensare<br>
-Genti diverse venute dall'est<br>
-Dicevano che era un errore<br>
-Credevano a un altro diverso da te<br>
-E non mi hanno fatto del male<br>
-Credevano a un altro diverso da te<br>
-E non mi hanno fatto del male<br>
-<br>
-Non nominare il nome di Dio<br>
-Non nominarlo invano<br>
-Con un coltello piantato nel fianco<br>
-Gridai la mia pena e il suo nome<br>
-Ma forse era stanco, forse troppo lontano<br>
-Davvero lo nominai invano<br>
-Ma forse era stanco, forse troppo lontano<br>
-Davvero lo nominai invano<br>
-<br>
-Onora il padre, onora la madre<br>
-E onora anche il loro bastone<br>
-Bacia la mano che rompe il tuo pane<br>
-In nome di un'altra gestione<br>
-Dovetti rubare per non morire di fame<br>
-E il pane mi parve più buono<br>
-Dovetti rubare per non morire di fame<br>
-E il pane mi parve più buono<br>
-<br>
-Ricorda di santificare le feste<br>
-Facile per noi ladroni<br>
-Entrare nei templi e derubare gli dei<br>
-Senza dover temere punizioni<br>
-Ma il quarto comandamento è il più difficile di tutti<br>
-E allora come potevo non onorare i frutti?<br>
-Ma il quarto comandamento è il più difficile di tutti<br>
-E allora come potevo non onorare i frutti?<br>
-<br>
-Non commettere atti impuri<br>
-Quelli che non si dicono<br>
-Per non dover ammettere che a volte<br>
-I desideri si scatenano<br>
-Ma io non conosco peccati d'amore<br>
-Se non quello di non amare più<br>
-Ma io non conosco peccati d'amore<br>
-Se non quello di non amare più<br>
-<br>
-Non uccidere, dicono i potenti<br>
-Ma intanto ti mandano alla guerra<br>
-E se ritorni con la medaglia al valore<br>
-È perché hai seminato morte sulla terra<br>
-Io invece ho ucciso solo per non essere ucciso<br>
-E non mi sento affatto un assassino<br>
-Io invece ho ucciso solo per non essere ucciso<br>
-E non mi sento affatto un assassino<br>
-<br>
-Non dire falsa testimonianza<br>
-E non desiderare la donna d'altri<br>
-Se non vuoi essere condannato<br>
-Dai giudici e dai loro scaltri<br>
-Io invece ho testimoniato solo la mia verità<br>
-E ho amato la donna che mi ha amato<br>
-Io invece ho testimoniato solo la mia verità<br>
-E ho amato la donna che mi ha amato<br>
-<br>
-Non desiderare la roba d'altri<br>
-Non desiderarne la sposa<br>
-Ma se tu non hai niente di tuo<br>
-È difficile non desiderare qualcosa<br>
-Io invece ho desiderato solo la libertà<br>
-E la sto pagando con la vita<br>
-Io invece ho desiderato solo la libertà<br>
-E la sto pagando con la vita<br>
-<br>
-Nella pietà che non cede al rancore<br>
-Madre, ho imparato l'amore<br>
-Nell'odio che non ha mai fine<br>
-Ho imparato a non avere paura<br>
-E se questo è il prezzo per essere un uomo<br>
-Allora preferisco essere un ladro<br>
-E se questo è il prezzo per essere un uomo<br>
-Allora preferisco essere un ladro`
+        recensione: `<p>And then he greeted Death as an old friend, and went with him gladly, and, equals, they departed this life. <strong>(Harry Potter e I doni della morte)</strong></p>`,
+        testoCanzone: `<p>Non avrai altro Dio all'infuori di me</p><p>Spesso mi ha fatto pensare</p><p>Genti diverse venute dall'est</p><p>Dicevan che in fondo era uguale</p><p>Credevano a un altro diverso da te</p><p>E non mi hanno fatto del male</p><p>Credevano a un altro diverso da te</p><p>E non mi hanno fatto del male</p><p><br></p><p>Non nominare il nome di Dio</p><p>Non nominarlo invano</p><p>Con un coltello piantato nel fianco</p><p>Gridai la mia pena e il suo nome</p><p>Ma forse era stanco, forse troppo occupato</p><p>E non ascoltò il mio dolore</p><p>Ma forse era stanco, forse troppo lontano</p><p>Davvero lo nominai invano</p><p><br></p><p>Onora il padre, onora la madre</p><p>E onora anche il loro bastone</p><p>Bacia la mano che ruppe il tuo naso</p><p>Perché le chiedevi un boccone</p><p>Quando a mio padre si fermò il cuore</p><p>Non ho provato dolore</p><p>Quanto a mio padre si fermò il cuore</p><p>Non ho provato dolore</p><p><br></p><p>Ricorda di santificare le feste</p><p>Facile per noi ladroni</p><p>Entrare nei templi che rigurgitan salmi</p><p>Di schiavi e dei loro padroni</p><p>Senza finire legati agli altari</p><p>Sgozzati come animali</p><p>Senza finire legati agli altari</p><p>Sgozzati come animali</p><p><br></p><p>Il quinto dice non devi rubare</p><p>E forse io l'ho rispettato</p><p>Vuotando, in silenzio, le tasche già gonfie</p><p>Di quelli che avevan rubato</p><p>Ma io, senza legge, rubai in nome mio</p><p>Quegli altri nel nome di Dio</p><p>Ma io, senza legge, rubai in nome mio</p><p>Quegli altri nel nome di Dio</p><p><br></p><p>Non commettere atti che non siano puri</p><p>Cioè non disperdere il seme</p><p>Feconda una donna ogni volta che l'ami</p><p>Così sarai uomo di fede</p><p>Poi la voglia svanisce e il figlio rimane</p><p>E tanti ne uccide la fame</p><p>Io, forse, ho confuso il piacere e l'amore</p><p>Ma non ho creato dolore</p><p><br></p><p>Il settimo dice non ammazzare</p><p>Se del cielo vuoi essere degno</p><p>Guardatela oggi, questa legge di Dio</p><p>Tre volte inchiodata nel legno</p><p>Guardate la fine di quel nazzareno</p><p>E un ladro non muore di meno</p><p>Guardate la fine di quel nazzareno</p><p>E un ladro non muore di meno</p><p><br></p><p>Non dire falsa testimonianza</p><p>E aiutali a uccidere un uomo</p><p>Lo sanno a memoria il diritto divino</p><p>E scordano sempre il perdono</p><p>Ho spergiurato su Dio e sul mio onore</p><p>E no, non ne provo dolore</p><p>Ho spergiurato su Dio e sul mio onore</p><p>E no, non ne provo dolore</p><p><br></p><p>Non desiderare la roba degli altri</p><p>Non desiderarne la sposa</p><p>Ditelo a quelli, chiedetelo ai pochi</p><p>Che hanno una donna e qualcosa</p><p>Nei letti degli altri già caldi d'amore</p><p>Non ho provato dolore</p><p>L'invidia di ieri non è già finita</p><p>Stasera vi invidio la vita</p><p><br></p><p>Ma adesso che viene la sera ed il buio</p><p>Mi toglie il dolore dagli occhi</p><p>E scivola il sole al di là delle dune</p><p>A violentare altre notti</p><p>Io nel vedere quest'uomo che muore</p><p>Madre, io provo dolore</p><p>Nella pietà che non cede al rancore</p><p>Madre, ho imparato l'amore</p>`
     },
     'penitente': {
         file: 'penitente',
@@ -295,100 +50,13 @@ Allora preferisco essere un ladro`
         titoloEn: 'Penitent Magdalene',
         anno: '1793 - 1796',
         tecnica: 'Marmo / <span>Marble</span>',
-        testo: `<p>Che cosa significa continuare a esistere quando una parte di sé è già morta?<br>
-La Maddalena Penitente abita la fase dell’Accettazione. Canova la ritrae inginocchiata nel deserto, sospesa in una condizione intermedia: il corpo fragile, le mani abbandonate e lo sguardo abbassato su un teschio. La parola torna a essere Riflessione: il teschio è lo specchio ultimo in cui la vita guarda la propria finitudine. Non c'è più la disperazione della caduta, ma la convivenza con ciò che è già finito dentro di sé, mentre il corpo continua a restare nel tempo.<br>
-Qui risuona il suono del silenzio: quel silenzio che si muove tra "persone che parlano senza comunicare e ascoltano senza sentire". Accettare il lutto significa questo: abitare il vuoto, imparare a camminare da soli in quella distanza dove qualcosa in noi ha smesso per sempre di appartenere al mondo.
+        testo: `<p>Che cosa significa continuare a esistere quando una parte di sé è già morta?</p><p>La Maddalena Penitente abita la fase dell’Accettazione. Canova la ritrae inginocchiata nel deserto, sospesa in una condizione intermedia: il corpo fragile, le mani abbandonate e lo sguardo abbassato su un teschio. La parola torna a essere Riflessione: il teschio è lo specchio ultimo in cui la vita guarda la propria finitudine. Non c'è più la disperazione della caduta, ma la convivenza con ciò che è già finito dentro di sé, mentre il corpo continua a restare nel tempo.</p><p>Qui risuona il suono del silenzio: quel silenzio che si muove tra "persone che parlano senza comunicare e ascoltano senza sentire". Accettare il lutto significa questo: abitare il vuoto, imparare a camminare da soli in quella distanza dove qualcosa in noi ha smesso per sempre di appartenere al mondo.
 </p>`,
-        poesia: `Forma che è in me piena di sapore e di morte,<br>
-questo iniquo connubio angelico<br>
-sopra un corpo caldo di baci.<br>
-Chi avrebbe mai detto<br>
-che mi avrebbero lapidata?<br>
-Ma tanto la mia bellezza<br>
-era un vuoto a perdere.<br>
-Stesa per terra, sporcata dai loro baci,<br>
-io guardo il cielo.<br>
-Nessuno ha mai capito,<br>
-mentre baciavano il mio corpo nudo,<br>
-che il mio sguardo era altrove,<br>
-che non provavo nessun piacere,<br>
-che entravano e uscivano dal mio corpo<br>
-senza alabarde,<br>
-guerrieri del nulla,<br>
-che combattevano una guerra<br>
-che io sola avevo vinto.<br>
-Il loro modo di baciare il mio corpo<br>
-era un modo come un altro per non parlare,<br>
-ma tu, Gesú, mi hai parlato,<br>
-e non hai visto soltanto le mie labbra,<br>
-ed è strano che il mio labbro<br>
-che non ha baciato nessuno<br>
-profumava di fiori.<br>
-Come mi hai amato, Signore,<br>
-come mi hai posseduta con la parola.<br>
-La tua parola mi ha dato un brivido<br>
-per tutto il corpo.<br>
-Non c’erano né leziosità né catene:<br>
-tu non volevi toccarmi,<br>
-in quel momento, Gesú,<br>
-ero tua madre giovane,<br>
-coronata dallo sguardo di Dio.<br>
-Lo so, mi avresti stretta al cuore,<br>
-e tutte le piaghe<br>
-che hanno inferto questi stupratori<br>
-si sono richiuse.<br>
-Era un corpo piagato fino allo spasimo,<br>
-eppure su quelle ferite<br>
-continuavano a buttare il sale<br>
-del loro disprezzo.<br>
-Come bruciavano le mie ferite, Signore.<br>
-Ma a un certo punto<br>
-io ho sentito il balsamo del tuo sguardo<br>
-e sono stata piena di oli e profumazioni.<br>
-Ero cosí intatta, Signore,<br>
-davanti al tuo sguardo<br>
-che tu hai visto e scelto<br>
-la prima discepola.<br>
-Tu hai guarito le mie piaghe, Signore,<br>
-le piaghe del mio spirito.<br>
-E cosí io sciolgo i miei capelli, Gesú,<br>
-per carezzarti i piedi,<br>
-affinché diventino un lino<br>
-che ti deterge dalla stanchezza.<br>
-Tutti credono che tu abbia percorso la Galilea,<br>
-ma gli altri non sanno<br>
-quanto cammino hai fatto.<br>
-Tu non hai camminato, Gesú,<br>
-sei volato sui monti e sugli abissi,<br>
-aquila dallo sguardo feroce e benevolo.<br>
-Tu non hai calpestato solo la terra<br>
-ma il cielo.<br>
-E mentre gli altri ti pensano comodo,<br>
-assiso ad una mensa,<br>
-non capiscono che tra poco non ci sarai piú,<br>
-perché sta scritto<br>
-che volerai verso il Padre tuo.<br>
-L’errore dell’uomo<br>
-è di credere che tu finirai i tuoi giorni<br>
-como qualsiasi essere mortale,<br>
-ma poiché sei il germe della creazione,<br>
-ma poiché vieni da molto lontano,<br>
-tu sei un Dio affaticato.<br>
-Il sale delle mie labbra guarirà<br>
-le tue molte ferite:<br>
-ti sei escoriato i piedi, Gesú,<br>
-lascia che te li medichi coi miei capelli,<br>
-sentirai nei miei capelli la frescura del lino<br>
-e le tue piaghe si richiuderanno.<br>
-In verità, Gesú,<br>
-non so chi mi abbia partecipato il tuo destino,<br>
-ma ti amo e di te so tutto,<br>
-come qualsiasi donna<br>
-che ama il proprio marito.<br><br>(Alda Merini - Maria Maddalena)`,
+        poesia: `<p>Forma che è in me piena di sapore e di morte,</p><p>questo iniquo connubio angelico</p><p>sopra un corpo caldo di baci.</p><p>Chi avrebbe mai detto</p><p>che mi avrebbero lapidata?</p><p>Ma tanto la mia bellezza</p><p>era un vuoto a perdere.</p><p>Stesa per terra, sporcata dai loro baci,</p><p>io guardo il cielo.</p><p>Nessuno ha mai capito,</p><p>mentre baciavano il mio corpo nudo,</p><p>che il mio sguardo era altrove,</p><p>che non provavo nessun piacere,</p><p>che entravano e uscivano dal mio corpo</p><p>senza alabarde,</p><p>guerrieri del nulla,</p><p>che combattevano una guerra</p><p>che io sola avevo vinto.</p><p>Il loro modo di baciare il mio corpo</p><p>era un modo come un altro per non parlare,</p><p>ma tu, Gesú, mi hai parlato,</p><p>e non hai visto soltanto le mie labbra,</p><p>ed è strano che il mio labbro</p><p>che non ha baciato nessuno</p><p>profumava di fiori.</p><p>Come mi hai amato, Signore,</p><p>come mi hai posseduta con la parola.</p><p>La tua parola mi ha dato un brivido</p><p>per tutto il corpo.</p><p>Non c’erano né leziosità né catene:</p><p>tu non volevi toccarmi,</p><p>in quel momento, Gesú,</p><p>ero tua madre giovane,</p><p>coronata dallo sguardo di Dio.</p><p>Lo so, mi avresti stretta al cuore,</p><p>e tutte le piaghe</p><p>che hanno inferto questi stupratori</p><p>si sono richiuse.</p><p>Era un corpo piagato fino allo spasimo,</p><p>eppure su quelle ferite</p><p>continuavano a buttare il sale</p><p>del loro disprezzo.</p><p>Come bruciavano le mie ferite, Signore.</p><p>Ma a un certo punto</p><p>io ho sentito il balsamo del tuo sguardo</p><p>e sono stata piena di oli e profumazioni.</p><p>Ero cosí intatta, Signore,</p><p>davanti al tuo sguardo</p><p>che tu hai visto e scelto</p><p>la prima discepola.</p><p>Tu hai guarito le mie piaghe, Signore,</p><p>le piaghe del mio spirito.</p><p>E cosí io sciolgo i miei capelli, Gesú,</p><p>per carezzarti i piedi,</p><p>affinché diventino un lino</p><p>che ti deterge dalla stanchezza.</p><p>Tutti credono che tu abbia percorso la Galilea,</p><p>ma gli altri non sanno</p><p>quanto cammino hai fatto.</p><p>Tu non hai camminato, Gesú,</p><p>sei volato sui monti e sugli abissi,</p><p>aquila dallo sguardo feroce e benevolo.</p><p>Tu non hai calpestato solo la terra</p><p>ma il cielo.</p><p>E mentre gli altri ti pensano comodo,</p><p>assiso ad una mensa,</p><p>non capiscono che tra poco non ci sarai piú,</p><p>perché sta scritto</p><p>che volerai verso il Padre tuo.</p><p>L’errore dell’uomo</p><p>è di credere che tu finirai i tuoi giorni</p><p>come qualsiasi essere mortale,</p><p>ma poiché sei il germe della creazione,</p><p>ma poiché vieni da molto lontano,</p><p>tu sei un Dio affaticato.</p><p>Il sale delle mie labbra guarirà</p><p>le tue molte ferite:</p><p>ti sei escoriato i piedi, Gesú,</p><p>lascia che te li medichi coi miei capelli,</p><p>sentirai nei miei capelli la frescura del lino</p><p>e le tue piaghe si richiuderanno.</p><p>In verità, Gesú,</p><p>non so chi mi abbia partecipato il tuo destino,</p><p>ma ti amo e di te so tutto,</p><p>come qualsiasi donna</p><p>che ama il proprio marito.</p><p><br></p><p><strong><em>Alda Merini - Maria Maddalena</em></strong></p>`,
         traccia: 'The Sound of Silence',
         artista: 'Simon & Garfunkel',
-        recensione: `Il senso di colpa come forza autodistruttiva.`,
-        testoCanzone: `Hello darkness, my old friend<br>I've come to talk with you again<br>Because a vision softly creeping<br>Left its seeds while I was sleeping<br>And the vision that was planted in my brain<br>Still remains<br>Within the sound of silence<br><br>In restless dreams I walked alone<br>Narrow streets of cobblestone<br>'Neath the halo of a street lamp<br>I turned my collar to the cold and damp<br>When my eyes were stabbed by the flash of a neon light<br>That split the night<br>And touched the sound of silence<br><br>And in the naked light I saw<br>Ten thousand people, maybe more<br>People talking without speaking<br>People hearing without listening<br>People writing songs that voices never share<br>And no one dared<br>Disturb the sound of silence<br><br>"Fools", said I, "you do not know<br>Silence like a cancer grows<br>Hear my words that I might teach you<br>Take my arms that I might reach you"<br>But my words, like silent raindrops fell<br>And echoed in the wells of silence<br><br>And the people bowed and prayed<br>To the neon god they made<br>And the sign flashed out its warning<br>In the words that it was forming<br>And the sign said "The words of the prophets are written on the subway walls<br>And tenement halls"<br>And whispered in the sounds of silence`
+        recensione: `<p>Lo sfinimento fisico che diventa estasi.</p>`,
+        testoCanzone: `<p>Hello, darkness, my old friend</p><p>I've come to talk with you again</p><p>Because a vision softly creeping</p><p>Left its seeds while I was sleeping</p><p>And the vision that was planted in my brain</p><p>Still remains</p><p>Within the sound of silence</p><p><br></p><p>In restless dreams, I walked alone</p><p>Narrow streets of cobblestone</p><p>'Neath the halo of a street lamp</p><p>I turned my collar to the cold and damp</p><p>When my eyes were stabbed by the flash of a neon light</p><p>That split the night</p><p>And touched the sound of silence</p><p><br></p><p>And in the naked light, I saw</p><p>Ten thousand people, maybe more</p><p>People talking without speaking</p><p>People hearing without listening</p><p>People writing songs that voices never shared</p><p>And no one dared</p><p>Disturb the sound of silence</p>`
     },
     'amore_psiche': {
         file: 'amore_psiche',
@@ -397,65 +65,13 @@ che ama il proprio marito.<br><br>(Alda Merini - Maria Maddalena)`,
         titoloEn: 'Psyche Revived by Cupid\'s Kiss',
         anno: '1787 - 1793',
         tecnica: 'Marmo / <span>Marble</span>',
-        testo: `<p>Non è un incontro. È un attimo prima che qualcosa possa sparire.<br>
-Canova scolpisce l'attimo successivo al risveglio, quando il sonno infernale causato dal vaso di Proserpina è ormai passato. Osservando il gruppo, i corpi nudi degli amanti si intersecano dando vita a una morbida X che fa librare l'opera nello spazio. Psiche, semidistesa, rivolge il viso verso l'alto e alza le braccia per accogliere Amore, che si china in avanti inarcando il torso. Le loro braccia intrecciate formano un cerchio perfetto, un tondo che incornicia i volti e accentua i pochi centimetri che dividono le labbra.<br>
-Questo abbraccio incarna la fase della Contrattazione: l'illusione disperata che l'amore possa negoziare con la morte, sospendendo il tempo. Nel tocco delle mani il marmo si riflette come carne viva, ma in quei pochi centimetri che dividono le bocche si decide tutto: contatto o perdita.
+        testo: `<p>Non è un incontro. È un attimo prima che qualcosa possa sparire.</p><p>Canova scolpisce l'attimo successivo al risveglio, quando il sonno infernale causato dal vaso di Proserpina è ormai passato. Osservando il gruppo, i corpi nudi degli amanti si intersecano dando vita a una morbida X che fa librare l'opera nello spazio. Psiche, semidistesa, rivolge il viso verso l'alto e alza le braccia per accogliere Amore, che si china in avanti inarcando il torso. Le loro braccia intrecciate formano un cerchio perfetto, un tondo che incornicia i volti e accentua i pochi centimetri che dividono le labbra.</p><p>Questo abbraccio incarna la fase della Contrattazione: l'illusione disperata che l'amore possa negoziare con la morte, sospendendo il tempo. Nel tocco delle mani il marmo si riflette come carne viva, ma in quei pochi centimetri che dividono le bocche si decide tutto: contatto o perdita.
 </p>`,
-        poesia: `Assomiglia a un dio,<br>
-superiore, se è lecito, agli dei<br>
-colui che guarda e insistentemente ascolta che ridi dolcemente<br>
-te stando seduto di fronte<br>
-ciò a me misero<br>
-strappa tutti i sensi: infatti o Lesbia,<br>
-appena ti vedo non mi rimane un filo di voce;<br>
-ma la lingua si intorpidisce, una fiamma sottile<br>
-si diffonde sotto le membra,<br>
-le orecchie risuonano di un rimbombo particolare.<br>
-Gli occhi si appannano di notte.<br>
-L’ozio, o Catullo, ti è dannoso<br>
-a causa dell’ozio ti esalti e sfreni troppo;<br>
-l’ozio un tempo rovinò re e città prospere.<br><br>(Catullo - Carme 51)
-`,
+        poesia: `<p>Assomiglia a un dio,</p><p>superiore, se è lecito, agli dei</p><p>colui che guarda e insistentemente ascolta che ridi dolcemente</p><p>te stando seduto di fronte</p><p>ciò a me misero</p><p>strappa tutti i sensi: infatti o Lesbia,</p><p>appena ti vedo non mi rimane un filo di voce;</p><p>ma la lingua si intorpidisce, una fiamma sottile</p><p>si diffonde sotto le membra,</p><p>le orecchie risuonano di un rimbombo particolare.</p><p>Gli occhi si appannano di notte.</p><p>L’ozio, o Catullo, ti è dannoso</p><p>a causa dell’ozio ti esalti e sfreni troppo;</p><p>l’ozio un tempo rovinò re e città prospere.</p><p><br></p><p><strong><em>(Catullo - Carme 51)</em></strong></p>`,
         traccia: 'MERAVIGLIOSO AMORE MIO',
         artista: 'ARISA',
-        recensione: `Un pezzo che esplora la connessione tra mente e desiderio.`,
-        testoCanzone: `Bene, è questo il tempo di vivere<br>
-Senza dover più decidere<br>
-Se è giusto o no, se è logico<br>
-O se è impossibile<br>
-<br>
-Guarda, è questo il tempo di credere<br>
-Senza dover più riflettere<br>
-Se è tardi o no, se è lecito<br>
-O se è incredibile<br>
-<br>
-Meraviglioso amore mio<br>
-Meraviglioso come un quadro che ha dipinto Dio<br>
-Con dentro il nostro nome nell'angolo a destra<br>
-Meraviglioso amore mio<br>
-Meraviglioso come un raggio di sole che entra dalla finestra<br>
-E che ci scalda il cuore, amore mio<br>
-<br>
-Vedi, è questo il tempo di ridere<br>
-E non c'è niente da temere<br>
-Siamo solo noi, i soliti<br>
-Incorreggibili<br>
-<br>
-Meraviglioso amore mio<br>
-Meraviglioso come un quadro che ha dipinto Dio<br>
-Con dentro il nostro nome nell'angolo a destra<br>
-Meraviglioso amore mio<br>
-Meraviglioso come un raggio di sole che entra dalla finestra<br>
-E che ci scalda il cuore, amore mio<br>
-<br>
-Stretti forte in un abbraccio che non finisce mai<br>
-Che ci protegge da tutto e da tutti i guai<br>
-Siamo io e te, innamorati più che mai<br>
-<br>
-Meraviglioso amore mio<br>
-Meraviglioso come un raggio di sole che entra dalla finestra<br>
-E che ci scalda il cuore, amore mio<br>
-Amore mio`
+        recensione: `<p>Preferirei dividere una sola vita con te che affrontare tutte le ere di questo mondo da sola. <strong>(Il signore degli anelli - Tolkien)</strong></p>`,
+        testoCanzone: `<p>Bene, sei entrato nel cuore</p><p>però ci vuoi abitare</p><p>mi chiedi il permesso</p><p>ed io non so che dire</p><p>premetto che prima alla parola "amore", tremavo.</p><p><br></p><p>Ora che vivo la storia più libera del mondo</p><p>che sento nell'aria il bene più profondo</p><p>a volte ho paura che crolli tutto quanto</p><p><br></p><p>Non è razionale, non lo puoi spiegare</p><p>tremano le gambe mentre ride il cuore</p><p>chiudi la finestra, che c'è troppo sole anche quando piove</p><p>anche quando piove</p><p><br></p><p><strong>Meraviglioso amore mio</strong></p><p><strong>meraviglioso come</strong></p><p><strong>un quadro che ha dipinto Dio</strong></p><p><strong>con dentro il nostro nome.</strong></p><p><strong>Meraviglioso amore mio</strong></p><p><strong>bisogna averne cura</strong></p><p><strong>stringiti forte su di me</strong></p><p><strong>così non ho paura mai</strong></p><p><strong>così non ho paura mai</strong></p><p><br></p><p>Bene, facciamo progetti per questa nostra vita</p><p>che ha tanti difetti e a volte va in salita</p><p>ma in due la fatica diventa circostanza</p><p><br></p><p>Non è razionale, non lo puoi spiegare</p><p>tremano le gambe mentre ride il cuore</p><p>chiudi la finestra, che c'è troppo sole anche quando piove</p><p>anche quando piove</p><p><br></p><p><strong>Meraviglioso amore mio</strong></p><p><strong>meraviglioso come</strong></p><p><strong>un quadro che ha dipinto Dio</strong></p><p><strong>con dentro il nostro nome.</strong></p><p><strong>Meraviglioso amore mio</strong></p><p><strong>bisogna averne cura</strong></p><p><strong>stringiti forte su di me</strong></p><p><strong>così non ho paura mai</strong></p><p><strong>così non ho paura mai (x2)</strong></p>`
     },
     'perseo': {
         file: 'perseo',
@@ -464,107 +80,19 @@ Amore mio`
         titoloEn: 'Triumphant Perseus',
         anno: '1797 - 1801',
         tecnica: 'Marmo / <span>Marble</span>',
-        testo: `<p>Che cosa resta di un uomo dopo aver guardato in faccia la morte?<br>
-        Nel Perseo trionfante, l'eroe appare immobile, distante, avvolto in un'elegante compostezza che la critica dell'epoca definì fin troppo "apollinea" e aggraziata per un guerriero.<br>
-Secondo la letterata Isabella Teotochi Albrizzi, l’opera è in grado di esprimere al contempo due principi contrapposti, ossia quelli dell' "ira cessante" e del "piacere nascente"<br>
-La rabbia non è un grido eterno, ma un picco di energia distruttiva che si attiva per combattere il mostro del dolore e che si placa solo quando l'azione è compiuta. <br>
-Medusa non è soltanto un mostro sconfitto. Il suo sguardo che pietrifica diventa il simbolo della paura più profonda: quella del limite umano, del tempo, della fine. <br>
-La vittoria non ha nulla di eroico o spettacolare; è il momento in cui l’uomo riprende il controllo di sé e della propria vita mortale; il trionfo non coincide con l’eliminazione della morte, ma con la capacità di guardarla in faccia senza restare immobili di fronte ad essa.
+        testo: `<p>Che cosa resta di un uomo dopo aver guardato in faccia la morte?</p><p>Nel Perseo trionfante, l'eroe appare immobile, distante, avvolto in un'elegante compostezza che la critica dell'epoca definì fin troppo "apollinea" e aggraziata per un guerriero.
+Secondo la letterata Isabella Teotochi Albrizzi, l’opera è in grado di esprimere al contempo due principi contrapposti, ossia quelli dell' "ira cessante" e del "piacere nascente"</p><p>La rabbia non è un grido eterno, ma un picco di energia distruttiva che si attiva per combattere il mostro del dolore e che si placa solo quando l'azione è compiuta. 
+Medusa non è soltanto un mostro sconfitto. Il suo sguardo che pietrifica diventa il simbolo della paura più profonda: quella del limite umano, del tempo, della fine. </p><p>La vittoria non ha nulla di eroico o spettacolare; è il momento in cui l’uomo riprende il controllo di sé e della propria vita mortale; il trionfo non coincide con l’eliminazione della morte, ma con la capacità di guardarla in faccia senza restare immobili di fronte ad essa.
 </p>`,
-        poesia: `Come questa pietra<br>
-del S. Michele <br>
-così fredda<br>
-così dura<br>
-così prosciugata <br>
-così refrattaria <br>
-così totalmente <br>
-disanimata.<br>
-Come questa pietra<br>
-è il mio pianto <br>
-che non si vede.<br>
-La morte<br>
-si sconta<br>
-vivendo.<br><br>
-(Giuseppe Ungaretti - Sono una creatura)
-`,
+        poesia: `<p>Come questa pietra</p><p>del S. Michele</p><p>così fredda</p><p>così dura</p><p>così prosciugata</p><p>così refrattaria</p><p>così totalmente</p><p>disanimata</p><p><br></p><p>Come questa pietra</p><p>&nbsp;è il mio pianto</p><p>che non si vede</p><p><br></p><p>La morte</p><p>si sconta</p><p>vivendo</p><p><br></p><p>
+<strong><em>(Giuseppe Ungaretti - Sono una creatura)</em></strong>
+</p>`,
         traccia: 'BELIEVER',
         artista: 'IMAGINE DRAGONS',
-        recensione: `Un'opera che spacca i canoni. Il problem-solving sotto stress.`,
-        testoCanzone: `First things first<br>
-I'ma say all the words inside my head<br>
-I'm fired up and tired of the way that things have been, oh-ooh<br>
-The way that things have been, oh-ooh<br>
-<br>
-Second thing second<br>
-Don't you tell me what you think that I could be<br>
-I'm the one at the sail, I'm the master of my sea, oh-ooh<br>
-The master of my sea, oh-ooh<br>
-<br>
-I was broken from a young age<br>
-Taking my sulking to the masses<br>
-Write down my poems for the few<br>
-That looked at me, took to me, shook to me, feelin' me<br>
-Singing from heartache from the pain<br>
-Taking my message from the veins<br>
-Speaking my lesson from the brain<br>
-Seeing the beauty through the...<br>
-<br>
-Pain!<br>
-You made me a, you made me a believer, believer<br>
-Pain!<br>
-You break me down and build me up, believer, believer<br>
-Pain!<br>
-Oh, let the bullets fly, oh, let them rain<br>
-My life, my love, my drive, it came from...<br>
-Pain!<br>
-You made me a, you made me a believer, believer<br>
-<br>
-Third things third<br>
-Send a prayer to the ones up above<br>
-All the hate that you've heard has turned your spirit to a dove, oh-ooh<br>
-Your spirit to a dove, oh-ooh<br>
-<br>
-I was choking in the crowd<br>
-Building my rain up in the cloud<br>
-Falling like ashes to the ground<br>
-Hoping my feelings, they would drown<br>
-But they never did, ever lived, ebbing and flowing<br>
-Inhibited, limited<br>
-Till it broke open and it rained down<br>
-It rained down, like...<br>
-<br>
-Pain!<br>
-You made me a, you made me a believer, believer<br>
-Pain!<br>
-You break me down and build me up, believer, believer<br>
-Pain!<br>
-Oh, let the bullets fly, oh, let them rain<br>
-My life, my love, my drive, it came from...<br>
-Pain!<br>
-You made me a, you made me a believer, believer<br>
-<br>
-Last things last<br>
-By the grace of the fire and the flames<br>
-You're the face of the future, the blood in my veins, oh-ooh<br>
-The blood in my veins, oh-ooh<br>
-<br>
-But they never did, ever lived, ebbing and flowing<br>
-Inhibited, limited<br>
-Till it broke open and it rained down<br>
-It rained down, like...<br>
-<br>
-Pain!<br>
-You made me a, you made me a believer, believer<br>
-Pain!<br>
-You break me down and build me up, believer, believer<br>
-Pain!<br>
-Oh, let the bullets fly, oh, let them rain<br>
-My life, my love, my drive, it came from...<br>
-Pain!<br>
-You made me a, you made me a believer, believer`
+        recensione: `<p><em>Chi lotta contro i mostri deve fare attenzione a non diventare lui stesso un mostro. </em><strong><em>(Al di là del bene e del male, </em>Nietzsche)</strong></p>`,
+        testoCanzone: `<p>First things first</p><p>I'ma say all the words inside my head</p><p>I'm fired up and tired of the way that things have been, oh-ooh</p><p>The way that things have been, oh-ooh</p><p><br></p><p>Second thing second</p><p>Don't you tell me what you think that I could be</p><p>I'm the one at the sail, I'm the master of my sea, oh-ooh</p><p>The master of my sea, oh-ooh</p><p><br></p><p>I was broken from a young age</p><p>Taking my sulking to the masses</p><p>Writing my poems for the few</p><p>That look at me, took to me, shook to me, feeling me</p><p>Singing from heartache from the pain</p><p>Taking my message from the veins</p><p>Speaking my lesson from the brain</p><p>Seeing the beauty through the...</p><p><br></p><p><strong>Pain!</strong></p><p><strong>You made me a, you made me a believer, believer</strong></p><p><strong>Pain!</strong></p><p><strong>You break me down and build me up, believer, believer</strong></p><p><strong>Pain!</strong></p><p><strong>Oh, let the bullets fly, oh, let them rain</strong></p><p><strong>My life, my love, my drive, it came from...</strong></p><p><strong>Pain!</strong></p><p><strong>You made me a, you made me a believer, believer</strong></p><p><br></p><p>Third things third, send a prayer to the ones up above</p><p>All the hate that you've heard has turned your spirit to a dove, oh-ooh</p><p>Your spirit up above, oh-ooh</p><p><br></p><p>I was chokin' in the crowd, building my rain up in the cloud</p><p>Falling like ashes to the ground,&nbsp;hoping my feelings, they would drown</p><p>But they never did, ever lived, ebbin' and flowin'</p><p>Inhibited, limited 'til it broke open and rained down</p><p>It rained down like</p><p><br></p><p><strong>Pain!</strong></p><p><strong>You made me a, you made me a believer, believer</strong></p><p><strong>Pain!</strong></p><p><strong>You break me down and build me up, believer, believer</strong></p><p><strong>Pain!</strong></p><p><strong>Oh, let the bullets fly, oh, let them rain</strong></p><p><strong>My life, my love, my drive, it came from...</strong></p><p><strong>Pain!</strong></p><p><strong>You made me a, you made me a believer, believer</strong></p><p><br></p><p>Last things last, by the grace of the fire and the flames</p><p>You're the face of the future, the blood in my veins, oh-ooh</p><p>The blood in my veins, oh-ooh</p><p><br></p><p>But they never did, ever lived, ebbin' and flowin'</p><p>Inhibited, limited 'til it broke open and rained down</p><p>It rained down like</p><p><br></p><p><strong>Pain!</strong></p><p><strong>You made me a, you made me a believer, believer</strong></p><p><strong>Pain!</strong></p><p><strong>You break me down and build me up, believer, believer</strong></p><p><strong>Pain!</strong></p><p><strong>Oh, let the bullets fly, oh, let them rain</strong></p><p><strong>My life, my love, my drive, it came from...</strong></p><p><strong>Pain!</strong></p><p><strong>You made me a, you made me a believer, believer</strong></p><p><br></p>`
     },
-
-'contemporanea': {
+    'contemporanea': {
         tipo: 'immagine',
         file: 'contemporanea.jpg',
         autore: 'Félix González-Torres',
@@ -572,74 +100,12 @@ You made me a, you made me a believer, believer`
         titoloEn: '(Portrait of Ross in L.A.)',
         anno: '1991',
         tecnica: 'Installazione / <span>installation</span>',
-        testo: `<p>Si può rappresentare il lento consumarsi di una vita?<br>
-Quest'opera di Félix González-Torres per il compagno Ross, morto di AIDS, ridefinisce il concetto stesso di lutto attraverso due aspetti. 
-<br>Il primo è che il lutto cambia forma ogni secondo: il cumulo di 79 kg di caramelle non è mai uguale a se stesso, diminuisce con il passaggio del pubblico, replicando il deperimento fisico di Ross. 
-<br>Il secondo è il paradosso della permanenza: ogni mattina il museo reintegra il peso originario. Ross svanisce, ma si rigenera continuamente attraverso la memoria collettiva.
-Il visitatore che scarta e mangia la caramella compie l'ultima fase del lutto: la Ricerca di Senso.<br>
-"La mia opera d'arte, senza un osservatore, non avrebbe alcun significato e diventerebbe l'ennesima noiosissima scultura buttata lì per terra. La mia opera invece non è niente del genere. Essa prevede interazione e grande collaborazione da parte dell'osservatore [ ... ]. Il mio lavoro può essere tra il pubblico e il privato, tra il personale e il sociale, tra la perdita e la gioia di amare, di crescere, di cambiare, di diventare sempre più."
+        testo: `<p>Si può rappresentare il lento consumarsi di una vita?</p><p>Quest'opera di Félix González-Torres per il compagno Ross, morto di AIDS, ridefinisce il concetto stesso di lutto attraverso due aspetti. </p><p>Il primo è che il lutto cambia forma ogni secondo: il cumulo di 79 kg di caramelle non è mai uguale a se stesso, diminuisce con il passaggio del pubblico, replicando il deperimento fisico di Ross. </p><p>Il secondo è il paradosso della permanenza: ogni mattina il museo reintegra il peso originario. Ross svanisce, ma si rigenera continuamente attraverso la memoria collettiva.</p><p>Il visitatore che scarta e mangia la caramella compie l'ultima fase del lutto: la Ricerca di Senso.</p><p>"La mia opera d'arte, senza un osservatore, non avrebbe alcun significato e diventerebbe l'ennesima noiosissima scultura buttata lì per terra. La mia opera invece non è niente del genere. Essa prevede interazione e grande collaborazione da parte dell'osservatore [ ... ]. Il mio lavoro può essere tra il pubblico e il privato, tra il personale e il sociale, tra la perdita e la gioia di amare, di crescere, di cambiare, di diventare sempre più."
 </p>`,
-        poesia: `Un dì, s'io non andrò sempre fuggendo<br>
-di gente in gente, mi vedrai seduto<br>
-du la tua pietra, o fratel mio, gemendo<br>
-il fior de' tuoi gentili anni caduto:<br>
-
-la madre or sol, suo dì tardo traendo,<br>
-parla di me col tuo cenere muto:<br>
-ma io deluse a voi le palme tendo;<br>
-e se da lunge i miei tetti saluto,<br><br>
-
-sento gli avversi Numi, e le secrete<br>
-cure che al viver tuo furon tempesta;<br>
-e prego anch'io nel tuo porto quiete:<br><br>
-
-questo di tanta speme oggi mi resta!<br>
-straniere genti, l'ossa mie rendete<br>
-allora al petto della madre mesta.<br><br>(Ugo Foscolo - In morte al fratello Giovanni)`,
-        
-        // Dati per il Presente (modificali tu se hai un brano in mente)
+        poesia: `<p>Un dì, s'io non andrò sempre fuggendo</p><p>di gente in gente, mi vedrai seduto</p><p>du la tua pietra, o fratel mio, gemendo</p><p>il fior de' tuoi gentili anni caduto:</p><p><br></p><p>la madre or sol, suo dì tardo traendo,</p><p>parla di me col tuo cenere muto:</p><p>ma io deluse a voi le palme tendo;</p><p>e se da lunge i miei tetti saluto,</p><p><br></p><p>sento gli avversi Numi, e le secrete</p><p>cure che al viver tuo furon tempesta;</p><p>e prego anch'io nel tuo porto quiete:</p><p><br></p><p>questo di tanta speme oggi mi resta!</p><p>straniere genti, l'ossa mie rendete</p><p>allora al petto della madre mesta.</p><p><br></p><p><strong><em>(Ugo Foscolo - In morte al fratello Giovanni)</em></strong></p>`,
         traccia: 'FADED',
         artista: 'ALAN WALKER',
-        recensione: `Un'opera che dematerializza il concetto stesso di scultura monumentale. Il corpo scompare, sostituito dall'azione dello spettatore: prendere, consumare, ricordare.`,
-        testoCanzone: `You were the shadow to my light<br>
-Did you feel us?<br>
-Another start, you fade away<br>
-Afraid our aim is out of sight<br>
-Wanna see us alive<br>
-<br>
-Where are you now?<br>
-Where are you now?<br>
-Where are you now?<br>
-Was it all in my fantasy?<br>
-Where are you now?<br>
-Were you only imaginary?<br>
-<br>
-Where are you now?<br>
-Atlantis, under the sea, under the sea<br>
-Where are you now? Another dream<br>
-The monster's running wild inside of me<br>
-I'm faded, I'm faded<br>
-So lost, I'm faded, I'm faded<br>
-So lost, I'm faded<br>
-<br>
-These shallow waters never met what I needed<br>
-I'm letting go, a deeper hello<br>
-Eternal silence of the sea<br>
-I'm breathing, alive<br>
-<br>
-Where are you now?<br>
-Where are you now?<br>
-Under the bright but faded lights<br>
-You set my heart on fire<br>
-Where are you now?<br>
-Where are you now?<br>
-<br>
-Where are you now?<br>
-Atlantis, under the sea, under the sea<br>
-Where are you now? Another dream<br>
-The monster's running wild inside of me<br>
-I'm faded, I'm faded<br>
-So lost, I'm faded, I'm faded<br>
-So lost, I'm faded`
+        recensione: `<p>Gli amici che abbiamo perduto non riposano nella terra,&nbsp;sono sepolti nel nostro cuore; è Dio che ha voluto così perché li avessimo sempre con noi.<strong> (Il conte di Montecristo - Dumas)</strong></p>`,
+        testoCanzone: `<p>You were the shadow to my light, did you feel us?</p><p>Another star, you fade away</p><p>Afraid our aim is out of sight, wanna see us</p><p>Alight</p><p><br></p><p>Where are you now?</p><p>Where are you now?</p><p>Where are you now?</p><p>Was it all in my fantasy?</p><p>Where are you now?</p><p>Were you only imaginary?</p><p><br></p><p><strong>Where are you now?</strong></p><p><strong>Atlantis</strong></p><p><strong>Under the sea, under the sea</strong></p><p><strong>Where are you now?</strong></p><p><strong>Another dream</strong></p><p><strong>The monster′s running wild inside of me</strong></p><p><strong>hook</strong></p><p><strong>I'm faded</strong></p><p><strong>I′m faded</strong></p><p><strong>So lost, I'm faded</strong></p><p><strong>I'm faded</strong></p><p><strong>So lost, I′m faded</strong></p><p><br></p><p>These shallow waters never met what I needed</p><p>I′m letting go, a deeper dive</p><p>Eternal silence of the sea, I'm breathing</p><p>Alive</p><p><br></p><p>Where are you now?</p><p>Where are you now?</p><p>Under the bright but faded lights</p><p>You set my heart on fire</p><p>Where are you now?</p><p>Where are you now?</p><p><br></p><p><strong>Where are you now?</strong></p><p><strong>Atlantis</strong></p><p><strong>Under the sea, under the sea</strong></p><p><strong>Where are you now?</strong></p><p><strong>Another dream</strong></p><p><strong>The monster′s running wild inside of me</strong></p><p><strong>hook</strong></p><p><strong>I'm faded</strong></p><p><strong>I′m faded</strong></p><p><strong>So lost, I'm faded</strong></p><p><strong>I′m faded</strong></p><p><strong>So lost, I'm faded</strong></p>`
     }
 };
